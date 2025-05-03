@@ -2,12 +2,12 @@ package cat.vonblum.chatogt.chats.consumer.mapper
 
 import cat.vonblum.chatogt.chats.chats.ChatCreatedEvent
 import cat.vonblum.chatogt.chats.messages.MessageCreatedEvent
-import cat.vonblum.chatogt.shared.domain.event.Event
-import cat.vonblum.chatogt.chats.infrastructure.model.MongoChatCreatedEvent
-import cat.vonblum.chatogt.chats.infrastructure.model.MongoEvent
-import cat.vonblum.chatogt.chats.infrastructure.model.MongoMessageCreatedEvent
-import cat.vonblum.chatogt.chats.infrastructure.model.MongoUserCreatedEvent
 import cat.vonblum.chatogt.chats.users.UserCreatedEvent
+import cat.vonblum.chatogt.shared.domain.event.Event
+import cat.vonblum.chats.shared.infrastructure.model.MongoChatCreatedEvent
+import cat.vonblum.chats.shared.infrastructure.model.MongoEvent
+import cat.vonblum.chats.shared.infrastructure.model.MongoMessageCreatedEvent
+import cat.vonblum.chats.shared.infrastructure.model.MongoUserCreatedEvent
 import org.springframework.stereotype.Component
 
 @Component
@@ -15,9 +15,9 @@ class MongoMapper {
 
     fun map(event: Event): MongoEvent {
         return when (event) {
-            is UserCreatedEvent -> map(event)
-            is ChatCreatedEvent -> map(event)
-            is MessageCreatedEvent -> map(event)
+//            is UserCreatedEvent -> map(event)
+//            is ChatCreatedEvent -> map(event)
+//            is MessageCreatedEvent -> map(event)
             else -> {
                 throw RuntimeException() // TODO
             }

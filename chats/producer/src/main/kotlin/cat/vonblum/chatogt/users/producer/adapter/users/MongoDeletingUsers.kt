@@ -1,8 +1,8 @@
 package cat.vonblum.chatogt.users.producer.adapter.users
 
+import cat.vonblum.chatogt.chats.shared.UserId
 import cat.vonblum.chatogt.shared.infrastructure.annotation.DrivenAdapter
-import cat.vonblum.chatogt.users.users.DeletingUsers
-import cat.vonblum.chatogt.users.users.UserId
+import cat.vonblum.chatogt.chats.users.DeletingUsers
 import org.springframework.stereotype.Component
 
 @DrivenAdapter

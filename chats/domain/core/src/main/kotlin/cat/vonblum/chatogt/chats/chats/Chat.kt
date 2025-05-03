@@ -8,7 +8,7 @@ class Chat(
     val id: ChatId,
     val participantIds: Set<UserId>,
     private var _status: ChatStatus = ChatStatus.NORMAL
-) : cat.vonblum.chatogt.shared.domain.aggregate.AggregateRoot() {
+) : AggregateRoot() {
 
     companion object {
 

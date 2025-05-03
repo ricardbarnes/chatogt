@@ -6,7 +6,7 @@ import cat.vonblum.chatogt.chats.producer.model.MongoAggregateIdProjection
 import cat.vonblum.chatogt.chats.producer.repository.ChatRepository
 import cat.vonblum.chatogt.chats.shared.ChatId
 import cat.vonblum.chatogt.chats.shared.UserId
-import cat.vonblum.chatogt.chats.infrastructure.model.MongoChatCreatedEvent
+import cat.vonblum.chats.shared.infrastructure.model.MongoChatCreatedEvent
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query
@@ -28,22 +28,23 @@ internal class MongoChatRepository(private val template: MongoTemplate) : ChatRe
     }
 
     override fun findById(id: ChatId): Chat {
-        val query = Query().addCriteria(Criteria.where("aggregateId").`is`(id.value.toString()))
-
-        // Find the document using MongoTemplate
-        val mongoChatCreatedEvent = template.findOne(
-            query,
-            MongoChatCreatedEvent::class.java,
-            template.getCollectionName(MongoChatCreatedEvent::class.java)
-        )
-
-        // Handle the case where no document is found
-        return mongoChatCreatedEvent?.let { it ->
-            Chat(
-                ChatId(UUID.fromString(it.aggregateId)),
-                it.participantIds.map { UserId(UUID.fromString(it)) }.toMutableSet(),
-            )
-        } ?: throw ChatNotFound.becauseOf(id)
+//        val query = Query().addCriteria(Criteria.where("aggregateId").`is`(id.value.toString()))
+//
+//        // Find the document using MongoTemplate
+//        val mongoChatCreatedEvent = template.findOne(
+//            query,
+//            MongoChatCreatedEvent::class.java,
+//            template.getCollectionName(MongoChatCreatedEvent::class.java)
+//        )
+//
+//        // Handle the case where no document is found
+//        return mongoChatCreatedEvent?.let { it ->
+//            Chat(
+//                ChatId(UUID.fromString(it.aggregateId)),
+//                it.participantIds.map { UserId(UUID.fromString(it)) }.toMutableSet(),
+//            )
+//        } ?: throw ChatNotFound.becauseOf(id)
+        TODO()
     }
 
 }
