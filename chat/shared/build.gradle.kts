@@ -17,7 +17,7 @@ tasks.test {
 
 dependencies {
     implementation(project(":shared:infrastructure"))
-    implementation(project(":users:domain:core"))
+    implementation(project(":usermanagement:domain:core"))
     implementation("org.springframework.boot:spring-boot-starter:3.4.4")
     implementation("org.springframework.boot:spring-boot-starter-web:3.4.4")
     implementation("org.springframework.kafka:spring-kafka:3.3.4")

@@ -5,18 +5,18 @@ include(
     ":shared:domain",
     ":shared:infrastructure",
 
-    // Users Bounded Context
-    ":users:domain:core",
-    ":users:domain:application",
-    ":users:api",
-    ":users:producer",
-    ":users:consumer",
+    // User Management Bounded Context
+    ":usermanagement:domain:core",
+    ":usermanagement:domain:application",
+    ":usermanagement:api",
+    ":usermanagement:producer",
+    ":usermanagement:consumer",
 
-    // Chats Bounded Context
-    ":chats:domain:core",
-    ":chats:domain:application",
-    ":chats:api",
-    ":chats:producer",
-    ":chats:consumer",
-    ":chats:shared",
+    // Chat Bounded Context
+    ":chat:domain:core",
+    ":chat:domain:application",
+    ":chat:api",
+    ":chat:producer",
+    ":chat:consumer",
+    ":chat:shared",
 )

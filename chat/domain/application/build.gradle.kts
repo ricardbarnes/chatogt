@@ -15,5 +15,5 @@ tasks.test {
 
 dependencies {
     implementation(project(":shared:domain"))
-    implementation(project(":chats:domain:core"))
+    implementation(project(":chat:domain:core"))
 }

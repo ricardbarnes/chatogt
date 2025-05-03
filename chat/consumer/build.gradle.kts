@@ -2,7 +2,7 @@ plugins {
     kotlin("jvm") version "1.9.25"
     kotlin("plugin.spring") version "1.9.25"
 //    id("org.springframework.boot") version "3.4.5"
-//    id("io.spring.dependency-management") version "1.1.7"
+    id("io.spring.dependency-management") version "1.1.7"
 }
 
 group = "cat.vonblum"
@@ -17,8 +17,10 @@ tasks.test {
 }
 
 dependencies {
+    implementation(project(":shared:domain"))
     implementation(project(":shared:infrastructure"))
-    implementation(project(":users:domain:core"))
+    implementation(project(":chat:domain:core"))
+    implementation(project(":chat:shared"))
 
     implementation("org.springframework.boot:spring-boot-starter:3.4.4")
     implementation("org.springframework.boot:spring-boot-starter-web:3.4.4")

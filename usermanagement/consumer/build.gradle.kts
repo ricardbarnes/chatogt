@@ -1,7 +1,8 @@
 plugins {
     kotlin("jvm") version "1.9.25"
     kotlin("plugin.spring") version "1.9.25"
-    id("io.spring.dependency-management") version "1.1.7"
+//    id("org.springframework.boot") version "3.4.5"
+//    id("io.spring.dependency-management") version "1.1.7"
 }
 
 group = "cat.vonblum"
@@ -16,12 +17,14 @@ tasks.test {
 }
 
 dependencies {
-    implementation(project(":shared:domain"))
-    implementation(project(":users:domain:core"))
+    implementation(project(":shared:infrastructure"))
+    implementation(project(":usermanagement:domain:core"))
+
     implementation("org.springframework.boot:spring-boot-starter:3.4.4")
     implementation("org.springframework.boot:spring-boot-starter-web:3.4.4")
     implementation("org.springframework.kafka:spring-kafka:3.3.4")
     implementation("com.google.code.gson:gson:2.11.0")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb:3.4.4")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.4")
 }
