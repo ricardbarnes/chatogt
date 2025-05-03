@@ -1,0 +1,12 @@
+server:
+  port: ${APPLICATION_PORT:8080}
+
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+
+kafka:
+  topics:
+    commands: commands
+    queries: queries
+    responses: responses

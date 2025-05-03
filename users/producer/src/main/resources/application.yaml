@@ -1,0 +1,20 @@
+server:
+  port: ${APPLICATION_PORT:8080}
+
+kafka:
+  topics:
+    commands: commands
+    queries: queries
+    responses: responses
+    events: events
+
+spring:
+  kafka:
+    bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
+    consumer:
+      group-id: chat-consumers
+      auto-offset-reset: earliest
+  data:
+    mongodb:
+      database: ${MONGO_DATABASE_NAME}
+      uri: ${MONGO_DATABASE_URI}
