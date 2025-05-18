@@ -5,7 +5,7 @@ import hello.HelloServiceGrpcKt
 import net.devh.boot.grpc.server.service.GrpcService
 
 @GrpcService
-class GrpcHelloController : HelloServiceGrpcKt.HelloServiceCoroutineImplBase() {
+class GrpcHelloController : HelloServiceGrpcKt.HelloServiceCoroutineImplBase() { // TODO: remove when the proper controllers are in place.
 
     override suspend fun sayHello(request: Hello.HelloRequest): Hello.HelloResponse {
         val message = "Hello ${request.name}!"
