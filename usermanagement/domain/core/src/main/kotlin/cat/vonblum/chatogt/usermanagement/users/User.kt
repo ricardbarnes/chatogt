@@ -56,7 +56,7 @@ class User : AggregateRoot() {
         this.password = UserPassword(event.password)
     }
 
-    private fun applyUserDeleted(event: UserDeletedEvent) {
+    private fun applyUserDeleted() {
         this.status = UserStatus.DELETED
     }
 
@@ -68,7 +68,7 @@ class User : AggregateRoot() {
         when (event) {
             is UserCreatedEvent -> applyUserCreated(event)
             is UserPasswordUpdatedEvent -> applyUserPasswordUpdated(event)
-            is UserDeletedEvent -> applyUserDeleted(event)
+            is UserDeletedEvent -> applyUserDeleted()
         }
 
         record(event)
