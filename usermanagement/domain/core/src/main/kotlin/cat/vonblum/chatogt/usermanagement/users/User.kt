@@ -4,7 +4,7 @@ import cat.vonblum.chatogt.shared.domain.aggregate.AggregateRoot
 import cat.vonblum.chatogt.shared.domain.event.Event
 import cat.vonblum.chatogt.usermanagement.shared.roles.Role
 
-class User private constructor() : AggregateRoot() {
+class User : AggregateRoot() {
 
     lateinit var id: UserId
         private set
