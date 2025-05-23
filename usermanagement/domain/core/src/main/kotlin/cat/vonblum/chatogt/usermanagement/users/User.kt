@@ -22,6 +22,7 @@ class User : AggregateRoot() {
         private set
 
     companion object {
+
         fun create(
             id: UserId,
             name: UserName,
@@ -41,6 +42,7 @@ class User : AggregateRoot() {
             )
             return user
         }
+
     }
 
     private fun applyUserCreated(event: UserCreatedEvent) {
