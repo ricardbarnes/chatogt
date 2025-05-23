@@ -26,7 +26,8 @@ class CreateUserCommandHandlerTest {
     fun `it should handle creation`() {
         // Given
         val command = CreateUserCommandMother.random()
-        `when`(idGeneratorMock.next()).thenReturn(UUID.randomUUID())
+        `when`(idGeneratorMock.next())
+            .thenReturn(UUID.randomUUID())
 
         // When
         sut.handle(command)
