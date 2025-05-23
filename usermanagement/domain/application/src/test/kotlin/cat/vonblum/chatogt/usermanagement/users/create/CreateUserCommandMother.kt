@@ -9,15 +9,15 @@ class CreateUserCommandMother {
             password: String?,
             role: String?
         ): CreateUserCommand = CreateUserCommand(
-            name = name ?: "defaultName",
-            password = password ?: "defaultPassword",
-            role = role ?: "USER"
+            name ?: "defaultName",
+            password ?: "defaultPassword",
+            role ?: "USER"
         )
 
         fun random(): CreateUserCommand = create(
-            name = null,
-            password = null,
-            role = null
+            null,
+            null,
+            null
         )
 
     }

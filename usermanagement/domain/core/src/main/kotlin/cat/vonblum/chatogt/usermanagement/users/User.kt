@@ -33,11 +33,11 @@ class User : AggregateRoot() {
             val user = User()
             user.applyEvent(
                 UserCreatedEvent(
-                    aggregateId = id.value,
-                    name = name.value,
-                    password = password.value,
-                    role = role.name,
-                    status = status.name,
+                    id.value,
+                    name.value,
+                    password.value,
+                    role.name,
+                    status.name,
                 )
             )
             return user

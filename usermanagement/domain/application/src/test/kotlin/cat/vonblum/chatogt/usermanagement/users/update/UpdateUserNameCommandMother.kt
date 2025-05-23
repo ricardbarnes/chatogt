@@ -10,8 +10,8 @@ class UpdateUserNameCommandMother {
             id: UUID?,
             name: String?
         ): UpdateUserNameCommand = UpdateUserNameCommand(
-            id = id ?: UUID.randomUUID(),
-            name = name ?: "defaultName"
+            id ?: UUID.randomUUID(),
+            name ?: "defaultName"
         )
 
     }

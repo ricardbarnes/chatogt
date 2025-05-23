@@ -10,8 +10,8 @@ class UpdateUserPasswordCommandMother {
             id: UUID?,
             password: String?
         ): UpdateUserPasswordCommand = UpdateUserPasswordCommand(
-            id = id ?: UUID.randomUUID(),
-            password = password ?: "defaultPassword"
+            id ?: UUID.randomUUID(),
+            password ?: "defaultPassword"
         )
 
     }
