@@ -23,7 +23,7 @@ class CreateUserCommandHandlerTest {
     private lateinit var sut: CreateUserCommandHandler
 
     @Test
-    fun `it should handle creation`() {
+    fun `It should handle creation`() {
         // Given
         val command = CreateUserCommandMother.random()
         `when`(idGeneratorMock.next())
