@@ -1,5 +1,8 @@
 package cat.vonblum.chatogt.usermanagement.users
 
+import cat.vonblum.chatogt.shared.domain.valueobject.IdFaker
+import cat.vonblum.chatogt.shared.domain.valueobject.InstantFaker
+import cat.vonblum.chatogt.shared.domain.valueobject.StringFaker
 import java.time.Instant
 import java.util.*
 
@@ -12,11 +15,11 @@ object UserCreatedEventMother {
         id: UUID?,
         occurredOn: Instant?,
     ) = UserCreatedEvent(
-        aggregateId ?: UUID.randomUUID(),
-        name ?: "defaultName",
-        password ?: "defaultPassword",
-        id ?: UUID.randomUUID(),
-        occurredOn ?: Instant.now(),
+        aggregateId ?: IdFaker.random(),
+        name ?: StringFaker.name(),
+        password ?: StringFaker.password(),
+        id ?: IdFaker.random(),
+        occurredOn ?: InstantFaker.utcNow(),
     )
 
 }

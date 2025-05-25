@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.users
 
-import cat.vonblum.chatogt.shared.domain.aggregate.AggregateEventRehydrator
+import cat.vonblum.chatogt.shared.domain.aggregate.AggregateRehydrator
 
 object UserMother {
 
@@ -16,7 +16,7 @@ object UserMother {
             null,
             null
         )
-        return AggregateEventRehydrator.rehydrate(User::class, listOf(event))
+        return AggregateRehydrator.apply(User::class, listOf(event))
     }
 
 }

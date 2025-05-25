@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.25"
+    id("java-test-fixtures")
 }
 
 group = "cat.vonblum"
@@ -11,8 +12,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("reflect"))
-
-    testImplementation("io.github.serpro69:kotlin-faker:1.6.0")
+    implementation("io.github.serpro69:kotlin-faker:1.6.0")
 }
 
 tasks.test {

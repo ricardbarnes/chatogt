@@ -1,5 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.users.update
 
+import cat.vonblum.chatogt.shared.domain.valueobject.IdFaker
+import cat.vonblum.chatogt.shared.domain.valueobject.StringFaker
 import java.util.UUID
 
 class UpdateUserPasswordCommandMother {
@@ -10,8 +12,8 @@ class UpdateUserPasswordCommandMother {
             id: UUID?,
             password: String?
         ): UpdateUserPasswordCommand = UpdateUserPasswordCommand(
-            id ?: UUID.randomUUID(),
-            password ?: "defaultPassword"
+            id ?: IdFaker.random(),
+            password ?: StringFaker.password()
         )
 
     }

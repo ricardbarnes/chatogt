@@ -1,5 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.users.create
 
+import cat.vonblum.chatogt.shared.domain.valueobject.StringFaker
+
 class CreateUserCommandMother {
 
     companion object {
@@ -8,8 +10,8 @@ class CreateUserCommandMother {
             name: String?,
             password: String?
         ): CreateUserCommand = CreateUserCommand(
-            name ?: "defaultName",
-            password ?: "defaultPassword"
+            name ?: StringFaker.name(),
+            password ?: StringFaker.password()
         )
 
         fun random(): CreateUserCommand = create(
