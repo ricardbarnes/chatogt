@@ -45,11 +45,20 @@ class User : AggregateRoot() {
 
     }
 
+    override fun applyEvent(event: Event) {
+        when (event) {
+            is UserCreatedEvent -> applyUserCreated(event)
+            is UserPasswordUpdatedEvent -> applyUserPasswordUpdated(event)
+            is UserDeletedEvent -> applyUserDeleted()
+        }
+    }
+
     private fun applyUserCreated(event: UserCreatedEvent) {
         this.id = UserId(event.aggregateId)
         this.name = UserName(event.name)
         this.password = UserPassword(event.password)
         this.role = Role.valueOf(event.role)
+        this.status = UserStatus.valueOf(event.status)
     }
 
     private fun applyUserPasswordUpdated(event: UserPasswordUpdatedEvent) {
@@ -60,30 +69,19 @@ class User : AggregateRoot() {
         this.status = UserStatus.DELETED
     }
 
-    fun applyEvents(events: List<Event>) {
-        events.forEach { event -> applyEvent(event) }
-    }
-
-    fun applyEvent(event: Event) {
-        when (event) {
-            is UserCreatedEvent -> applyUserCreated(event)
-            is UserPasswordUpdatedEvent -> applyUserPasswordUpdated(event)
-            is UserDeletedEvent -> applyUserDeleted()
-        }
-
-        record(event)
-    }
-
     fun updateName(newName: UserName) {
-        applyEvent(UserNameUpdatedEvent(id.value, newName.value))
+        name = newName
+        record(UserNameUpdatedEvent(id.value, newName.value))
     }
 
     fun updatePassword(newPassword: UserPassword) {
-        applyEvent(UserPasswordUpdatedEvent(id.value, newPassword.value))
+        password = newPassword
+        record(UserPasswordUpdatedEvent(id.value, newPassword.value))
     }
 
     fun delete() {
-        applyEvent(UserDeletedEvent(id.value))
+        status = UserStatus.DELETED
+        record(UserDeletedEvent(id.value))
     }
 
 }
