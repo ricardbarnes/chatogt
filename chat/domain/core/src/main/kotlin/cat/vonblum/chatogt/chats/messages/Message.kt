@@ -3,13 +3,14 @@ package cat.vonblum.chatogt.chats.messages
 import cat.vonblum.chatogt.chats.shared.ChatId
 import cat.vonblum.chatogt.chats.shared.UserId
 import cat.vonblum.chatogt.shared.domain.aggregate.AggregateRoot
+import cat.vonblum.chatogt.shared.domain.event.Event
 
 class Message(
     val id: MessageId,
     val chatId: ChatId,
     val authorId: UserId,
     private var _content: MessageContent
-) : cat.vonblum.chatogt.shared.domain.aggregate.AggregateRoot() {
+) : AggregateRoot() {
 
     companion object {
 
@@ -25,6 +26,10 @@ class Message(
                 )
             }
 
+    }
+
+    override fun applyEvent(event: Event) {
+        TODO("Not yet implemented")
     }
 
     val content get() = _content

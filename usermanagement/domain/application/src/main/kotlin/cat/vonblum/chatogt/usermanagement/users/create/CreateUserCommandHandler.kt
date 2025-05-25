@@ -2,7 +2,6 @@ package cat.vonblum.chatogt.usermanagement.users.create
 
 import cat.vonblum.chatogt.shared.domain.event.EventBus
 import cat.vonblum.chatogt.shared.domain.generator.IdGenerator
-import cat.vonblum.chatogt.usermanagement.shared.roles.Role
 import cat.vonblum.chatogt.usermanagement.users.*
 
 class CreateUserCommandHandler(
@@ -14,7 +13,6 @@ class CreateUserCommandHandler(
         UserId(idGenerator.next()),
         UserName(command.name),
         UserPassword(command.password),
-        Role.valueOf(command.role)
     ).also { user -> eventBus.publish(user.pullEvents()) }
 
 }

@@ -9,16 +9,12 @@ object UserCreatedEventMother {
         aggregateId: UUID? = null,
         name: String? = null,
         password: String? = null,
-        role: String? = null,
-        status: String? = null,
         id: UUID? = null,
         occurredOn: Instant? = null,
     ) = UserCreatedEvent(
         aggregateId ?: UUID.randomUUID(),
         name ?: "defaultName",
         password ?: "defaultPassword",
-        role ?: "USER",
-        status ?: "ACTIVE",
         id ?: UUID.randomUUID(),
         occurredOn ?: Instant.now(),
     )

@@ -5,6 +5,7 @@ import kotlin.reflect.KClass
 import kotlin.reflect.jvm.isAccessible
 
 object AggregateEventRehydrator {
+
     fun <T : AggregateRoot> rehydrate(type: KClass<T>, events: List<Event>): T {
         val constructor = type.constructors.firstOrNull { it.parameters.isEmpty() }
             ?: throw IllegalArgumentException("No zero-arg constructor found for ${type.simpleName}")
@@ -14,5 +15,6 @@ object AggregateEventRehydrator {
         applyMethod.call(aggregate, events)
         return aggregate
     }
+
 }
 

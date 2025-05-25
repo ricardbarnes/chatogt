@@ -3,6 +3,7 @@ package cat.vonblum.chatogt.chats.chats
 import cat.vonblum.chatogt.chats.shared.ChatId
 import cat.vonblum.chatogt.chats.shared.UserId
 import cat.vonblum.chatogt.shared.domain.aggregate.AggregateRoot
+import cat.vonblum.chatogt.shared.domain.event.Event
 
 class Chat(
     val id: ChatId,
@@ -22,6 +23,10 @@ class Chat(
                 )
             }
 
+    }
+
+    override fun applyEvent(event: Event) {
+        TODO("Not yet implemented")
     }
 
     val status: ChatStatus get() = this._status
