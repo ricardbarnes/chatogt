@@ -9,8 +9,7 @@ class FindUserByNameQueryHandler(private val finding: FindingUsers) {
         finding.findByName(UserName(query.name)).let { user ->
             FindUserByNameResponse(
                 user.id.value,
-                user.name.value,
-                user.role.name
+                user.name.value
             )
         }
 
