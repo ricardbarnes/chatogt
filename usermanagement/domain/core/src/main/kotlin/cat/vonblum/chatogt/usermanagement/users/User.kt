@@ -62,17 +62,31 @@ class User private constructor() : AggregateRoot() {
 
     fun updateName(newName: UserName) {
         name = newName
-        record(UserNameUpdatedEvent(id.value, newName.value))
+        record(
+            UserNameUpdatedEvent(
+                id.value,
+                newName.value
+            )
+        )
     }
 
     fun updatePassword(newPassword: UserPassword) {
         password = newPassword
-        record(UserPasswordUpdatedEvent(id.value, newPassword.value))
+        record(
+            UserPasswordUpdatedEvent(
+                id.value,
+                newPassword.value
+            )
+        )
     }
 
     fun delete() {
         status = UserStatus.DELETED
-        record(UserDeletedEvent(id.value))
+        record(
+            UserDeletedEvent(
+                id.value
+            )
+        )
     }
 
 }
