@@ -1,11 +1,9 @@
 package cat.vonblum.chatogt.shared.domain.valueobject
 
-import cat.vonblum.chatogt.shared.domain.valueobject.FakerObject.faker
-
 object StringFaker {
 
-    fun name(): String = faker.name.name()
+    fun name(): String = "Pepe"
 
-    fun password(): String = faker.drivingLicense.license()
+    fun password(): String = "myPasword123"
 
 }
