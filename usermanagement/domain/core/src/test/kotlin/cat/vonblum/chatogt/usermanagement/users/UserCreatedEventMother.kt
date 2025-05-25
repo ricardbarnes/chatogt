@@ -1,16 +1,16 @@
 package cat.vonblum.chatogt.usermanagement.users
 
 import java.time.Instant
-import java.util.UUID
+import java.util.*
 
 object UserCreatedEventMother {
 
     fun create(
-        aggregateId: UUID? = null,
-        name: String? = null,
-        password: String? = null,
-        id: UUID? = null,
-        occurredOn: Instant? = null,
+        aggregateId: UUID?,
+        name: String?,
+        password: String?,
+        id: UUID?,
+        occurredOn: Instant?,
     ) = UserCreatedEvent(
         aggregateId ?: UUID.randomUUID(),
         name ?: "defaultName",

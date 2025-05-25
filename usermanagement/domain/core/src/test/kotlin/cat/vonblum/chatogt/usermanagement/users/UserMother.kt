@@ -13,6 +13,8 @@ object UserMother {
             id?.value,
             name?.value,
             password?.value,
+            null,
+            null
         )
         return AggregateEventRehydrator.rehydrate(User::class, listOf(event))
     }

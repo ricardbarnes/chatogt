@@ -6,9 +6,9 @@ import java.util.UUID
 object UserDeletedEventMother {
 
     fun create(
-        aggregateId: UUID? = null,
-        id: UUID? = null,
-        occurredOn: Instant? = null,
+        aggregateId: UUID?,
+        id: UUID?,
+        occurredOn: Instant?,
     ) = UserDeletedEvent(
         aggregateId ?: UUID.randomUUID(),
         id ?: UUID.randomUUID(),

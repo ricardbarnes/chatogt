@@ -25,4 +25,5 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb:3.4.4")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.4")
+    testImplementation("io.github.serpro69:kotlin-faker:1.14.0")
 }

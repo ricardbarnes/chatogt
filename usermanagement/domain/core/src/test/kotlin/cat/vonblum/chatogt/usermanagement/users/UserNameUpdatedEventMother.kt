@@ -6,10 +6,10 @@ import java.util.UUID
 object UserNameUpdatedEventMother {
 
     fun create(
-        aggregateId: UUID? = null,
-        name: String? = null,
-        id: UUID? = null,
-        occurredOn: Instant? = null,
+        aggregateId: UUID?,
+        name: String?,
+        id: UUID?,
+        occurredOn: Instant?,
     ) = UserNameUpdatedEvent(
         aggregateId = aggregateId ?: UUID.randomUUID(),
         name = name ?: "defaultName",
