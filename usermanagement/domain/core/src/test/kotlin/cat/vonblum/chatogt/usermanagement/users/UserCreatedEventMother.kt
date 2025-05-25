@@ -16,13 +16,13 @@ class UserCreatedEventMother {
             id: UUID? = null,
             occurredOn: Instant? = null,
         ) = UserCreatedEvent(
-            aggregateId = aggregateId ?: UUID.randomUUID(),
-            name = name ?: "defaultName",
-            password = password ?: "defaultPassword",
-            role = role ?: "USER",
-            status = status ?: "ACTIVE",
-            id = id ?: UUID.randomUUID(),
-            occurredOn = occurredOn ?: Instant.now(),
+            aggregateId ?: UUID.randomUUID(),
+            name ?: "defaultName",
+            password ?: "defaultPassword",
+            role ?: "USER",
+            status ?: "ACTIVE",
+            id ?: UUID.randomUUID(),
+            occurredOn ?: Instant.now(),
         )
 
     }

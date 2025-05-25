@@ -12,9 +12,9 @@ class UserDeletedEventMother {
             id: UUID? = null,
             occurredOn: Instant? = null,
         ) = UserDeletedEvent(
-            aggregateId = aggregateId ?: UUID.randomUUID(),
-            id = id ?: UUID.randomUUID(),
-            occurredOn = occurredOn ?: Instant.now(),
+            aggregateId ?: UUID.randomUUID(),
+            id ?: UUID.randomUUID(),
+            occurredOn ?: Instant.now(),
         )
 
     }
