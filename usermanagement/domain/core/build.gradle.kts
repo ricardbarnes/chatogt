@@ -1,7 +1,5 @@
 plugins {
     kotlin("jvm") version "1.9.25"
-    kotlin("plugin.spring") version "1.9.25"
-    id("io.spring.dependency-management") version "1.1.7"
 }
 
 group = "cat.vonblum"
@@ -25,5 +23,4 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb:3.4.4")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.4")
-    testImplementation("io.github.serpro69:kotlin-faker:1.14.0")
 }
