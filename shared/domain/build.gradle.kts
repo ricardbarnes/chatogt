@@ -9,6 +9,10 @@ repositories {
     mavenCentral()
 }
 
+dependencies {
+    implementation(kotlin("reflect"))
+}
+
 tasks.test {
     useJUnitPlatform()
 }

@@ -1,11 +1,9 @@
 package cat.vonblum.chatogt.usermanagement.users
 
-class UserPasswordMother {
+object UserPasswordMother {
 
-    companion object {
+    fun create(password: String?): UserPassword = UserPassword(password ?: "<PASSWORD>")
 
-        fun create(password: String?): UserPassword = UserPassword(password ?: "<PASSWORD>")
-
-    }
+    fun random(): UserPassword = create(null)
 
 }

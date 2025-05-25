@@ -3,22 +3,18 @@ package cat.vonblum.chatogt.usermanagement.users
 import java.time.Instant
 import java.util.UUID
 
-class UserPasswordUpdatedEventMother {
+object UserPasswordUpdatedEventMother {
 
-    companion object {
-
-        fun create(
-            aggregateId: UUID? = null,
-            password: String? = null,
-            id: UUID? = null,
-            occurredOn: Instant? = null,
-        ) = UserPasswordUpdatedEvent(
-            aggregateId = aggregateId ?: UUID.randomUUID(),
-            password = password ?: "defaultPassword",
-            id = id ?: UUID.randomUUID(),
-            occurredOn = occurredOn ?: Instant.now(),
-        )
-
-    }
+    fun create(
+        aggregateId: UUID? = null,
+        password: String? = null,
+        id: UUID? = null,
+        occurredOn: Instant? = null,
+    ) = UserPasswordUpdatedEvent(
+        aggregateId ?: UUID.randomUUID(),
+        password ?: "defaultPassword",
+        id ?: UUID.randomUUID(),
+        occurredOn ?: Instant.now(),
+    )
 
 }

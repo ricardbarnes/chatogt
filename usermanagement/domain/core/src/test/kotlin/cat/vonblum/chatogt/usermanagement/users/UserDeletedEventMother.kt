@@ -3,20 +3,16 @@ package cat.vonblum.chatogt.usermanagement.users
 import java.time.Instant
 import java.util.UUID
 
-class UserDeletedEventMother {
+object UserDeletedEventMother {
 
-    companion object {
-
-        fun create(
-            aggregateId: UUID? = null,
-            id: UUID? = null,
-            occurredOn: Instant? = null,
-        ) = UserDeletedEvent(
-            aggregateId ?: UUID.randomUUID(),
-            id ?: UUID.randomUUID(),
-            occurredOn ?: Instant.now(),
-        )
-
-    }
+    fun create(
+        aggregateId: UUID? = null,
+        id: UUID? = null,
+        occurredOn: Instant? = null,
+    ) = UserDeletedEvent(
+        aggregateId ?: UUID.randomUUID(),
+        id ?: UUID.randomUUID(),
+        occurredOn ?: Instant.now(),
+    )
 
 }

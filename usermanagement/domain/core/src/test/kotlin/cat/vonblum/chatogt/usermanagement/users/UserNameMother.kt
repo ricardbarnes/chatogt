@@ -1,11 +1,9 @@
 package cat.vonblum.chatogt.usermanagement.users
 
-class UserNameMother {
+object UserNameMother {
 
-    companion object {
+    fun create(name: String?): UserName = UserName(name ?: "TestName")
 
-        fun create(name: String?): UserName = UserName(name ?: "TestName")
-
-    }
+    fun random(): UserName = create(null)
 
 }
