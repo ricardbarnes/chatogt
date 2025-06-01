@@ -4,18 +4,14 @@ import cat.vonblum.chatogt.shared.domain.valueobject.IdFaker
 import cat.vonblum.chatogt.shared.domain.valueobject.StringFaker
 import java.util.UUID
 
-class UpdateUserNameCommandMother {
+object UpdateUserNameCommandMother {
 
-    companion object {
-
-        fun create(
-            id: UUID?,
-            name: String?
-        ): UpdateUserNameCommand = UpdateUserNameCommand(
-            id ?: IdFaker.random(),
-            name ?: StringFaker.name()
-        )
-
-    }
+    fun create(
+        id: UUID?,
+        name: String?
+    ): UpdateUserNameCommand = UpdateUserNameCommand(
+        id ?: IdFaker.random(),
+        name ?: StringFaker.name()
+    )
 
 }

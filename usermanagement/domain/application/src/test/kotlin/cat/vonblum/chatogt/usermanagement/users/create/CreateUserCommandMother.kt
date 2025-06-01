@@ -2,23 +2,19 @@ package cat.vonblum.chatogt.usermanagement.users.create
 
 import cat.vonblum.chatogt.shared.domain.valueobject.StringFaker
 
-class CreateUserCommandMother {
+object CreateUserCommandMother {
 
-    companion object {
+    fun create(
+        name: String?,
+        password: String?
+    ): CreateUserCommand = CreateUserCommand(
+        name ?: StringFaker.name(),
+        password ?: StringFaker.password()
+    )
 
-        fun create(
-            name: String?,
-            password: String?
-        ): CreateUserCommand = CreateUserCommand(
-            name ?: StringFaker.name(),
-            password ?: StringFaker.password()
-        )
-
-        fun random(): CreateUserCommand = create(
-            null,
-            null
-        )
-
-    }
+    fun random(): CreateUserCommand = create(
+        null,
+        null
+    )
 
 }

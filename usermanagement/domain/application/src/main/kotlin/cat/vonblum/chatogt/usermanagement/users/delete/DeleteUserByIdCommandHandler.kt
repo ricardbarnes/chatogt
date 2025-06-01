@@ -9,8 +9,9 @@ class DeleteUserByIdCommandHandler(
     private val eventBus: EventBus
 ) {
 
-    fun handle(command: DeleteUserByIdCommand) = finding.findById(UserId(command.id))
-        .also { user -> user.delete() }
-        .let { eventBus.publish(it.pullEvents()) }
+    fun handle(command: DeleteUserByIdCommand) =
+        finding.findById(UserId(command.id))
+            .also { user -> user.delete() }
+            .let { eventBus.publish(it.pullEvents()) }
 
 }
