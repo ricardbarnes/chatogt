@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.repository
+package cat.vonblum.chatogt.chats.producer.provider.mongo.chats
 
 import cat.vonblum.chatogt.chats.chats.Chat
 import cat.vonblum.chatogt.chats.producer.store.MongoAggregateIdProjection

@@ -1,7 +1,7 @@
-package cat.vonblum.chatogt.usermanagement.producer.adapter.users
+package cat.vonblum.chatogt.chats.producer.provider.mongo.users
 
-import cat.vonblum.chatogt.usermanagement.users.DeletingUsers
-import cat.vonblum.chatogt.usermanagement.users.UserId
+import cat.vonblum.chatogt.chats.shared.UserId
+import cat.vonblum.chatogt.chats.users.DeletingUsers
 import org.springframework.stereotype.Component
 
 @Component

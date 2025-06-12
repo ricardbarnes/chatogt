@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.adapter.users
+package cat.vonblum.chatogt.chats.producer.provider.mongo.users
 
 import cat.vonblum.chatogt.chats.users.User
 import cat.vonblum.chatogt.chats.users.UserName

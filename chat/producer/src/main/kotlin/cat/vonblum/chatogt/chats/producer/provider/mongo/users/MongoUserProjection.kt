@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.adapter.users
+package cat.vonblum.chatogt.chats.producer.provider.mongo.users
 
 data class MongoUserProjection(
     val id: String,

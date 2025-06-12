@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.adapter.messages
+package cat.vonblum.chatogt.chats.producer.provider.mongo.messages
 
 import cat.vonblum.chatogt.chats.messages.DeletingMessages
 import cat.vonblum.chatogt.chats.messages.MessageId
