@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.adapter.shared
+package cat.vonblum.chatogt.chats.producer.store
 
 import cat.vonblum.chatogt.chats.chats.ChatCreatedEvent
 import cat.vonblum.chatogt.chats.producer.bus.event.MongoEventMapper

@@ -2,7 +2,8 @@ package cat.vonblum.chatogt.chats.producer.adapter.chats
 
 import cat.vonblum.chatogt.chats.chats.Chat
 import cat.vonblum.chatogt.chats.chats.FindingChats
-import cat.vonblum.chatogt.chats.producer.adapter.shared.MongoReadStore
+import cat.vonblum.chatogt.chats.producer.store.MongoReadStore
+import cat.vonblum.chatogt.chats.producer.repository.MongoChatRepository
 import cat.vonblum.chatogt.chats.shared.ChatId
 import cat.vonblum.chatogt.chats.shared.UserId
 import org.springframework.stereotype.Component
