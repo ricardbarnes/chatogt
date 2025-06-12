@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.bus.command
+package cat.vonblum.chatogt.chats.producer.handler.command
 
 import com.google.gson.Gson
 import org.springframework.stereotype.Component

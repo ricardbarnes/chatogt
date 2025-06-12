@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.bus.command
+package cat.vonblum.chatogt.chats.producer.handler.command
 
 import cat.vonblum.chatogt.chats.chats.create.CreateChatCommand
 import cat.vonblum.chatogt.chats.chats.create.CreateChatCommandHandler
