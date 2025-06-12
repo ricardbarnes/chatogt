@@ -7,11 +7,13 @@ import cat.vonblum.chatogt.chats.chats.find.FindChatIdsByUserIdResponse
 import cat.vonblum.chatogt.shared.domain.command.CommandBus
 import cat.vonblum.chatogt.shared.domain.query.QueryBus
 import cat.vonblum.chatogt.chats.users.find.FindUserByNameResponse
+import cat.vonblum.chatogt.shared.domain.annotation.DriverAdapter
 import org.springframework.http.HttpStatus.*
 import org.springframework.web.bind.annotation.*
 import org.springframework.web.server.ResponseStatusException
 import java.util.*
 
+@DriverAdapter
 @RestController
 @RequestMapping("/users")
 class RestUserController(

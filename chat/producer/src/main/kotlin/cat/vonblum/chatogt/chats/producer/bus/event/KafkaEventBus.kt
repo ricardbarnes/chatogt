@@ -1,6 +1,5 @@
 package cat.vonblum.chatogt.chats.producer.bus.event
 
-import cat.vonblum.chatogt.shared.domain.annotation.DrivenAdapter
 import cat.vonblum.chatogt.shared.domain.event.Event
 import cat.vonblum.chatogt.shared.domain.event.EventBus
 import org.apache.kafka.clients.producer.KafkaProducer
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Component
 import java.util.UUID
 import kotlin.reflect.KClass
 
-@DrivenAdapter
 @Component
 class KafkaEventBus(
     private val mapper: KafkaEventMapper,
