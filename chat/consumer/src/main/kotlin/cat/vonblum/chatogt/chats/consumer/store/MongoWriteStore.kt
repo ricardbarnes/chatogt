@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.chats.consumer.store
 
-import cat.vonblum.chatogt.chats.consumer.mapper.MongoMapper
+import cat.vonblum.chatogt.chats.consumer.store.MongoMapper
 import cat.vonblum.chatogt.shared.domain.event.Event
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.stereotype.Component
