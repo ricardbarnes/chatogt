@@ -3,7 +3,6 @@ package cat.vonblum.chatogt.chats.api.controller
 import cat.vonblum.chatogt.chats.api.dto.RestChatDto
 import cat.vonblum.chatogt.chats.api.mapper.RestChatMapper
 import cat.vonblum.chatogt.chats.chats.find.FindChatResponse
-import cat.vonblum.chatogt.shared.domain.annotation.DriverAdapter
 import cat.vonblum.chatogt.shared.domain.command.CommandBus
 import cat.vonblum.chatogt.shared.domain.query.QueryBus
 import org.springframework.http.HttpStatus.CREATED
@@ -11,7 +10,6 @@ import org.springframework.http.HttpStatus.OK
 import org.springframework.web.bind.annotation.*
 import java.util.*
 
-@DriverAdapter
 @RestController
 @RequestMapping("/chats")
 class RestChatController(
