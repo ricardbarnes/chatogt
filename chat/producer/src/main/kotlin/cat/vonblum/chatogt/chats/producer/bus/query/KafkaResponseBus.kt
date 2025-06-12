@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.bus.response
+package cat.vonblum.chatogt.chats.producer.bus.query
 
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.springframework.beans.factory.annotation.Value
