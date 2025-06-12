@@ -1,11 +1,9 @@
-package cat.vonblum.chatogt.usermanagement.producer.adapter.users
+package cat.vonblum.chatogt.usermanagement.producer.adapter.users.driven
 
-import cat.vonblum.chatogt.shared.infrastructure.annotation.DrivenAdapter
 import cat.vonblum.chatogt.usermanagement.users.StoringUsers
 import cat.vonblum.chatogt.usermanagement.users.User
 import org.springframework.stereotype.Component
 
-@DrivenAdapter
 @Component
 class MongoStoringUsers : StoringUsers {
 

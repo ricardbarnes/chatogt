@@ -5,7 +5,6 @@ import cat.vonblum.chatogt.chats.chats.create.CreateChatCommand
 import cat.vonblum.chatogt.chats.messages.create.CreateMessageCommand
 import cat.vonblum.chatogt.shared.domain.command.Command
 import cat.vonblum.chatogt.shared.domain.command.CommandBus
-import cat.vonblum.chatogt.shared.infrastructure.annotation.DriverAdapter
 import cat.vonblum.chatogt.chats.users.create.CreateUserCommand
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerRecord
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Component
 import java.util.UUID
 import kotlin.reflect.KClass
 
-@DriverAdapter
 @Component
 class KafkaCommandBus(
     private val mapper: KafkaCommandMapper,

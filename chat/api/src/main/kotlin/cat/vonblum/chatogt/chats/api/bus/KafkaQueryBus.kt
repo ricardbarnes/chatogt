@@ -7,7 +7,6 @@ import cat.vonblum.chatogt.chats.chats.find.FindChatQuery
 import cat.vonblum.chatogt.shared.domain.query.Query
 import cat.vonblum.chatogt.shared.domain.query.QueryBus
 import cat.vonblum.chatogt.shared.domain.query.Response
-import cat.vonblum.chatogt.shared.infrastructure.annotation.DriverAdapter
 import cat.vonblum.chatogt.chats.users.find.FindUserByNameQuery
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.clients.producer.KafkaProducer
@@ -21,7 +20,6 @@ import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.TimeUnit
 
-@DriverAdapter
 @Component
 class KafkaQueryBus(
     private val chatMapper: KafkaChatQueryMapper,

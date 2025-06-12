@@ -1,16 +1,14 @@
-package cat.vonblum.chatogt.usermanagement.producer.adapter.users
+package cat.vonblum.chatogt.usermanagement.producer.adapter.users.driven
 
-import cat.vonblum.chatogt.shared.infrastructure.annotation.DrivenAdapter
 import cat.vonblum.chatogt.usermanagement.users.DeletingUsers
 import cat.vonblum.chatogt.usermanagement.users.UserId
 import org.springframework.stereotype.Component
 
-@DrivenAdapter
 @Component
-class MongoDeletingUsers : DeletingUsers {
+class MongoFindingUsers : DeletingUsers {
 
     override fun deleteById(id: UserId) {
         TODO("Not yet implemented")
     }
-
+    
 }
