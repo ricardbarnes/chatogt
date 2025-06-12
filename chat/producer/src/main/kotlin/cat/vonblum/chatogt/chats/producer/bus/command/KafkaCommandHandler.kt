@@ -6,11 +6,13 @@ import cat.vonblum.chatogt.chats.messages.create.CreateMessageCommand
 import cat.vonblum.chatogt.chats.messages.create.CreateMessageCommandHandler
 import cat.vonblum.chatogt.chats.users.create.CreateUserCommand
 import cat.vonblum.chatogt.chats.users.create.CreateUserCommandHandler
+import cat.vonblum.chatogt.shared.domain.annotation.DriverAdapter
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Component
 import java.util.*
 
+@DriverAdapter
 @Component
 class KafkaCommandHandler(
     private val mapper: KafkaCommandMapper,

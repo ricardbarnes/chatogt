@@ -1,8 +1,10 @@
 package cat.vonblum.chatogt.chats.producer.bus.command
 
+import cat.vonblum.chatogt.shared.domain.annotation.DriverAdapter
 import com.google.gson.Gson
 import org.springframework.stereotype.Component
 
+@DriverAdapter
 @Component
 class KafkaCommandMapper(private val gson: Gson) {
 

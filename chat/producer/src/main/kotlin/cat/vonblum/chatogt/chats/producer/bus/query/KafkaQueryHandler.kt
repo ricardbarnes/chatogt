@@ -4,6 +4,7 @@ import cat.vonblum.chatogt.chats.chats.find.FindChatIdsByUserIdQueryHandler
 import cat.vonblum.chatogt.chats.chats.find.FindChatIdsByUserIdQuery
 import cat.vonblum.chatogt.chats.chats.find.FindChatQuery
 import cat.vonblum.chatogt.chats.chats.find.FindChatQueryHandler
+import cat.vonblum.chatogt.shared.domain.annotation.DriverAdapter
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerRecord
@@ -13,6 +14,7 @@ import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.stereotype.Component
 import java.util.*
 
+@DriverAdapter
 @Component
 class KafkaQueryHandler(
     private val mapper: KafkaQueryMapper,
