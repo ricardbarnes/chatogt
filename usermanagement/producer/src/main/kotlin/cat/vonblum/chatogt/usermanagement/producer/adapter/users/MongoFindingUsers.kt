@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.producer.adapter.users.driven
+package cat.vonblum.chatogt.usermanagement.producer.adapter.users
 
 import cat.vonblum.chatogt.usermanagement.users.DeletingUsers
 import cat.vonblum.chatogt.usermanagement.users.UserId
