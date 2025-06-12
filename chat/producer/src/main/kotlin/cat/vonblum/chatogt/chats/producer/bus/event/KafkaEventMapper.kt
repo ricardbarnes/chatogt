@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.bus
+package cat.vonblum.chatogt.chats.producer.bus.event
 
 import cat.vonblum.chatogt.shared.domain.event.Event
 import com.google.gson.Gson

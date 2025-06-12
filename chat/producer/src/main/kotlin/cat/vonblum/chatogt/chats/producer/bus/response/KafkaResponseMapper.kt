@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.handler.query
+package cat.vonblum.chatogt.chats.producer.bus.response
 
 import org.springframework.stereotype.Component
 
