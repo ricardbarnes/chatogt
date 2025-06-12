@@ -1,7 +1,7 @@
-package cat.vonblum.chatogt.chats.producer.adapter.shared.driven
+package cat.vonblum.chatogt.chats.producer.adapter.shared
 
 import cat.vonblum.chatogt.chats.chats.ChatCreatedEvent
-import cat.vonblum.chatogt.chats.producer.adapter.shared.driver.MongoEventMapper
+import cat.vonblum.chatogt.chats.producer.bus.event.MongoEventMapper
 import cat.vonblum.chatogt.shared.domain.event.Event
 import cat.vonblum.chatogt.shared.domain.valueobject.Id
 import cat.vonblum.chats.shared.infrastructure.model.MongoEvent

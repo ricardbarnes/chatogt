@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.adapter.messages.driven
+package cat.vonblum.chatogt.chats.producer.adapter.messages
 
 import cat.vonblum.chatogt.chats.messages.Message
 import cat.vonblum.chatogt.chats.messages.ReportingMessages

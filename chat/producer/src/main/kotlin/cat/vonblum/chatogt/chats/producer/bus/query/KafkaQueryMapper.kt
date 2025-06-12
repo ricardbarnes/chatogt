@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.adapter.shared.driver
+package cat.vonblum.chatogt.chats.producer.bus.query
 
 import cat.vonblum.chatogt.chats.chats.find.FindChatIdsByUserIdQuery
 import cat.vonblum.chatogt.chats.chats.find.FindChatQuery

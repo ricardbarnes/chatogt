@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.adapter.shared.driver
+package cat.vonblum.chatogt.chats.producer.bus.event
 
 import cat.vonblum.chatogt.shared.domain.event.Event
 import cat.vonblum.chats.shared.infrastructure.model.MongoEvent

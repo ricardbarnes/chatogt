@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.adapter.users.driven
+package cat.vonblum.chatogt.chats.producer.adapter.users
 
 import cat.vonblum.chatogt.chats.shared.UserId
 import cat.vonblum.chatogt.chats.users.DeletingUsers

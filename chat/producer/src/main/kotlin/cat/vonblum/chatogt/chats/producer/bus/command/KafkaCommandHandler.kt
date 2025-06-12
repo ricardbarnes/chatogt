@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chats.producer.adapter.shared.driver
+package cat.vonblum.chatogt.chats.producer.bus.command
 
 import cat.vonblum.chatogt.chats.chats.create.CreateChatCommand
 import cat.vonblum.chatogt.chats.chats.create.CreateChatCommandHandler

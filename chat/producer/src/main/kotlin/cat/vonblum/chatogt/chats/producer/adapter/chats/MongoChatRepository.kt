@@ -1,7 +1,7 @@
-package cat.vonblum.chatogt.chats.producer.adapter.chats.driven
+package cat.vonblum.chatogt.chats.producer.adapter.chats
 
 import cat.vonblum.chatogt.chats.chats.Chat
-import cat.vonblum.chatogt.chats.producer.adapter.shared.driven.MongoAggregateIdProjection
+import cat.vonblum.chatogt.chats.producer.adapter.shared.MongoAggregateIdProjection
 import cat.vonblum.chatogt.chats.shared.ChatId
 import cat.vonblum.chatogt.chats.shared.UserId
 import cat.vonblum.chats.shared.infrastructure.model.MongoChatCreatedEvent
