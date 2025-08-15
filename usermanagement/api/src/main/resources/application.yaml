@@ -5,6 +5,10 @@ spring:
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
 
+grpc:
+  server:
+    port: 6565
+
 kafka:
   topics:
     commands: commands

@@ -36,6 +36,14 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.4")
 }
 
+tasks.processResources {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE // TODO: investigate why this is needed
+
+    from(sourceSets.main.get().resources.srcDirs) {
+        exclude("**/*.proto")
+    }
+}
+
 protobuf {
     protoc {
         artifact = "com.google.protobuf:protoc:3.25.3"
