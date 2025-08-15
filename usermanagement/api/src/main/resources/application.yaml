@@ -8,6 +8,7 @@ spring:
 grpc:
   server:
     port: 6565
+    reflection-service-enabled: true
 
 kafka:
   topics:

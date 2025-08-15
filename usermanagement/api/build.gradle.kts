@@ -23,7 +23,6 @@ dependencies {
     implementation(project(":shared:infrastructure"))
     implementation(project(":usermanagement:domain:core"))
     implementation("org.springframework.boot:spring-boot-starter:3.4.4")
-    implementation("org.springframework.boot:spring-boot-starter-web:3.4.4")
     implementation("org.springframework.kafka:spring-kafka:3.3.4")
     implementation("com.google.code.gson:gson:2.11.0")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb:3.4.4")

@@ -3,7 +3,7 @@ package cat.vonblum.chatogt.usermanagement.api.entrypoint
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = ["cat.vonblum.chatogt.usermanagement.api"])
 class SpringEntrypoint
 
 fun main(args: Array<String>) {
