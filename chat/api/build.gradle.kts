@@ -24,7 +24,6 @@ dependencies {
     implementation(project(":shared:infrastructure"))
     implementation(project(":chat:domain:core"))
     implementation(project(":chat:domain:application"))
-
     implementation("org.springframework.boot:spring-boot-starter:3.4.4")
     implementation("org.springframework.boot:spring-boot-starter-web:3.4.4")
     implementation("org.springframework.kafka:spring-kafka:3.3.4")
@@ -33,15 +32,13 @@ dependencies {
     implementation("org.springframework.security:spring-security-core:6.4.5")
     implementation("org.springframework.security:spring-security-web:6.4.5")
     implementation("org.springframework.security:spring-security-config:6.4.5")
-
     implementation("io.grpc:grpc-netty-shaded:1.72.0")
     implementation("io.grpc:grpc-protobuf:1.72.0")
     implementation("io.grpc:grpc-stub:1.72.0")
     implementation("io.grpc:grpc-kotlin-stub:1.4.3")
-    implementation("com.google.protobuf:protobuf-java:3.25.3")
+    implementation("com.google.protobuf:protobuf-java:4.28.2")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("net.devh:grpc-server-spring-boot-starter:3.1.0.RELEASE")
-
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.4")
 }
 

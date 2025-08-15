@@ -8,8 +8,10 @@ import net.devh.boot.grpc.server.service.GrpcService
 class GrpcHelloController : HelloServiceGrpcKt.HelloServiceCoroutineImplBase() { // TODO: remove when the proper controllers are in place.
 
     override suspend fun sayHello(request: Hello.HelloRequest): Hello.HelloResponse {
-        val message = "Hello ${request.name}!"
-        return Hello.HelloResponse.newBuilder().setMessage(message).build()
+        val message = "Hello from the chats context ${request.name}!"
+        return Hello.HelloResponse.newBuilder()
+            .setMessage(message)
+            .build()
     }
 
 }
