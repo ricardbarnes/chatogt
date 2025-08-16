@@ -1,9 +1,14 @@
 syntax = "proto3";
 
+import "google/protobuf/empty.proto";
+
 package user;
 
 service UserService {
-  rpc CreateUser (User) returns (User);
+  rpc CreateUser (CreateUserRequest) returns (google.protobuf.Empty);
+  rpc FindUserById(FindUserByIdRequest) returns (User);
+  rpc FindUserByName(FindUserByNameRequest) returns (User);
+  rpc DeleteUserById(DeleteUserByIdRequest) returns (google.protobuf.Empty);
 }
 
 message User {
@@ -11,4 +16,21 @@ message User {
   string name = 2;
   string password = 3;
   string status = 4;
+}
+
+message CreateUserRequest {
+  string name = 1;
+  string password = 2;
+}
+
+message FindUserByIdRequest {
+  string id = 1;
+}
+
+message FindUserByNameRequest {
+  string name = 1;
+}
+
+message DeleteUserByIdRequest {
+  string id = 1;
 }
