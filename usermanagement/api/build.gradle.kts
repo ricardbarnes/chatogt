@@ -20,6 +20,7 @@ tasks.test {
 }
 
 dependencies {
+    implementation(project(":shared:domain"))
     implementation(project(":shared:infrastructure"))
     implementation(project(":usermanagement:domain:core"))
     implementation("org.springframework.boot:spring-boot-starter:3.4.4")

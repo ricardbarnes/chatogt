@@ -1,12 +1,18 @@
 package cat.vonblum.chatogt.usermanagement.api.controller
 
+import cat.vonblum.chatogt.shared.domain.command.CommandBus
+import cat.vonblum.chatogt.shared.domain.query.QueryBus
 import com.google.protobuf.Empty
 import net.devh.boot.grpc.server.service.GrpcService
 import user.UserOuterClass
 import user.UserServiceGrpcKt
 
 @GrpcService
-class GrpcUserController : UserServiceGrpcKt.UserServiceCoroutineImplBase() {
+class GrpcUserController(
+    private val mapper: GrpcUserMapper,
+    private val commandBus: CommandBus,
+    private val queryBus: QueryBus
+) : UserServiceGrpcKt.UserServiceCoroutineImplBase() {
 
     override suspend fun createUser(request: UserOuterClass.CreateUserRequest): Empty {
         // TODO
