@@ -4,7 +4,10 @@ import cat.vonblum.chatogt.shared.domain.command.CommandBus
 import cat.vonblum.chatogt.shared.domain.query.QueryBus
 import com.google.protobuf.Empty
 import net.devh.boot.grpc.server.service.GrpcService
-import user.UserOuterClass
+import user.UserOuterClass.CreateUserRequest
+import user.UserOuterClass.DeleteUserByIdRequest
+import user.UserOuterClass.FindUserByNameRequest
+import user.UserOuterClass.User
 import user.UserServiceGrpcKt
 
 @GrpcService
@@ -14,22 +17,17 @@ class GrpcUserController(
     private val queryBus: QueryBus
 ) : UserServiceGrpcKt.UserServiceCoroutineImplBase() {
 
-    override suspend fun createUser(request: UserOuterClass.CreateUserRequest): Empty {
+    override suspend fun createUser(request: CreateUserRequest): Empty {
         // TODO
         return super.createUser(request)
     }
 
-    override suspend fun findUserById(request: UserOuterClass.FindUserByIdRequest): UserOuterClass.User {
-        // TODO
-        return super.findUserById(request)
-    }
-
-    override suspend fun findUserByName(request: UserOuterClass.FindUserByNameRequest): UserOuterClass.User {
+    override suspend fun findUserByName(request: FindUserByNameRequest): User {
         // TODO
         return super.findUserByName(request)
     }
 
-    override suspend fun deleteUserById(request: UserOuterClass.DeleteUserByIdRequest): Empty {
+    override suspend fun deleteUserById(request: DeleteUserByIdRequest): Empty {
         // TODO
         return super.deleteUserById(request)
     }
