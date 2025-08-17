@@ -2,6 +2,7 @@ package cat.vonblum.chatogt.usermanagement.api.controller
 
 import cat.vonblum.chatogt.shared.domain.command.CommandBus
 import cat.vonblum.chatogt.shared.domain.query.QueryBus
+import cat.vonblum.chatogt.usermanagement.users.find.FindUserByNameResponse
 import com.google.protobuf.Empty
 import net.devh.boot.grpc.server.service.GrpcService
 import user.UserOuterClass.CreateUserRequest
@@ -18,18 +19,18 @@ class GrpcUserController(
 ) : UserServiceGrpcKt.UserServiceCoroutineImplBase() {
 
     override suspend fun createUser(request: CreateUserRequest): Empty {
-        // TODO
-        return super.createUser(request)
+        commandBus.dispatch(mapper.toDomain(request))
+        return Empty.getDefaultInstance()
     }
 
     override suspend fun findUserByName(request: FindUserByNameRequest): User {
-        // TODO
-        return super.findUserByName(request)
+        val response = queryBus.ask(mapper.toDomain(request))
+        return mapper.toInfra(response as FindUserByNameResponse)
     }
 
     override suspend fun deleteUserById(request: DeleteUserByIdRequest): Empty {
-        // TODO
-        return super.deleteUserById(request)
+        commandBus.dispatch(mapper.toDomain(request))
+        return Empty.getDefaultInstance()
     }
 
 }

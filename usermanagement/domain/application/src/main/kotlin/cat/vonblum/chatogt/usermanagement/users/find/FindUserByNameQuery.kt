@@ -1,3 +1,5 @@
 package cat.vonblum.chatogt.usermanagement.users.find
 
-class FindUserByNameQuery(val name: String)
+import cat.vonblum.chatogt.shared.domain.query.Query
+
+class FindUserByNameQuery(val name: String): Query

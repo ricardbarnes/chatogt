@@ -13,8 +13,7 @@ service UserService {
 message User {
   string id = 1;
   string name = 2;
-  string password = 3;
-  string status = 4;
+  string status = 3;
 }
 
 message CreateUserRequest {
