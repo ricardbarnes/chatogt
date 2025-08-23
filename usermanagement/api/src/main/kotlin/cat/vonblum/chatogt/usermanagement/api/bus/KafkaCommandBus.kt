@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.api.bus.command
+package cat.vonblum.chatogt.usermanagement.api.bus
 
 import cat.vonblum.chatogt.shared.domain.command.Command
 import cat.vonblum.chatogt.shared.domain.command.CommandBus
