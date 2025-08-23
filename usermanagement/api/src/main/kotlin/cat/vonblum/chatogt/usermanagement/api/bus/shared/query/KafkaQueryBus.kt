@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.api.bus
+package cat.vonblum.chatogt.usermanagement.api.bus.shared.query
 
 import cat.vonblum.chatogt.shared.domain.query.Query
 import cat.vonblum.chatogt.shared.domain.query.QueryBus

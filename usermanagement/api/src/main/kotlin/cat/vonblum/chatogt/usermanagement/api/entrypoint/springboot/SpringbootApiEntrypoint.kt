@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.api.entrypoint
+package cat.vonblum.chatogt.usermanagement.api.entrypoint.springboot
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

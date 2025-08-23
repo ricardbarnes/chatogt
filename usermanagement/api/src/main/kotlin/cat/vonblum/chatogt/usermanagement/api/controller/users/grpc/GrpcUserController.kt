@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.api.controller
+package cat.vonblum.chatogt.usermanagement.api.controller.users.grpc
 
 import cat.vonblum.chatogt.shared.domain.command.CommandBus
 import cat.vonblum.chatogt.shared.domain.query.QueryBus
