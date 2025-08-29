@@ -1,12 +1,12 @@
 package cat.vonblum.chatogt.chat.chats.delete
 
-import cat.vonblum.chatogt.chat.chats.FindingChats
+import cat.vonblum.chatogt.chat.chats.ForFindingChats
 import cat.vonblum.chatogt.chat.shared.ChatId
 import cat.vonblum.chatogt.shared.domain.command.CommandHandler
 import cat.vonblum.chatogt.shared.domain.event.EventBus
 
 class DeleteChatCommandHandler(
-    private val finding: FindingChats,
+    private val finding: ForFindingChats,
     private val eventBus: EventBus
 ) : CommandHandler {
 

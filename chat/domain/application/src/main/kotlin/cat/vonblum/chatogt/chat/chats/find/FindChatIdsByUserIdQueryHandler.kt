@@ -1,10 +1,10 @@
 package cat.vonblum.chatogt.chat.chats.find
 
-import cat.vonblum.chatogt.chat.chats.FindingChats
+import cat.vonblum.chatogt.chat.chats.ForFindingChats
 import cat.vonblum.chatogt.chat.shared.UserId
 import cat.vonblum.chatogt.shared.domain.query.QueryHandler
 
-class FindChatIdsByUserIdQueryHandler(private val finding: FindingChats) : QueryHandler {
+class FindChatIdsByUserIdQueryHandler(private val finding: ForFindingChats) : QueryHandler {
 
     fun handle(query: FindChatIdsByUserIdQuery) =
         FindChatIdsByUserIdResponse(

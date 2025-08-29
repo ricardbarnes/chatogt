@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.users
 
-interface StoringUsers {
+interface ForStoringUsers {
 
     fun save(user: User)
 

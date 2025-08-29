@@ -1,12 +1,12 @@
 package cat.vonblum.chatogt.chat.producer.config
 
-import cat.vonblum.chatogt.chat.chats.FindingChats
+import cat.vonblum.chatogt.chat.chats.ForFindingChats
 import cat.vonblum.chatogt.chat.chats.create.CreateChatCommandHandler
 import cat.vonblum.chatogt.chat.chats.delete.DeleteChatCommandHandler
 import cat.vonblum.chatogt.chat.chats.find.FindChatQueryHandler
 import cat.vonblum.chatogt.chat.chats.find.FindChatIdsByUserIdQueryHandler
 import cat.vonblum.chatogt.chat.chats.update.UpdateChatCommandHandler
-import cat.vonblum.chatogt.chat.messages.FindingMessages
+import cat.vonblum.chatogt.chat.messages.ForFindingMessages
 import cat.vonblum.chatogt.chat.messages.ReportingMessages
 import cat.vonblum.chatogt.chat.messages.create.CreateMessageCommandHandler
 import cat.vonblum.chatogt.chat.messages.delete.DeleteMessageCommandHandler
@@ -21,7 +21,7 @@ import cat.vonblum.chatogt.shared.domain.generator.IdGenerator
 import cat.vonblum.chatogt.shared.domain.handler.Handler
 import cat.vonblum.chatogt.shared.infrastructure.generator.Argon2HashGenerator
 import cat.vonblum.chatogt.shared.infrastructure.generator.GenericIdGenerator
-import cat.vonblum.chatogt.chat.users.FindingUsers
+import cat.vonblum.chatogt.chat.users.ForFindingUsers
 import cat.vonblum.chatogt.chat.users.create.CreateUserCommandHandler
 import cat.vonblum.chatogt.chat.users.delete.DeleteUserCommandHandler
 import cat.vonblum.chatogt.chat.users.find.FindUserByNameQueryHandler
@@ -117,11 +117,11 @@ class SpringProducerHandlerConfig {
     @HandlerDefinition
     @Bean
     fun muteChatCommandHandler(
-        findingChats: FindingChats,
+        forFindingChats: ForFindingChats,
         eventBus: EventBus,
     ): UpdateChatCommandHandler {
         return UpdateChatCommandHandler(
-            findingChats,
+            forFindingChats,
             eventBus
         )
     }
@@ -129,11 +129,11 @@ class SpringProducerHandlerConfig {
     @HandlerDefinition
     @Bean
     fun cancelChatCommandHandler(
-        findingChats: FindingChats,
+        forFindingChats: ForFindingChats,
         eventBus: EventBus,
     ): DeleteChatCommandHandler {
         return DeleteChatCommandHandler(
-            findingChats,
+            forFindingChats,
             eventBus
         )
     }
@@ -141,9 +141,9 @@ class SpringProducerHandlerConfig {
     @HandlerDefinition
     @Bean
     fun findChatQueryHandler(
-        findingChats: FindingChats
+        forFindingChats: ForFindingChats
     ): FindChatQueryHandler {
-        return FindChatQueryHandler(findingChats)
+        return FindChatQueryHandler(forFindingChats)
     }
 
     @HandlerDefinition
@@ -163,11 +163,11 @@ class SpringProducerHandlerConfig {
     @HandlerDefinition
     @Bean
     fun deleteMessageCommandHandler(
-        findingMessages: FindingMessages,
+        forFindingMessages: ForFindingMessages,
         eventBus: EventBus
     ): DeleteMessageCommandHandler {
         return DeleteMessageCommandHandler(
-            findingMessages,
+            forFindingMessages,
             eventBus
         )
     }
@@ -175,27 +175,27 @@ class SpringProducerHandlerConfig {
     @HandlerDefinition
     @Bean
     fun findMessageIdsQueryHandler(
-        findingMessages: FindingMessages
+        forFindingMessages: ForFindingMessages
     ): FindMessageIdsQueryHandler {
-        return FindMessageIdsQueryHandler(findingMessages)
+        return FindMessageIdsQueryHandler(forFindingMessages)
     }
 
     @HandlerDefinition
     @Bean
     fun findMessageQueryHandler(
-        findingMessages: FindingMessages
+        forFindingMessages: ForFindingMessages
     ): FindMessageQueryHandler {
-        return FindMessageQueryHandler(findingMessages)
+        return FindMessageQueryHandler(forFindingMessages)
     }
 
     @HandlerDefinition
     @Bean
     fun updateMessageCommandHandler(
-        findingMessages: FindingMessages,
+        forFindingMessages: ForFindingMessages,
         eventBus: EventBus
     ): UpdateMessageCommandHandler {
         return UpdateMessageCommandHandler(
-            findingMessages,
+            forFindingMessages,
             eventBus
         )
     }
@@ -203,17 +203,17 @@ class SpringProducerHandlerConfig {
     @HandlerDefinition
     @Bean
     fun findChatsByUserIdQueryHandler(
-        findingChats: FindingChats
+        forFindingChats: ForFindingChats
     ): FindChatIdsByUserIdQueryHandler {
-        return FindChatIdsByUserIdQueryHandler(findingChats)
+        return FindChatIdsByUserIdQueryHandler(forFindingChats)
     }
 
     @HandlerDefinition
     @Bean
     fun findUserIdByNameQueryHandler(
-        findingUsers: FindingUsers
+        forFindingUsers: ForFindingUsers
     ): FindUserByNameQueryHandler {
-        return FindUserByNameQueryHandler(findingUsers)
+        return FindUserByNameQueryHandler(forFindingUsers)
     }
 
 }

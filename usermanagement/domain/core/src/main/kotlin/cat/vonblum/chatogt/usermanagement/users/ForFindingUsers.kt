@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.users
 
-interface FindingUsers {
+interface ForFindingUsers {
 
     fun findById(id: UserId): User
 

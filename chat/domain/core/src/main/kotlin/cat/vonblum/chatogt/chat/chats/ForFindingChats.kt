@@ -3,7 +3,7 @@ package cat.vonblum.chatogt.chat.chats
 import cat.vonblum.chatogt.chat.shared.ChatId
 import cat.vonblum.chatogt.chat.shared.UserId
 
-interface FindingChats {
+interface ForFindingChats {
 
     fun findById(id: ChatId): Chat
 

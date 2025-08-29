@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.chat.messages
 
-interface DeletingMessages {
+interface ForDeletingMessages {
 
     fun deleteById(id: MessageId)
 

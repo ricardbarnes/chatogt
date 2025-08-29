@@ -2,7 +2,7 @@ package cat.vonblum.chatogt.chat.messages
 
 import cat.vonblum.chatogt.chat.shared.ChatId
 
-interface FindingMessages {
+interface ForFindingMessages {
 
     fun findById(messageId: MessageId): Message
 

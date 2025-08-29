@@ -2,7 +2,7 @@ package cat.vonblum.chatogt.chat.chats
 
 import cat.vonblum.chatogt.chat.shared.ChatId
 
-interface DeletingChats {
+interface ForDeletingChats {
 
     fun deleteById(id: ChatId)
 

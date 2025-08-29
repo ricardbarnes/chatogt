@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.users
 
-interface DeletingUsers {
+interface ForDeletingUsers {
 
     fun deleteById(id: UserId)
 

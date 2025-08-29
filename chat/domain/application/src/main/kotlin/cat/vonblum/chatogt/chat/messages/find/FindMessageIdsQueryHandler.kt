@@ -1,10 +1,10 @@
 package cat.vonblum.chatogt.chat.messages.find
 
-import cat.vonblum.chatogt.chat.messages.FindingMessages
+import cat.vonblum.chatogt.chat.messages.ForFindingMessages
 import cat.vonblum.chatogt.chat.shared.ChatId
 import cat.vonblum.chatogt.shared.domain.query.QueryHandler
 
-class FindMessageIdsQueryHandler(private val finding: FindingMessages) : QueryHandler {
+class FindMessageIdsQueryHandler(private val finding: ForFindingMessages) : QueryHandler {
 
     fun handle(query: FindMessageIdsQuery): FindMessagesResponse =
         FindMessagesResponse(
