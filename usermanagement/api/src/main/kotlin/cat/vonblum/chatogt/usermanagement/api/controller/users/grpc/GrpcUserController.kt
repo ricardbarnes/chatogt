@@ -6,7 +6,7 @@ import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdResponse
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByNameResponse
 import com.google.protobuf.Empty
 import net.devh.boot.grpc.server.service.GrpcService
-import user.UserOuterClass
+import user.User
 import user.UserServiceGrpcKt
 
 @GrpcService
@@ -16,25 +16,25 @@ class GrpcUserController(
     private val queryBus: QueryBus
 ) : UserServiceGrpcKt.UserServiceCoroutineImplBase() {
 
-    override suspend fun createUser(request: UserOuterClass.CreateUserRequest): Empty {
+    override suspend fun createUser(request: User.CreateUserRequest): Empty {
         val command = mapper.toDomain(request)
         commandBus.dispatch(command)
         return Empty.getDefaultInstance()
     }
 
-    override suspend fun findUserById(request: UserOuterClass.FindUserByIdRequest): UserOuterClass.User {
+    override suspend fun findUserById(request: User.FindUserByIdRequest): User.FindUserByIdResponse {
         val query = mapper.toDomain(request)
-        val response = queryBus.ask(query)
-        return mapper.toInfra(response as FindUserByIdResponse)
+        val response = queryBus.ask(query) as FindUserByIdResponse
+        return mapper.toInfra(response)
     }
 
-    override suspend fun findUserByName(request: UserOuterClass.FindUserByNameRequest): UserOuterClass.User {
+    override suspend fun findUserByName(request: User.FindUserByNameRequest): User.FindUserByNameResponse {
         val query = mapper.toDomain(request)
-        val response = queryBus.ask(query)
-        return mapper.toInfra(response as FindUserByNameResponse)
+        val response = queryBus.ask(query) as FindUserByNameResponse
+        return mapper.toInfra(response)
     }
 
-    override suspend fun deleteUserById(request: UserOuterClass.DeleteUserByIdRequest): Empty {
+    override suspend fun deleteUserById(request: User.DeleteUserByIdRequest): Empty {
         val command = mapper.toDomain(request)
         commandBus.dispatch(command)
         return Empty.getDefaultInstance()

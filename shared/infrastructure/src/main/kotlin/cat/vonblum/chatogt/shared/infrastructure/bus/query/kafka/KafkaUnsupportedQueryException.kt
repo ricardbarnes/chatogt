@@ -7,8 +7,8 @@ class KafkaUnsupportedQueryException private constructor(message: String) :
 
     companion object {
 
-        fun becauseOf(command: Query): KafkaUnsupportedQueryException {
-            val className = command::class.qualifiedName ?: command::class.simpleName ?: "Unknown"
+        fun becauseOf(query: Query): KafkaUnsupportedQueryException {
+            val className = query::class.qualifiedName ?: query::class.simpleName ?: "Unknown"
             return KafkaUnsupportedQueryException("Unsupported command type $className")
         }
 

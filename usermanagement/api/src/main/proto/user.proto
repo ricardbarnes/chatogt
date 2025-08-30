@@ -6,15 +6,9 @@ package user;
 
 service UserService {
   rpc CreateUser (CreateUserRequest) returns (google.protobuf.Empty);
-  rpc FindUserById(FindUserByIdRequest) returns (User);
-  rpc FindUserByName(FindUserByNameRequest) returns (User);
+  rpc FindUserById(FindUserByIdRequest) returns (FindUserByIdResponse);
+  rpc FindUserByName(FindUserByNameRequest) returns (FindUserByNameResponse);
   rpc DeleteUserById(DeleteUserByIdRequest) returns (google.protobuf.Empty);
-}
-
-message User {
-  string id = 1;
-  string name = 2;
-  string status = 3;
 }
 
 message CreateUserRequest {
@@ -26,8 +20,18 @@ message FindUserByIdRequest {
   string id = 1;
 }
 
+message FindUserByIdResponse {
+  string id = 1;
+  string name = 2;
+}
+
 message FindUserByNameRequest {
   string name = 1;
+}
+
+message FindUserByNameResponse {
+  string id = 1;
+  string name = 2;
 }
 
 message DeleteUserByIdRequest {

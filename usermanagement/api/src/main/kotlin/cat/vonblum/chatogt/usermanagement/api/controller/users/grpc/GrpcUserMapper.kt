@@ -7,43 +7,43 @@ import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdResponse
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByNameQuery
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByNameResponse
 import org.springframework.stereotype.Component
-import user.UserOuterClass
+import user.User
 import java.util.UUID
 
 @Component
 class GrpcUserMapper {
 
-    fun toDomain(dto: UserOuterClass.CreateUserRequest): CreateUserCommand {
+    fun toDomain(dto: User.CreateUserRequest): CreateUserCommand {
         return CreateUserCommand(
             dto.name,
-            dto.password,
+            dto.password
         )
     }
 
-    fun toDomain(dto: UserOuterClass.FindUserByIdRequest): FindUserByIdQuery {
-        return FindUserByIdQuery(dto.id)
+    fun toDomain(dto: User.FindUserByIdRequest): FindUserByIdQuery {
+        return FindUserByIdQuery(UUID.fromString(dto.id))
     }
 
-    fun toDomain(dto: UserOuterClass.FindUserByNameRequest): FindUserByNameQuery {
+    fun toInfra(response: FindUserByIdResponse): User.FindUserByIdResponse {
+        return User.FindUserByIdResponse.newBuilder()
+            .setId(response.id.toString())
+            .setName(response.name)
+            .build()
+    }
+
+    fun toDomain(dto: User.FindUserByNameRequest): FindUserByNameQuery {
         return FindUserByNameQuery(dto.name)
     }
 
-    fun toDomain(dto: UserOuterClass.DeleteUserByIdRequest): DeleteUserByIdCommand {
+    fun toInfra(response: FindUserByNameResponse): User.FindUserByNameResponse {
+        return User.FindUserByNameResponse.newBuilder()
+            .setId(response.id.toString())
+            .setName(response.name)
+            .build()
+    }
+
+    fun toDomain(dto: User.DeleteUserByIdRequest): DeleteUserByIdCommand {
         return DeleteUserByIdCommand(UUID.fromString(dto.id))
-    }
-
-    fun toInfra(response: FindUserByIdResponse): UserOuterClass.User {
-        return UserOuterClass.User.newBuilder()
-            .setId(response.id.toString())
-            .setName(response.name)
-            .build()
-    }
-
-    fun toInfra(response: FindUserByNameResponse): UserOuterClass.User {
-        return UserOuterClass.User.newBuilder()
-            .setId(response.id.toString())
-            .setName(response.name)
-            .build()
     }
 
 }
