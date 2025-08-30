@@ -12,12 +12,13 @@ import org.springframework.stereotype.Component
 @Component
 class KafkaQueryBus : QueryBus {
 
-    override fun ask(query: Query): Response? {
+    override fun ask(query: Query): Response {
         when (query) {
             is FindUserByIdQuery -> handleFindUserByIdQuery(query)
             is FindUserByNameQuery -> handleFindUserByNameQuery(query)
-            else -> throw KafkaUnsupportedQueryException.becauseOf(query)
         }
+
+        throw KafkaUnsupportedQueryException.becauseOf(query)
     }
 
     private fun handleFindUserByIdQuery(query: FindUserByIdQuery): FindUserByNameResponse {
