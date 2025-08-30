@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.api.bus.shared.query
+package cat.vonblum.chatogt.usermanagement.api.bus.shared.query.kafka
 
 import cat.vonblum.chatogt.shared.domain.query.Query
 import cat.vonblum.chatogt.shared.domain.query.QueryBus

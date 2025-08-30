@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.api.bus.shared.command
+package cat.vonblum.chatogt.usermanagement.api.bus.shared.command.kafka
 
 import cat.vonblum.chatogt.shared.domain.command.Command
 import cat.vonblum.chatogt.shared.domain.command.CommandBus
