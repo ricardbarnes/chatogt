@@ -21,11 +21,13 @@ class KafkaQueryBus : QueryBus {
         throw KafkaUnsupportedQueryException.becauseOf(query)
     }
 
-    private fun handleFindUserByIdQuery(query: FindUserByIdQuery): FindUserByNameResponse {
+    private fun handleFindUserByIdQuery(query: FindUserByIdQuery):
+            FindUserByNameResponse {
         TODO("Not yet implemented")
     }
 
-    private fun handleFindUserByNameQuery(query: FindUserByNameQuery): FindUserByNameResponse {
+    private fun handleFindUserByNameQuery(query: FindUserByNameQuery):
+            FindUserByNameResponse {
         TODO("Not yet implemented")
     }
 

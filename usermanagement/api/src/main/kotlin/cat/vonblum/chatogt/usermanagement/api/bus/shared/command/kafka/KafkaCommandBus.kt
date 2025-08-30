@@ -19,11 +19,11 @@ class KafkaCommandBus : CommandBus {
     }
 
     private fun handleCreateUserCommand(command: CreateUserCommand) {
-        // TODO
+        TODO("Not yet implemented")
     }
 
     private fun handleDeleteUserByIdCommand(command: DeleteUserByIdCommand) {
-        // TODO
+        TODO("Not yet implemented")
     }
 
 }
