@@ -1,6 +1,6 @@
-package cat.vonblum.chatogt.shared.infrastructure.config
+package cat.vonblum.chatogt.shared.infrastructure.config.spring
 
-import cat.vonblum.chatogt.shared.infrastructure.io.serializer.GsonInstantTypeAdapter
+import cat.vonblum.chatogt.shared.infrastructure.io.serializer.gson.GsonInstantTypeAdapter
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import org.apache.kafka.clients.consumer.ConsumerConfig
@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import java.time.Instant
 import java.time.format.DateTimeFormatter
-import java.util.*
+import java.util.UUID
 
 @Configuration
 class SpringSharedKafkaConfig {

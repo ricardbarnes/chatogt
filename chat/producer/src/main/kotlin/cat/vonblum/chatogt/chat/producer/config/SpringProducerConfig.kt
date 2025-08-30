@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.chat.producer.config
 
-import cat.vonblum.chatogt.shared.infrastructure.config.SpringSharedKafkaConfig
+import cat.vonblum.chatogt.shared.infrastructure.config.spring.SpringSharedKafkaConfig
 import org.springframework.context.annotation.ComponentScan
 import org.springframework.context.annotation.Configuration
 

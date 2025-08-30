@@ -1,9 +1,9 @@
-package cat.vonblum.chatogt.shared.infrastructure.generator
+package cat.vonblum.chatogt.shared.infrastructure.generator.java
 
 import cat.vonblum.chatogt.shared.domain.generator.IdGenerator
-import java.util.*
+import java.util.UUID
 
-class GenericIdGenerator : IdGenerator {
+class UuidIdGenerator : IdGenerator {
 
     override fun next(): UUID {
         return UUID.randomUUID()

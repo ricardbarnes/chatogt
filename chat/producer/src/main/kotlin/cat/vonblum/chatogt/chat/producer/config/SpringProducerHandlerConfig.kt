@@ -19,8 +19,8 @@ import cat.vonblum.chatogt.shared.domain.event.EventBus
 import cat.vonblum.chatogt.shared.domain.generator.HashGenerator
 import cat.vonblum.chatogt.shared.domain.generator.IdGenerator
 import cat.vonblum.chatogt.shared.domain.handler.Handler
-import cat.vonblum.chatogt.shared.infrastructure.generator.Argon2HashGenerator
-import cat.vonblum.chatogt.shared.infrastructure.generator.GenericIdGenerator
+import cat.vonblum.chatogt.shared.infrastructure.generator.password4j.Argon2HashGenerator
+import cat.vonblum.chatogt.shared.infrastructure.generator.java.UuidIdGenerator
 import cat.vonblum.chatogt.chat.users.ForFindingUsers
 import cat.vonblum.chatogt.chat.users.create.CreateUserCommandHandler
 import cat.vonblum.chatogt.chat.users.delete.DeleteUserCommandHandler
@@ -34,7 +34,7 @@ class SpringProducerHandlerConfig {
 
     @Bean
     fun idGenerator(): IdGenerator {
-        return GenericIdGenerator()
+        return UuidIdGenerator()
     }
 
     @Bean

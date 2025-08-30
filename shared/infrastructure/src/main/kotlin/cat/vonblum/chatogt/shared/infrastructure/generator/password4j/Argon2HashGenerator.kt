@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.shared.infrastructure.generator
+package cat.vonblum.chatogt.shared.infrastructure.generator.password4j
 
 import cat.vonblum.chatogt.shared.domain.generator.HashGenerator
 import com.password4j.Password
