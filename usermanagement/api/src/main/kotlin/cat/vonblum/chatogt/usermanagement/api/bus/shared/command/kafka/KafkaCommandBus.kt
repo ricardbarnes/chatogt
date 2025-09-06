@@ -5,25 +5,28 @@ import cat.vonblum.chatogt.shared.domain.command.CommandBus
 import cat.vonblum.chatogt.shared.infrastructure.bus.command.kafka.KafkaUnsupportedCommandException
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.delete.DeleteUserByIdCommand
-import org.springframework.stereotype.Component
+import org.springframework.kafka.core.KafkaTemplate
+import java.util.*
 
-@Component
-class KafkaCommandBus : CommandBus {
+class KafkaCommandBus( // TODO: finish
+    private val template: KafkaTemplate<String, Command>,
+    private val topics: Map<String, String>
+) : CommandBus {
 
     override fun dispatch(command: Command) {
         when (command) {
-            is CreateUserCommand -> handleCreateUserCommand(command)
-            is DeleteUserByIdCommand -> handleDeleteUserByIdCommand(command)
+            is CreateUserCommand -> handleUserCommand(command)
+            is DeleteUserByIdCommand -> handleUserCommand(command)
             else -> throw KafkaUnsupportedCommandException.becauseOf(command)
         }
     }
 
-    private fun handleCreateUserCommand(command: CreateUserCommand) {
-        TODO("Not yet implemented")
-    }
-
-    private fun handleDeleteUserByIdCommand(command: DeleteUserByIdCommand) {
-        TODO("Not yet implemented")
+    private fun handleUserCommand(command: Command) {
+        template.send(
+            topics.get("users"),
+            UUID.randomUUID().toString(),
+            command
+        )
     }
 
 }
