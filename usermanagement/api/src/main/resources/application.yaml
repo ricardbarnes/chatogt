@@ -20,7 +20,7 @@ shared:
           exchange: users.commands
         activemq:
           destination: users.commands
-      # Add further aggregate command buses upon here
+      # add further aggregate command buses upon here
     queries:
       users:
         kafka:
@@ -29,7 +29,7 @@ shared:
           exchange: users.queries
         activemq:
           destination: users.queries
-        # Add further aggregate query buses upon here
+        # add further aggregate query buses upon here
     responses:
       users:
         kafka:
@@ -38,4 +38,4 @@ shared:
           exchange: users.responses
         activemq:
           destination: users.responses
-      # Add further aggregate response buses upon here
+      # add further aggregate response buses upon here
