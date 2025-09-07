@@ -3,30 +3,39 @@ package cat.vonblum.chatogt.usermanagement.api.bus.shared.command.kafka
 import cat.vonblum.chatogt.shared.domain.command.Command
 import cat.vonblum.chatogt.shared.domain.command.CommandBus
 import cat.vonblum.chatogt.shared.infrastructure.bus.command.kafka.KafkaUnsupportedCommandException
+import cat.vonblum.chatogt.shared.infrastructure.bus.command.shared.MessageEnvelope
+import cat.vonblum.chatogt.shared.infrastructure.bus.command.shared.MessageProducer
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.delete.DeleteUserByIdCommand
-import org.springframework.kafka.core.KafkaTemplate
 import java.util.*
 
-class KafkaCommandBus( // TODO: finish
-    private val template: KafkaTemplate<String, Command>,
-    private val topics: Map<String, String>
-) : CommandBus {
+class KafkaCommandBus(private val producer: MessageProducer) : CommandBus {
 
     override fun dispatch(command: Command) {
         when (command) {
-            is CreateUserCommand -> handleUserCommand(command)
-            is DeleteUserByIdCommand -> handleUserCommand(command)
+            is CreateUserCommand -> dispatchUserCommand(command)
+            is DeleteUserByIdCommand -> dispatchUserCommand(command)
+            // Add further commands upon here
             else -> throw KafkaUnsupportedCommandException.becauseOf(command)
         }
     }
 
-    private fun handleUserCommand(command: Command) {
-        template.send(
-            topics.get("users"),
-            UUID.randomUUID().toString(),
-            command
+    private fun dispatchUserCommand(command: Command) {
+        val envelope = MessageEnvelope(
+            id = UUID.randomUUID(),
+            aggregate = "users",
+            type = "command",
+            name = command::class.simpleName ?: "UnknownCommand",
+            key = UUID.randomUUID().toString(),
+            payload = command,
+            metadata = mapOf(
+                "source" to "user-management-api",
+                "target" to "user-management-producer"
+            )
         )
+        producer.send(envelope)
     }
+
+    // Add further command dispatcher methods (for new aggregates) upon here
 
 }

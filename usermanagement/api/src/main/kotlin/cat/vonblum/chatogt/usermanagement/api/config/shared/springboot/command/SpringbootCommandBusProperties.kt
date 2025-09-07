@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.api.config.shared.springboot
+package cat.vonblum.chatogt.usermanagement.api.config.shared.springboot.command
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 
