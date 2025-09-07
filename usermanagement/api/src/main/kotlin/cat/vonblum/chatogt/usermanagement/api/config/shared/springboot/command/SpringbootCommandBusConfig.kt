@@ -14,7 +14,8 @@ import org.springframework.context.annotation.Configuration
 class SpringbootCommandBusConfig {
 
     fun messageProducer(): MessageProducer {
-        return KafkaMessageProducer()
+        TODO()
+        //        return KafkaMessageProducer()
     }
 
 }
