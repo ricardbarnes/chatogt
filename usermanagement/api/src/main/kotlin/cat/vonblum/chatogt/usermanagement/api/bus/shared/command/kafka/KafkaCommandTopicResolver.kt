@@ -5,7 +5,7 @@ import cat.vonblum.chatogt.shared.infrastructure.bus.command.shared.MessageEnvel
 class KafkaCommandTopicResolver {
 
     fun resolve(envelope: MessageEnvelope): String {
-        TODO()
+        return "${envelope.aggregate}.${envelope.type.lowercase()}s"
     }
 
 }

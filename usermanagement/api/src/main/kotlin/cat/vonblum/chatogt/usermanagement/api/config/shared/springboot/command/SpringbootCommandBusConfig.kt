@@ -2,8 +2,11 @@ package cat.vonblum.chatogt.usermanagement.api.config.shared.springboot.command
 
 import cat.vonblum.chatogt.shared.infrastructure.bus.command.kafka.KafkaMessageProducer
 import cat.vonblum.chatogt.shared.infrastructure.bus.command.shared.MessageProducer
+import cat.vonblum.chatogt.usermanagement.api.bus.shared.command.kafka.KafkaCommandTopicResolver
 import org.springframework.boot.context.properties.EnableConfigurationProperties
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.kafka.core.KafkaTemplate
 
 @Configuration
 @EnableConfigurationProperties(
@@ -13,9 +16,20 @@ import org.springframework.context.annotation.Configuration
 )
 class SpringbootCommandBusConfig {
 
-    fun messageProducer(): MessageProducer {
-        TODO()
-        //        return KafkaMessageProducer()
+    @Bean
+    fun kafkaCommandTopicResolver(): KafkaCommandTopicResolver {
+        return KafkaCommandTopicResolver()
+    }
+
+    @Bean
+    fun kafkaMessageProducer(
+        kafkaTemplate: KafkaTemplate<String, Any>,
+        kafkaCommandTopicResolver: KafkaCommandTopicResolver
+    ): MessageProducer {
+        return KafkaMessageProducer(
+            kafkaTemplate,
+            kafkaCommandTopicResolver::resolve
+        )
     }
 
 }
