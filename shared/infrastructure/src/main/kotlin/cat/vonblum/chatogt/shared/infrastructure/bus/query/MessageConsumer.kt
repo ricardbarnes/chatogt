@@ -4,6 +4,6 @@ import cat.vonblum.chatogt.shared.infrastructure.bus.MessageEnvelope
 
 interface MessageConsumer {
 
-    fun onMessage(envelope: MessageEnvelope)
+    fun receive(envelope: MessageEnvelope)
 
 }
