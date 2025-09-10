@@ -1,10 +1,12 @@
-package cat.vonblum.chatogt.usermanagement.api.config.shared.springboot.bus.command
+package cat.vonblum.chatogt.usermanagement.api.config.shared.springboot.bus.shared
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 
-@ConfigurationProperties(prefix = "shared.bus.command")
-data class SpringbootCommandBusProperties(
-    val users: SpringbootAggregateBusProperties
+@ConfigurationProperties(prefix = "shared.bus")
+data class SpringbootBusProperties(
+    val command: Map<String, SpringbootAggregateBusProperties>,
+    val queries: Map<String, SpringbootAggregateBusProperties>,
+    val responses: Map<String, SpringbootAggregateBusProperties>
 ) {
     data class SpringbootAggregateBusProperties(
         val kafka: SpringbootKafkaProperties,
