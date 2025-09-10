@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.api.bus.shared.command.kafka
 
-import cat.vonblum.chatogt.shared.infrastructure.bus.command.shared.MessageEnvelope
+import cat.vonblum.chatogt.shared.infrastructure.bus.MessageEnvelope
 import cat.vonblum.chatogt.usermanagement.api.config.shared.springboot.command.SpringbootCommandBusProperties
 
 /**
