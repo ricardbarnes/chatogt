@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.api.config.shared.springboot.command
+package cat.vonblum.chatogt.usermanagement.api.config.shared.springboot.bus.command
 
 import cat.vonblum.chatogt.shared.infrastructure.bus.command.kafka.KafkaMessageProducer
 import cat.vonblum.chatogt.shared.infrastructure.bus.command.MessageProducer
