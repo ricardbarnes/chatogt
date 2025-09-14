@@ -23,7 +23,7 @@ import org.springframework.kafka.core.KafkaTemplate
         SpringKafkaConfig::class,
     ]
 )
-class SpringKafkaConfig {
+class SpringCommandBusKafkaConfig {
 
     @Bean
     fun kafkaCommandBusResolver(properties: SpringUserCommandBusProperties): KafkaCommandBusResolver {
