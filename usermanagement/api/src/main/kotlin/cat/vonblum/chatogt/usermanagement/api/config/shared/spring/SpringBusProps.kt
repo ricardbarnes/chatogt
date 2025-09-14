@@ -33,9 +33,9 @@ data class SpringBusProps(
         @get:Valid
         val rabbit: RabbitProperties,
 
-        @get:NotNull(message = "ActiveMQ bus properties must be provided")
+        @get:NotNull(message = "PubSub bus properties must be provided")
         @get:Valid
-        val activemq: ActiveMqProperties
+        val pubsub: PubsubProperties
 
     ) {
         data class KafkaProperties(
@@ -52,10 +52,10 @@ data class SpringBusProps(
 
         )
 
-        data class ActiveMqProperties(
+        data class PubsubProperties(
 
-            @get:NotEmpty(message = "ActiveMQ destination must not be empty")
-            val destination: String
+            @get:NotEmpty(message = "ActiveMQ subscription must not be empty")
+            val subscription: String
 
         )
     }
