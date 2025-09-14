@@ -10,32 +10,25 @@ grpc:
     port: 6565
     reflection-service-enabled: true
 
-shared:
-  bus:
-    command:
-      users:
-        kafka:
-          topic: users.commands
-        rabbit:
-          exchange: users.commands
-        activemq:
-          destination: users.commands
-      # add further aggregate command buses upon here
-    queries:
-      users:
-        kafka:
-          topic: users.queries
-        rabbit:
-          exchange: users.queries
-        activemq:
-          destination: users.queries
-        # add further aggregate query buses upon here
-    responses:
-      users:
+users:
+  commandBus:
+    kafka:
+      topic: users.commands
+    rabbit:
+      exchange: users.commands
+    activemq:
+      destination: users.commands
+    queryBus:
+      kafka:
+        topic: users.queries
+      rabbit:
+        exchange: users.queries
+      activemq:
+        destination: users.queries
+      responsesBus:
         kafka:
           topic: users.responses
         rabbit:
           exchange: users.responses
         activemq:
           destination: users.responses
-      # add further aggregate response buses upon here
