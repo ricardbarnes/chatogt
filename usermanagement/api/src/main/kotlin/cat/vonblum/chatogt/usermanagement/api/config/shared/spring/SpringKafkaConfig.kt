@@ -3,6 +3,7 @@ package cat.vonblum.chatogt.usermanagement.api.config.shared.spring
 import cat.vonblum.chatogt.shared.infrastructure.bus.command.MessageProducer
 import cat.vonblum.chatogt.shared.infrastructure.bus.command.kafka.KafkaMessageProducer
 import cat.vonblum.chatogt.shared.infrastructure.config.shared.spring.SpringKafkaConfig
+import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandBus
 import cat.vonblum.chatogt.usermanagement.api.bus.shared.kafka.KafkaTopicResolver
 import cat.vonblum.chatogt.usermanagement.api.properties.users.SpringUserProperties
 import org.springframework.boot.context.properties.EnableConfigurationProperties
@@ -38,6 +39,11 @@ class SpringKafkaConfig {
             kafkaTemplate,
             kafkaTopicResolver::resolve
         )
+    }
+
+    @Bean
+    fun kafkaCommandBus(messageProducer: KafkaMessageProducer): KafkaCommandBus {
+        return KafkaCommandBus(messageProducer)
     }
 
 }
