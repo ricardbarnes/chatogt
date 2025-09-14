@@ -1,13 +1,13 @@
 package cat.vonblum.chatogt.usermanagement.api.bus.shared.kafka
 
 import cat.vonblum.chatogt.shared.infrastructure.bus.MessageEnvelope
-import cat.vonblum.chatogt.usermanagement.api.config.shared.spring.SpringCommandBusProperties
+import cat.vonblum.chatogt.usermanagement.api.config.shared.spring.SpringKafkaProperties
 
 /**
  * Resolves Kafka topics based on Spring Boot configuration and envelope type.
  */
 class KafkaTopicResolver(
-    private val properties: SpringCommandBusProperties
+    private val properties: SpringKafkaProperties
 ) {
 
     fun resolve(envelope: MessageEnvelope): String {

@@ -3,7 +3,7 @@ package cat.vonblum.chatogt.usermanagement.api.config.shared.spring
 import org.springframework.boot.context.properties.ConfigurationProperties
 
 @ConfigurationProperties(prefix = "shared.bus")
-data class SpringCommandBusProperties(
+data class SpringKafkaProperties(
     val command: Map<String, SpringbootAggregateBusProperties>,
     val queries: Map<String, SpringbootAggregateBusProperties>,
     val responses: Map<String, SpringbootAggregateBusProperties>
