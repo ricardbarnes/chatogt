@@ -6,7 +6,7 @@ import cat.vonblum.chatogt.shared.infrastructure.bus.command.kafka.KafkaMessageP
 import cat.vonblum.chatogt.shared.infrastructure.config.shared.spring.SpringKafkaConfig as SharedKafkaConfig
 import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandBus
 import cat.vonblum.chatogt.usermanagement.api.bus.query.kafka.KafkaQueryBus
-import cat.vonblum.chatogt.usermanagement.api.properties.users.SpringBusProps
+import cat.vonblum.chatogt.usermanagement.api.config.shared.spring.SpringBusProps
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
