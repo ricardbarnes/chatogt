@@ -4,7 +4,7 @@ import cat.vonblum.chatogt.shared.domain.query.Query
 import cat.vonblum.chatogt.shared.domain.query.QueryBus
 import cat.vonblum.chatogt.shared.domain.query.Response
 import cat.vonblum.chatogt.shared.infrastructure.bus.MessageEnvelope
-import cat.vonblum.chatogt.shared.infrastructure.bus.command.MessageProducer
+import cat.vonblum.chatogt.shared.infrastructure.bus.MessageProducer
 import cat.vonblum.chatogt.shared.infrastructure.bus.query.kafka.KafkaUnsupportedQueryException
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQuery
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByNameQuery
