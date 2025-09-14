@@ -23,11 +23,19 @@ import org.springframework.kafka.core.KafkaTemplate
 class SpringKafkaConfig {
 
     @Bean
+    fun kafkaTopicResolver(busProps: SpringBusProps): SpringKafkaTopicResolver {
+        return SpringKafkaTopicResolver(busProps)
+    }
+
+    @Bean
     fun kafkaMessageProducer(
         kafkaTemplate: KafkaTemplate<String, Any>,
-        busProps: SpringBusProps
+        kafkaTopicResolver: SpringKafkaTopicResolver
     ): MessageProducer {
-        return KafkaMessageProducer(kafkaTemplate, createTopicResolver(busProps))
+        return KafkaMessageProducer(
+            kafkaTemplate,
+            kafkaTopicResolver::resolve
+        )
     }
 
     @Bean
@@ -38,18 +46,6 @@ class SpringKafkaConfig {
     @Bean
     fun kafkaQueryBus(messageProducer: MessageProducer): KafkaQueryBus {
         return KafkaQueryBus(messageProducer)
-    }
-
-    private fun createTopicResolver(busProps: SpringBusProps): (MessageEnvelope) -> String = { envelope ->
-        val busMap = when (envelope.type.lowercase()) {
-            "command" -> busProps.commands
-            "query" -> busProps.queries
-            "response" -> busProps.responses
-            else -> throw IllegalArgumentException("Unsupported envelope type '${envelope.type}'")
-        }
-
-        busMap[envelope.aggregate.lowercase()]?.kafka?.topic
-            ?: throw IllegalStateException("No config for aggregate '${envelope.aggregate}' and type '${envelope.type}'")
     }
 
 }
