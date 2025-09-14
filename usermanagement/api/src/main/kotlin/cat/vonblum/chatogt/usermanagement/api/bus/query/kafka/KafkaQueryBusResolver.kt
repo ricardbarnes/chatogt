@@ -1,10 +1,10 @@
-package cat.vonblum.chatogt.usermanagement.api.bus.command.kafka
+package cat.vonblum.chatogt.usermanagement.api.bus.query.kafka
 
 import cat.vonblum.chatogt.shared.infrastructure.bus.MessageEnvelope
-import cat.vonblum.chatogt.usermanagement.api.properties.users.SpringUserCommandBusProps
+import cat.vonblum.chatogt.usermanagement.api.properties.users.SpringUserQueryBusProps
 
-class KafkaCommandBusResolver(
-    private val userBusProps: SpringUserCommandBusProps
+class KafkaQueryBusResolver(
+    private val userBusProps: SpringUserQueryBusProps
     // add further aggregate properties upon here
 ) {
 
