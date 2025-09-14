@@ -9,39 +9,59 @@ import cat.vonblum.chatogt.shared.infrastructure.bus.query.kafka.KafkaUnsupporte
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQuery
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByNameQuery
 import java.util.*
+import java.util.concurrent.CompletableFuture
+import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.TimeUnit
 
 class KafkaQueryBus(private val producer: MessageProducer) : QueryBus {
+
+    // Map to correlate envelope keys with responses
+    private val responseMap = ConcurrentHashMap<String, CompletableFuture<Response>>()
 
     override fun ask(query: Query): Response {
         return when (query) {
             is FindUserByIdQuery -> askUserQuery(query)
             is FindUserByNameQuery -> askUserQuery(query)
-            // add further queries upon here
             else -> throw KafkaUnsupportedQueryException.becauseOf(query)
         }
     }
 
     private fun askUserQuery(query: Query): Response {
+        val key = UUID.randomUUID().toString()
         val envelope = MessageEnvelope(
             id = UUID.randomUUID(),
             aggregate = "users",
             type = "query",
             name = query::class.simpleName ?: "UnknownQuery",
-            key = UUID.randomUUID().toString(),
+            key = key,
             payload = query,
             metadata = mapOf(
                 "source" to "user-management-api",
                 "target" to "user-management-producer"
             )
         )
+
+        // Prepare a future to wait for the response
+        val future = CompletableFuture<Response>()
+        responseMap[key] = future
+
+        // Send the query
         producer.send(envelope)
 
-        // In a real implementation, you’d need to wait for a correlated response,
-        // likely by consuming from a Kafka reply topic using the envelope key.
-        // For now, this is just a placeholder:
-        TODO()
+        // Wait for the response (timeout example: 5 seconds)
+        return try {
+            future.get(5, TimeUnit.SECONDS)
+        } finally {
+            responseMap.remove(key)
+        }
     }
 
-    // add further query dispatcher methods (for new aggregates) upon here
+    /**
+     * Called by a Kafka consumer when a response arrives.
+     * The consumer must extract the correlation key from the envelope.
+     */
+    fun handleResponse(envelope: MessageEnvelope) {
+        responseMap[envelope.key]?.complete(envelope.payload as Response)
+    }
 
 }
