@@ -10,25 +10,28 @@ grpc:
     port: 6565
     reflection-service-enabled: true
 
-users:
-  command-bus:
-    kafka:
-      topic: users.commands
-    rabbit:
-      exchange: users.commands
-    activemq:
-      destination: users.commands
-    query-bus:
+bus:
+  commands:
+    users:
+      kafka:
+        topic: users.commands
+      rabbit:
+        exchange: users.commands
+      activemq:
+        destination: users.commands
+  queries:
+    users:
       kafka:
         topic: users.queries
       rabbit:
         exchange: users.queries
       activemq:
         destination: users.queries
-      responses-bus:
-        kafka:
-          topic: users.responses
-        rabbit:
-          exchange: users.responses
-        activemq:
-          destination: users.responses
+  responses:
+    users:
+      kafka:
+        topic: users.responses
+      rabbit:
+        exchange: users.responses
+      activemq:
+        destination: users.responses
