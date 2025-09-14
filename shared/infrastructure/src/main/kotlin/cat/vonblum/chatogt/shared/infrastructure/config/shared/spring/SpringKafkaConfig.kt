@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.shared.infrastructure.config.spring
+package cat.vonblum.chatogt.shared.infrastructure.config.shared.spring
 
 import cat.vonblum.chatogt.shared.infrastructure.io.serializer.gson.GsonInstantTypeAdapter
 import com.google.gson.Gson
@@ -20,7 +20,7 @@ import java.time.format.DateTimeFormatter
 import java.util.UUID
 
 @Configuration
-class SpringSharedKafkaConfig {
+class SpringKafkaConfig {
 
     @Bean
     fun dateTimeFormatter(): DateTimeFormatter {
