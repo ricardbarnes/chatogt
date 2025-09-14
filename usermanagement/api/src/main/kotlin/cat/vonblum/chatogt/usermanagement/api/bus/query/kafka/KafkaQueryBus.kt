@@ -56,12 +56,4 @@ class KafkaQueryBus(private val producer: MessageProducer) : QueryBus {
         }
     }
 
-    /**
-     * Called by a Kafka consumer when a response arrives.
-     * The consumer must extract the correlation key from the envelope.
-     */
-    fun handleResponse(envelope: MessageEnvelope) {
-        responseMap[envelope.key]?.complete(envelope.payload as Response)
-    }
-
 }
