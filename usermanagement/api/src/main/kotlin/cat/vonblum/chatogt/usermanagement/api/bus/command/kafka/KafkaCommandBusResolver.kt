@@ -1,13 +1,13 @@
 package cat.vonblum.chatogt.usermanagement.api.bus.command.kafka
 
 import cat.vonblum.chatogt.shared.infrastructure.bus.MessageEnvelope
-import cat.vonblum.chatogt.usermanagement.api.properties.users.SpringUserCommandBusProperties
+import cat.vonblum.chatogt.usermanagement.api.properties.users.SpringUserCommandBusProps
 
 /**
  * Resolves Kafka topics based on Spring Boot configuration and envelope type.
  */
 class KafkaCommandBusResolver(
-    private val userBusProps: SpringUserCommandBusProperties
+    private val userBusProps: SpringUserCommandBusProps
     // add further aggregate properties upon here
 ) {
 
@@ -20,7 +20,7 @@ class KafkaCommandBusResolver(
             )
         }
 
-        return props.commandBus.kafka.topic
+        return props.kafka.topic
     }
 
 }

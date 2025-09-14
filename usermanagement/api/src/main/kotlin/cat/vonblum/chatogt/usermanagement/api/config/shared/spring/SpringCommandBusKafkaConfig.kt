@@ -5,7 +5,7 @@ import cat.vonblum.chatogt.shared.infrastructure.bus.command.kafka.KafkaMessageP
 import cat.vonblum.chatogt.shared.infrastructure.config.shared.spring.SpringKafkaConfig
 import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandBus
 import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandBusResolver
-import cat.vonblum.chatogt.usermanagement.api.properties.users.SpringUserCommandBusProperties
+import cat.vonblum.chatogt.usermanagement.api.properties.users.SpringUserCommandBusProps
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -15,7 +15,7 @@ import org.springframework.kafka.core.KafkaTemplate
 @Configuration
 @EnableConfigurationProperties(
     value = [
-        SpringUserCommandBusProperties::class,
+        SpringUserCommandBusProps::class,
     ]
 )
 @Import(
@@ -26,7 +26,7 @@ import org.springframework.kafka.core.KafkaTemplate
 class SpringCommandBusKafkaConfig {
 
     @Bean
-    fun kafkaCommandBusResolver(properties: SpringUserCommandBusProperties): KafkaCommandBusResolver {
+    fun kafkaCommandBusResolver(properties: SpringUserCommandBusProps): KafkaCommandBusResolver {
         return KafkaCommandBusResolver(properties)
     }
 

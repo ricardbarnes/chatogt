@@ -11,21 +11,21 @@ grpc:
     reflection-service-enabled: true
 
 users:
-  commandBus:
+  command-bus:
     kafka:
       topic: users.commands
     rabbit:
       exchange: users.commands
     activemq:
       destination: users.commands
-    queryBus:
+    query-bus:
       kafka:
         topic: users.queries
       rabbit:
         exchange: users.queries
       activemq:
         destination: users.queries
-      responsesBus:
+      responses-bus:
         kafka:
           topic: users.responses
         rabbit:
