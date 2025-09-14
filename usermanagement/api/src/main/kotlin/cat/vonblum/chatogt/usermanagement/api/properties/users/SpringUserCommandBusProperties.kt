@@ -3,10 +3,8 @@ package cat.vonblum.chatogt.usermanagement.api.properties.users
 import org.springframework.boot.context.properties.ConfigurationProperties
 
 @ConfigurationProperties(prefix = "users")
-data class SpringUserProperties(
+data class SpringUserCommandBusProperties(
     val commandBus: BusProperties,
-    val queryBus: BusProperties,
-    val responsesBus: BusProperties
 ) {
     data class BusProperties(
         val kafka: KafkaProperties,
