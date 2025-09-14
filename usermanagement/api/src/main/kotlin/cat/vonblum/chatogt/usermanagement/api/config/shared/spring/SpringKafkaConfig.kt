@@ -15,11 +15,7 @@ import org.springframework.kafka.core.KafkaTemplate
 
 @Configuration
 @Import(SharedKafkaConfig::class)
-@EnableConfigurationProperties(
-    value = [
-        SpringBusProps::class,
-    ]
-)
+@EnableConfigurationProperties(SpringBusProps::class)
 class SpringKafkaConfig {
 
     @Bean
