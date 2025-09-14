@@ -1,9 +1,9 @@
-package cat.vonblum.chatogt.usermanagement.api.config.shared.springboot.bus.shared
+package cat.vonblum.chatogt.usermanagement.api.config.shared.spring
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 
 @ConfigurationProperties(prefix = "shared.bus")
-data class SpringbootBusProperties(
+data class SpringCommandBusProperties(
     val command: Map<String, SpringbootAggregateBusProperties>,
     val queries: Map<String, SpringbootAggregateBusProperties>,
     val responses: Map<String, SpringbootAggregateBusProperties>

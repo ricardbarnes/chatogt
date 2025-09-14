@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.api.config.shared.springboot.bus.shared
+package cat.vonblum.chatogt.usermanagement.api.config.shared.spring
 
 import cat.vonblum.chatogt.shared.infrastructure.bus.command.kafka.KafkaMessageProducer
 import cat.vonblum.chatogt.shared.infrastructure.bus.command.MessageProducer
@@ -11,13 +11,13 @@ import org.springframework.kafka.core.KafkaTemplate
 @Configuration
 @EnableConfigurationProperties(
     value = [
-        SpringbootBusProperties::class,
+        SpringCommandBusProperties::class,
     ]
 )
-class SpringbootBusConfig {
+class SpringCommandBusConfig {
 
     @Bean
-    fun kafkaTopicResolver(properties: SpringbootBusProperties): KafkaTopicResolver {
+    fun kafkaTopicResolver(properties: SpringCommandBusProperties): KafkaTopicResolver {
         return KafkaTopicResolver(properties)
     }
 
