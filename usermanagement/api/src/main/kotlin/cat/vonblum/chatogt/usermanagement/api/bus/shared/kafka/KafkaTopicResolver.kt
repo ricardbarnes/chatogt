@@ -21,9 +21,9 @@ class KafkaTopicResolver(
         }
 
         return when (envelope.type.lowercase()) {
-            "command" -> userProperties.commandBus.kafka.topic
-            "query" -> userProperties.queryBus.kafka.topic
-            "response" -> userProperties.responsesBus.kafka.topic
+            "command" -> props.commandBus.kafka.topic
+            "query" -> props.queryBus.kafka.topic
+            "response" -> props.responsesBus.kafka.topic
             else -> throw IllegalArgumentException(
                 "Unsupported envelope type '${envelope.type}'"
             )
