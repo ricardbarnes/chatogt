@@ -6,7 +6,7 @@ import java.lang.reflect.Method
 import kotlin.reflect.KClass
 
 /**
- * Generic handler class to register the required command handlers. It will perform the match from their corresponding
+ * Generic command dispatcher class to register the required command handlers. It will perform the match from their corresponding
  * DTOs and automagically delegate the DTO handling to the corresponding handler.
  *
  * NOTE: In order for this to work, follow the conventional handler/DTO naming, "FooBarCommand" & "FooBarCommandHandler"
