@@ -1,5 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.users.create
 
+import cat.vonblum.chatogt.shared.domain.command.CommandHandler
 import cat.vonblum.chatogt.shared.domain.event.EventBus
 import cat.vonblum.chatogt.shared.domain.generator.IdGenerator
 import cat.vonblum.chatogt.usermanagement.users.*
@@ -7,7 +8,7 @@ import cat.vonblum.chatogt.usermanagement.users.*
 class CreateUserCommandHandler(
     private val idGenerator: IdGenerator,
     private val eventBus: EventBus
-) {
+) : CommandHandler {
 
     fun handle(command: CreateUserCommand) = User.create(
         UserId(idGenerator.next()),
