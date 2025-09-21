@@ -1,18 +1,14 @@
 package cat.vonblum.chatogt.shared.infrastructure.bus.shared.spring
 
-import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageConsumer
 import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageEnvelope
+import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageResolver
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.messaging.handler.annotation.Header
 import org.springframework.stereotype.Component
-import java.util.UUID
+import java.util.*
 
 @Component
-class SpringKafkaMessageSubscriber(private val handler: (MessageEnvelope) -> Unit) : MessageConsumer {
-
-    override fun consume(envelope: MessageEnvelope) {
-        handler(envelope)
-    }
+class SpringKafkaSubscriber(private val resolver: MessageResolver) {
 
     @KafkaListener(
         topics = ["\${kafka.consumer.topic}"],
@@ -32,7 +28,7 @@ class SpringKafkaMessageSubscriber(private val handler: (MessageEnvelope) -> Uni
             key = key ?: UUID.randomUUID().toString(),
             payload = payload,
         )
-        consume(envelope)
+        resolver.resolve(envelope)
     }
 
 }
