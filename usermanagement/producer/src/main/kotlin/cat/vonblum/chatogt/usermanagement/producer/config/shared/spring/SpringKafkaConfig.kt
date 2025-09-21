@@ -6,7 +6,6 @@ import cat.vonblum.chatogt.shared.infrastructure.bus.shared.spring.SpringKafkaSu
 import cat.vonblum.chatogt.usermanagement.producer.bus.event.kafka.KafkaEventBus
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandHandler
 import cat.vonblum.chatogt.usermanagement.producer.handler.query.users.kafka.KafkaUserQueryHandler
-import cat.vonblum.chatogt.usermanagement.producer.handler.shared.kafka.KafkaMessageResolver
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -23,10 +22,7 @@ class SpringKafkaConfig {
         kafkaUserCommandHandler: KafkaUserCommandHandler,
         kafkaUserQueryHandler: KafkaUserQueryHandler,
     ): MessageResolver {
-        return KafkaMessageResolver(
-            kafkaUserCommandHandler,
-            kafkaUserQueryHandler
-        )
+        TODO()
     }
 
     @Bean
