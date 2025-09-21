@@ -21,14 +21,14 @@ class SpringKafkaSubscriber(private val resolver: MessageResolver) {
         @Header("name", required = false) name: String?,
         @Header("key", required = false) key: String?
     ) {
-        val envelope = Message(
+        val message = Message(
             aggregate = aggregate ?: "unknownAggregate",
             type = type ?: "unknownType",
             name = name ?: "unknownName",
             key = key ?: UUID.randomUUID().toString(),
             payload = payload,
         )
-        resolver.resolve(envelope)
+        resolver.resolve(message)
     }
 
 }
