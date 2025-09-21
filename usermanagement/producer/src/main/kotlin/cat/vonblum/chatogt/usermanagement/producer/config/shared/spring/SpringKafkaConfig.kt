@@ -1,9 +1,30 @@
 package cat.vonblum.chatogt.usermanagement.producer.config.shared.spring
 
+import cat.vonblum.chatogt.shared.domain.command.Command
+import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageEnvelope
 import cat.vonblum.chatogt.shared.infrastructure.bus.shared.spring.SpringKafkaMessageSubscriber
+import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.context.annotation.Import
 
 @Configuration
-@Import(SpringKafkaMessageSubscriber::class)
-class SpringKafkaConfig
+class SpringKafkaConfig {
+
+    /**
+     * Kafka subscriber for user commands. Consumes messages from Kafka, maps to Command,
+     * and dispatches them via CommandDispatcher.
+     */
+    @Bean
+    fun userCommandSubscriber(): SpringKafkaMessageSubscriber {
+        return SpringKafkaMessageSubscriber(
+            handler = { envelope: MessageEnvelope ->
+                // Map payload to domain Command
+                val command = envelope.payload as? Command
+                    ?: throw IllegalArgumentException("Payload is not a Command: ${envelope.payload}")
+
+                // Dispatch to registered handler
+                commandDispatcher.send(command)
+            }
+        )
+    }
+
+}
