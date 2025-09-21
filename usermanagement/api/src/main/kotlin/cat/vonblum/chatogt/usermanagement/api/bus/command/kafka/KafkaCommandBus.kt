@@ -3,8 +3,8 @@ package cat.vonblum.chatogt.usermanagement.api.bus.command.kafka
 import cat.vonblum.chatogt.shared.domain.command.Command
 import cat.vonblum.chatogt.shared.domain.command.CommandBus
 import cat.vonblum.chatogt.shared.infrastructure.bus.command.kafka.KafkaUnsupportedCommandException
-import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageEnvelope
-import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageProducer
+import cat.vonblum.chatogt.shared.infrastructure.bus.MessageEnvelope
+import cat.vonblum.chatogt.shared.infrastructure.bus.MessageProducer
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.delete.DeleteUserByIdCommand
 import java.util.*
