@@ -3,6 +3,7 @@ package cat.vonblum.chatogt.usermanagement.producer.config.shared.spring
 import cat.vonblum.chatogt.shared.domain.command.Command
 import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageEnvelope
 import cat.vonblum.chatogt.shared.infrastructure.bus.shared.spring.SpringKafkaMessageSubscriber
+import cat.vonblum.chatogt.shared.infrastructure.handler.command.CommandDispatcher
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -14,14 +15,11 @@ class SpringKafkaConfig {
      * and dispatches them via CommandDispatcher.
      */
     @Bean
-    fun userCommandSubscriber(): SpringKafkaMessageSubscriber {
+    fun userCommandSubscriber(commandDispatcher: CommandDispatcher): SpringKafkaMessageSubscriber {
         return SpringKafkaMessageSubscriber(
             handler = { envelope: MessageEnvelope ->
-                // Map payload to domain Command
                 val command = envelope.payload as? Command
                     ?: throw IllegalArgumentException("Payload is not a Command: ${envelope.payload}")
-
-                // Dispatch to registered handler
                 commandDispatcher.send(command)
             }
         )
