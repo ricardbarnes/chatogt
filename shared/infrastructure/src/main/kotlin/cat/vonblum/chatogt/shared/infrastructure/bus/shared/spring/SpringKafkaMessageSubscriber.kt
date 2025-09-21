@@ -8,17 +8,10 @@ import org.springframework.stereotype.Component
 import java.util.UUID
 
 @Component
-class SpringKafkaMessageSubscriber(
-    private val handler: (MessageEnvelope) -> Unit,
-    private val topicResolver: (MessageEnvelope) -> String
-) : MessageConsumer {
+class SpringKafkaMessageSubscriber(private val handler: (MessageEnvelope) -> Unit, ) : MessageConsumer {
 
     override fun consume(envelope: MessageEnvelope) {
-        val logicalTopic = topicResolver(envelope)
-        val routedEnvelope = envelope.copy(
-            metadata = envelope.metadata + mapOf("resolvedTopic" to logicalTopic)
-        )
-        handler(routedEnvelope)
+        handler(envelope)
     }
 
     @KafkaListener(

@@ -18,3 +18,33 @@ spring:
     mongodb:
       database: ${MONGO_DATABASE_NAME}
       uri: ${MONGO_DATABASE_URI}
+
+handler:
+  commands:
+    users:
+      kafka:
+        consumer-group-id: chatogt
+        topic: users.commands
+      rabbit:
+        exchange: users.commands
+      pubsub:
+        subscription: users.commands
+  queries:
+    users:
+      kafka:
+        consumer-group-id: chatogt
+        topic: users.queries
+      rabbit:
+        exchange: users.queries
+      pubsub:
+        subscription: users.queries
+
+bus:
+  events:
+    users:
+      kafka:
+        topic: users.commands
+      rabbit:
+        exchange: users.commands
+      pubsub:
+        subscription: users.commands
