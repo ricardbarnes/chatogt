@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.shared.infrastructure.bus
+package cat.vonblum.chatogt.shared.infrastructure.bus.shared
 
 interface MessageConsumer {
 
