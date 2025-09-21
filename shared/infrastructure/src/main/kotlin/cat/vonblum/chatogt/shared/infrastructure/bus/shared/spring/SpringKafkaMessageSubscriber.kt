@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component
 import java.util.UUID
 
 @Component
-class SpringKafkaMessageSubscriber(private val handler: (MessageEnvelope) -> Unit, ) : MessageConsumer {
+class SpringKafkaMessageSubscriber(private val handler: (MessageEnvelope) -> Unit) : MessageConsumer {
 
     override fun consume(envelope: MessageEnvelope) {
         handler(envelope)
