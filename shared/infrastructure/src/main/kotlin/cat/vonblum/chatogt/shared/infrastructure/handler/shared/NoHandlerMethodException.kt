@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.shared.domain.handler
+package cat.vonblum.chatogt.shared.infrastructure.handler.shared
 
 class NoHandlerMethodException(message: String) : HandlerException(message) {
 

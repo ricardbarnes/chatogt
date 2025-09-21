@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.shared.domain.handler
+package cat.vonblum.chatogt.shared.infrastructure.handler.shared
 
 import cat.vonblum.chatogt.shared.domain.command.Command
 import cat.vonblum.chatogt.shared.domain.command.CommandHandler

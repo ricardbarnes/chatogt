@@ -18,7 +18,7 @@ import cat.vonblum.chatogt.shared.domain.annotation.HandlerRegistry
 import cat.vonblum.chatogt.shared.domain.event.EventBus
 import cat.vonblum.chatogt.shared.domain.generator.HashGenerator
 import cat.vonblum.chatogt.shared.domain.generator.IdGenerator
-import cat.vonblum.chatogt.shared.domain.handler.Handler
+import cat.vonblum.chatogt.shared.infrastructure.handler.shared.Handler
 import cat.vonblum.chatogt.shared.infrastructure.generator.password4j.Argon2HashGenerator
 import cat.vonblum.chatogt.shared.infrastructure.generator.java.UuidIdGenerator
 import cat.vonblum.chatogt.chat.users.ForFindingUsers
