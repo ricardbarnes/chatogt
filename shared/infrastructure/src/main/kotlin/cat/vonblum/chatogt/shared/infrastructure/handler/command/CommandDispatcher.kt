@@ -5,6 +5,9 @@ import cat.vonblum.chatogt.shared.domain.command.CommandHandler
 import java.lang.reflect.Method
 import kotlin.reflect.KClass
 
+/**
+ * Generic command dispatcher that explicitly maps Command types to their handlers.
+ */
 class CommandDispatcher(
     private val handlerMap: Map<KClass<out Command>, CommandHandler>
 ) {

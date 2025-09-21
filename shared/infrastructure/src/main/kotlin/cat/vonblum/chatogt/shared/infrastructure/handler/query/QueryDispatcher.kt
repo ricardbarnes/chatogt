@@ -7,32 +7,21 @@ import java.lang.reflect.Method
 import kotlin.reflect.KClass
 
 /**
- * Generic query dispatcher class to register the required query handlers. It will perform the match from their corresponding
- * DTOs and automagically delegate the DTO handling to the corresponding handler.
- *
- * NOTE: In order for this to work, follow the conventional handler/DTO naming, "FooBarQuery" & "FooBarQueryHandler"
- * (e.g.: `FindUserQuery` & `FindUserQueryHandler`) for the registered handlers, as it works via reflection.
+ * Generic query dispatcher that explicitly maps Query types to their handlers.
  */
-class QueryDispatcher(private val handlers: List<Any>) {
+class QueryDispatcher(
+    private val handlerMap: Map<KClass<out Query>, QueryHandler>
+) {
 
     fun send(query: Query): Response? {
-        val handler = getHandlerClass(query::class)
-        val askerMethod = getAskerMethod(handler as QueryHandler)
-        return askerMethod.invoke(query)
+        val handler = handlerMap[query::class]
+            ?: throw QueryHandlerNotFoundException.becauseOf(query::class)
+
+        val method = getHandleMethod(handler)
+        return method.invoke(handler, query) as? Response
     }
 
-    private fun getHandlerClass(messageClass: KClass<out Any>): Any {
-        val handlerName = "${messageClass.simpleName}Handler"
-        return handlers.find { it::class.simpleName == handlerName }
-            ?: throw QueryHandlerNotFoundException.becauseOf(messageClass)
-    }
-
-    private fun getAskerMethod(queryHandler: QueryHandler): (Query) -> Response? {
-        val method = getHandleMethod(queryHandler)
-        return { query: Query -> method.invoke(queryHandler, query) as Response? }
-    }
-
-    private fun getHandleMethod(handler: Any): Method =
+    private fun getHandleMethod(handler: QueryHandler): Method =
         handler::class.java.methods
             .find { it.name == "handle" && it.parameterCount == 1 }
             ?: throw NoQueryHandlerMethodException.becauseOf(handler)
