@@ -15,7 +15,7 @@ import kotlin.reflect.KClass
 class KafkaEventBus(
     private val mapper: KafkaEventMapper,
     private val producer: KafkaProducer<UUID, String>,
-    @Value("\${kafka.topics.events}") private val topic: String
+    @param:Value("\${kafka.topics.events}") private val topic: String
 ) : EventBus {
 
     override fun publish(events: List<Event>) {
