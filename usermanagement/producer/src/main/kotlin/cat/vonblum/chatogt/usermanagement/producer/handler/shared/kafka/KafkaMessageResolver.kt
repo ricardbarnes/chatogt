@@ -2,12 +2,12 @@ package cat.vonblum.chatogt.usermanagement.producer.handler.shared.kafka
 
 import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageEnvelope
 import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageResolver
-import cat.vonblum.chatogt.usermanagement.producer.handler.command.kafka.KafkaCommandHandler
-import cat.vonblum.chatogt.usermanagement.producer.handler.query.kafka.KafkaQueryHandler
+import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandHandler
+import cat.vonblum.chatogt.usermanagement.producer.handler.query.users.kafka.KafkaUserQueryHandler
 
 class KafkaMessageResolver(
-    private val commandHandler: KafkaCommandHandler,
-    private val queryHandler: KafkaQueryHandler
+    private val commandHandler: KafkaUserCommandHandler,
+    private val queryHandler: KafkaUserQueryHandler
 ) : MessageResolver {
 
     override fun resolve(envelope: MessageEnvelope) {

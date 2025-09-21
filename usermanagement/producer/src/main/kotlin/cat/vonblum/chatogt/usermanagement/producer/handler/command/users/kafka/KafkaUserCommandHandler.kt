@@ -1,10 +1,10 @@
-package cat.vonblum.chatogt.usermanagement.producer.handler.command.kafka
+package cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka
 
 import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageEnvelope
 import cat.vonblum.chatogt.shared.infrastructure.handler.command.CommandDispatcher
 
-class KafkaCommandHandler(
-    private val mapper: KafkaCommandMapper,
+class KafkaUserCommandHandler(
+    private val mapper: KafkaUserCommandMapper,
     private val dispatcher: CommandDispatcher
 ) {
 

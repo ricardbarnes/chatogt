@@ -1,8 +1,8 @@
 package cat.vonblum.chatogt.usermanagement.producer.config.shared.spring
 
 import cat.vonblum.chatogt.shared.infrastructure.handler.query.QueryDispatcher
-import cat.vonblum.chatogt.usermanagement.producer.handler.query.kafka.KafkaQueryHandler
-import cat.vonblum.chatogt.usermanagement.producer.handler.query.kafka.KafkaQueryMapper
+import cat.vonblum.chatogt.usermanagement.producer.handler.query.users.kafka.KafkaUserQueryHandler
+import cat.vonblum.chatogt.usermanagement.producer.handler.query.users.kafka.KafkaUserQueryMapper
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -10,16 +10,16 @@ import org.springframework.context.annotation.Configuration
 class SpringKafkaQueryConfig {
 
     @Bean
-    fun kafkaQueryMapper(): KafkaQueryMapper {
-        return KafkaQueryMapper()
+    fun kafkaQueryMapper(): KafkaUserQueryMapper {
+        return KafkaUserQueryMapper()
     }
 
     @Bean
     fun kafkaQueryHandler(
-        mapper: KafkaQueryMapper,
+        mapper: KafkaUserQueryMapper,
         dispatcher: QueryDispatcher
-    ): KafkaQueryHandler {
-        return KafkaQueryHandler(
+    ): KafkaUserQueryHandler {
+        return KafkaUserQueryHandler(
             mapper,
             dispatcher,
         )

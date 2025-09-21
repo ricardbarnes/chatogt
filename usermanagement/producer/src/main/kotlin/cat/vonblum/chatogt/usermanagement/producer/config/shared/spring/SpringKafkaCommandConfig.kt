@@ -1,8 +1,8 @@
 package cat.vonblum.chatogt.usermanagement.producer.config.shared.spring
 
 import cat.vonblum.chatogt.shared.infrastructure.handler.command.CommandDispatcher
-import cat.vonblum.chatogt.usermanagement.producer.handler.command.kafka.KafkaCommandHandler
-import cat.vonblum.chatogt.usermanagement.producer.handler.command.kafka.KafkaCommandMapper
+import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandHandler
+import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandMapper
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -10,16 +10,16 @@ import org.springframework.context.annotation.Configuration
 class SpringKafkaCommandConfig {
 
     @Bean
-    fun kafkaCommandMapper(): KafkaCommandMapper {
-        return KafkaCommandMapper()
+    fun kafkaCommandMapper(): KafkaUserCommandMapper {
+        return KafkaUserCommandMapper()
     }
 
     @Bean
     fun kafkaCommandHandler(
-        mapper: KafkaCommandMapper,
+        mapper: KafkaUserCommandMapper,
         dispatcher: CommandDispatcher
-    ): KafkaCommandHandler {
-        return KafkaCommandHandler(
+    ): KafkaUserCommandHandler {
+        return KafkaUserCommandHandler(
             mapper,
             dispatcher,
         )
