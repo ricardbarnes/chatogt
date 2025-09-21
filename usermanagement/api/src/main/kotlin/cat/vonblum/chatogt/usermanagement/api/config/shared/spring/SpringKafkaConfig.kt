@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.api.config.shared.spring
 
 import cat.vonblum.chatogt.shared.infrastructure.bus.MessageProducer
-import cat.vonblum.chatogt.shared.infrastructure.bus.command.kafka.KafkaMessageProducer
+import cat.vonblum.chatogt.shared.infrastructure.bus.command.spring.SpringKafkaMessageProducer
 import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandBus
 import cat.vonblum.chatogt.usermanagement.api.bus.query.kafka.KafkaQueryBus
 import org.springframework.boot.context.properties.EnableConfigurationProperties
@@ -26,7 +26,7 @@ class SpringKafkaConfig {
         kafkaTemplate: KafkaTemplate<String, Any>,
         kafkaTopicResolver: SpringKafkaTopicResolver
     ): MessageProducer {
-        return KafkaMessageProducer(
+        return SpringKafkaMessageProducer(
             kafkaTemplate,
             kafkaTopicResolver::resolve
         )
