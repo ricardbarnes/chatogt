@@ -15,9 +15,11 @@ class SpringCommandHandlerConfig {
     @Bean
     fun commandHandlingMap(
         createUserCommandHandler: CreateUserCommandHandler,
+        // add further command handlers upon here
     ): Map<KClass<out Command>, CommandHandler> {
         return mapOf(
             CreateUserCommand::class as KClass<out Command> to createUserCommandHandler as CommandHandler,
+            // add further command to handler mappings upon here
         )
     }
 
