@@ -17,6 +17,7 @@ tasks.test {
 }
 
 dependencies {
+    implementation(project(":shared:domain"))
     implementation(project(":shared:infrastructure"))
     implementation(project(":usermanagement:domain:core"))
 
