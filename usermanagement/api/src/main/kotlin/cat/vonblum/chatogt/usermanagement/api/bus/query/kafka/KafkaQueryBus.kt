@@ -3,7 +3,7 @@ package cat.vonblum.chatogt.usermanagement.api.bus.query.kafka
 import cat.vonblum.chatogt.shared.domain.query.Query
 import cat.vonblum.chatogt.shared.domain.query.QueryBus
 import cat.vonblum.chatogt.shared.domain.query.Response
-import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageEnvelope
+import cat.vonblum.chatogt.shared.infrastructure.bus.shared.Message
 import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageProducer
 import cat.vonblum.chatogt.shared.infrastructure.bus.query.kafka.KafkaUnsupportedQueryException
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQuery
@@ -28,7 +28,7 @@ class KafkaQueryBus(private val producer: MessageProducer) : QueryBus {
 
     private fun askUserQuery(query: Query): Response {
         val key = UUID.randomUUID().toString()
-        val envelope = MessageEnvelope(
+        val envelope = Message(
             id = UUID.randomUUID(),
             aggregate = "users",
             type = "query",

@@ -2,6 +2,6 @@ package cat.vonblum.chatogt.shared.infrastructure.bus.shared
 
 interface MessageProducer {
 
-    fun send(envelope: MessageEnvelope)
+    fun send(envelope: Message)
 
 }

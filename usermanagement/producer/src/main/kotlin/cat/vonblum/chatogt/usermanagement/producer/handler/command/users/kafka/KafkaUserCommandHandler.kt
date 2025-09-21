@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka
 
-import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageEnvelope
+import cat.vonblum.chatogt.shared.infrastructure.bus.shared.Message
 import cat.vonblum.chatogt.shared.infrastructure.handler.command.CommandDispatcher
 
 class KafkaUserCommandHandler(
@@ -8,7 +8,7 @@ class KafkaUserCommandHandler(
     private val dispatcher: CommandDispatcher
 ) {
 
-    fun handle(message: MessageEnvelope) {
+    fun handle(message: Message) {
         // TODO
     }
 

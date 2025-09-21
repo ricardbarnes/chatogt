@@ -1,10 +1,10 @@
 package cat.vonblum.chatogt.usermanagement.api.config.shared.spring
 
-import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageEnvelope
+import cat.vonblum.chatogt.shared.infrastructure.bus.shared.Message
 
 class SpringKafkaTopicResolver(private val busProps: SpringBusProps) {
 
-    fun resolve(envelope: MessageEnvelope): String {
+    fun resolve(envelope: Message): String {
         val busMap = when (envelope.type.lowercase()) {
             "command" -> busProps.commands
             "query" -> busProps.queries
