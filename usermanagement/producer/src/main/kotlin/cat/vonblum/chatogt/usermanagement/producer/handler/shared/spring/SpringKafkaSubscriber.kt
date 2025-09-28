@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.shared.infrastructure.handler.handler.spring
+package cat.vonblum.chatogt.usermanagement.producer.handler.shared.spring
 
 import cat.vonblum.chatogt.shared.infrastructure.message.Message
 import cat.vonblum.chatogt.shared.infrastructure.message.MessageResolver
@@ -11,8 +11,11 @@ import java.util.UUID
 class SpringKafkaSubscriber(private val resolver: MessageResolver) {
 
     @KafkaListener(
-        topics = ["\${kafka.consumer.topic}"],
-        groupId = "\${kafka.consumer.group-id}"
+        groupId = "\${handler.shared.kafka.consumer-group-id}",
+        topics = [
+            "\${handler.commands.users.kafka.topic}",
+            "\${handler.queries.users.kafka.topic}"
+        ],
     )
     fun onMessage(
         payload: String,

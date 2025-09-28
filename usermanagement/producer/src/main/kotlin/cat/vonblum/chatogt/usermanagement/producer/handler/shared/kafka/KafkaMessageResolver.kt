@@ -12,7 +12,8 @@ class KafkaMessageResolver(
 ) : MessageResolver {
 
     override fun resolve(message: Message) {
-        TODO()
+        // TODO
+        println("Processing message: $message")
     }
 
 }

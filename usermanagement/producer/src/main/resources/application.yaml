@@ -38,6 +38,9 @@ handler:
         exchange: users.queries
       pubsub:
         subscription: users.queries
+  shared:
+    kafka:
+      consumer-group-id: chatogt
 
 bus:
   events:
