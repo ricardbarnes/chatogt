@@ -7,7 +7,8 @@ import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageResolver
 
 class KafkaMessageResolver(
     commandHandlers: List<CommandHandler>,
-    queryHandlers: List<QueryHandler>
+    queryHandlers: List<QueryHandler>,
+    mapper: KafkaMessageMapper
 ) : MessageResolver {
 
     override fun resolve(message: Message) {
