@@ -23,7 +23,6 @@ handler:
   commands:
     users:
       kafka:
-        consumer-group-id: chatogt
         topic: users.commands
       rabbit:
         exchange: users.commands
@@ -32,7 +31,6 @@ handler:
   queries:
     users:
       kafka:
-        consumer-group-id: chatogt
         topic: users.queries
       rabbit:
         exchange: users.queries
