@@ -1,8 +1,8 @@
 package cat.vonblum.chatogt.usermanagement.producer.config.shared.spring
 
 import cat.vonblum.chatogt.shared.domain.event.EventBus
-import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageResolver
-import cat.vonblum.chatogt.shared.infrastructure.bus.shared.spring.SpringKafkaSubscriber
+import cat.vonblum.chatogt.shared.infrastructure.message.MessageResolver
+import cat.vonblum.chatogt.shared.infrastructure.handler.handler.spring.SpringKafkaSubscriber
 import cat.vonblum.chatogt.usermanagement.producer.bus.event.kafka.KafkaEventBus
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandHandler
 import cat.vonblum.chatogt.usermanagement.producer.handler.query.users.kafka.KafkaUserQueryHandler

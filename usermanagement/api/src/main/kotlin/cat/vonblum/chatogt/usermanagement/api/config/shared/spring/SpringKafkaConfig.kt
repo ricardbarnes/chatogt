@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.api.config.shared.spring
 
-import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageProducer
+import cat.vonblum.chatogt.shared.infrastructure.message.MessageProducer
 import cat.vonblum.chatogt.shared.infrastructure.bus.command.spring.SpringKafkaMessageProducer
 import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandBus
 import cat.vonblum.chatogt.usermanagement.api.bus.query.kafka.KafkaQueryBus

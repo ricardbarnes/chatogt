@@ -1,11 +1,11 @@
-package cat.vonblum.chatogt.shared.infrastructure.bus.shared.spring
+package cat.vonblum.chatogt.shared.infrastructure.handler.handler.spring
 
-import cat.vonblum.chatogt.shared.infrastructure.bus.shared.Message
-import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageResolver
+import cat.vonblum.chatogt.shared.infrastructure.message.Message
+import cat.vonblum.chatogt.shared.infrastructure.message.MessageResolver
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.messaging.handler.annotation.Header
 import org.springframework.stereotype.Component
-import java.util.*
+import java.util.UUID
 
 @Component
 class SpringKafkaSubscriber(private val resolver: MessageResolver) {

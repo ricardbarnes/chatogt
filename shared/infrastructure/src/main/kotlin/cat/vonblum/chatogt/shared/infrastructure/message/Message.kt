@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.shared.infrastructure.bus.shared
+package cat.vonblum.chatogt.shared.infrastructure.message
 
 import java.time.Instant
 import java.util.UUID

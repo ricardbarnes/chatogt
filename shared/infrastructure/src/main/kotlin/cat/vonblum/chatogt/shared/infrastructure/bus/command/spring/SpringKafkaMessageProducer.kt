@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.shared.infrastructure.bus.command.spring
 
-import cat.vonblum.chatogt.shared.infrastructure.bus.shared.Message
-import cat.vonblum.chatogt.shared.infrastructure.bus.shared.MessageProducer
+import cat.vonblum.chatogt.shared.infrastructure.message.Message
+import cat.vonblum.chatogt.shared.infrastructure.message.MessageProducer
 import org.springframework.kafka.core.KafkaTemplate
 
 class SpringKafkaMessageProducer(

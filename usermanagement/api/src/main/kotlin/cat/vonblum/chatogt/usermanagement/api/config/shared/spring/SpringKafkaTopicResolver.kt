@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.api.config.shared.spring
 
-import cat.vonblum.chatogt.shared.infrastructure.bus.shared.Message
+import cat.vonblum.chatogt.shared.infrastructure.message.Message
 
 class SpringKafkaTopicResolver(private val busProps: SpringBusProps) {
 
