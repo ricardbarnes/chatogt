@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.shared.infrastructure.message
+package cat.vonblum.chatogt.shared.infrastructure.io.message
 
 interface MessageConsumer {
 

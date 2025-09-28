@@ -3,8 +3,8 @@ package cat.vonblum.chatogt.usermanagement.api.bus.query.kafka
 import cat.vonblum.chatogt.shared.domain.query.Query
 import cat.vonblum.chatogt.shared.domain.query.QueryBus
 import cat.vonblum.chatogt.shared.domain.query.Response
-import cat.vonblum.chatogt.shared.infrastructure.message.Message
-import cat.vonblum.chatogt.shared.infrastructure.message.MessageProducer
+import cat.vonblum.chatogt.shared.infrastructure.io.message.Message
+import cat.vonblum.chatogt.shared.infrastructure.io.message.MessageProducer
 import cat.vonblum.chatogt.shared.infrastructure.bus.query.kafka.KafkaUnsupportedQueryException
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQuery
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByNameQuery

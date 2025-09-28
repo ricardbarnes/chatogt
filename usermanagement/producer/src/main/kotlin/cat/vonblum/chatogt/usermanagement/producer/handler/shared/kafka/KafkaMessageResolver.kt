@@ -4,8 +4,8 @@ import cat.vonblum.chatogt.shared.domain.command.Command
 import cat.vonblum.chatogt.shared.domain.command.CommandHandler
 import cat.vonblum.chatogt.shared.domain.query.Query
 import cat.vonblum.chatogt.shared.domain.query.QueryHandler
-import cat.vonblum.chatogt.shared.infrastructure.message.Message
-import cat.vonblum.chatogt.shared.infrastructure.message.MessageResolver
+import cat.vonblum.chatogt.shared.infrastructure.io.message.Message
+import cat.vonblum.chatogt.shared.infrastructure.io.message.MessageResolver
 import kotlin.reflect.KClass
 
 class KafkaMessageResolver(

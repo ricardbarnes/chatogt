@@ -5,7 +5,7 @@ import cat.vonblum.chatogt.shared.domain.command.CommandHandler
 import cat.vonblum.chatogt.shared.domain.event.EventBus
 import cat.vonblum.chatogt.shared.domain.query.Query
 import cat.vonblum.chatogt.shared.domain.query.QueryHandler
-import cat.vonblum.chatogt.shared.infrastructure.message.MessageResolver
+import cat.vonblum.chatogt.shared.infrastructure.io.message.MessageResolver
 import cat.vonblum.chatogt.usermanagement.producer.bus.event.kafka.KafkaEventBus
 import cat.vonblum.chatogt.usermanagement.producer.handler.shared.kafka.KafkaMessageMapper
 import cat.vonblum.chatogt.usermanagement.producer.handler.shared.kafka.KafkaMessageResolver
