@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chat.producer.provider.mongo.chats
+package cat.vonblum.chatogt.chat.producer.provider.chats.mongo
 
 import cat.vonblum.chatogt.chat.chats.ForDeletingChats
 import cat.vonblum.chatogt.chat.shared.ChatId

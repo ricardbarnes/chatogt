@@ -1,8 +1,8 @@
-package cat.vonblum.chatogt.chat.producer.provider.mongo.chats
+package cat.vonblum.chatogt.chat.producer.provider.chats.mongo
 
 import cat.vonblum.chatogt.chat.chats.Chat
 import cat.vonblum.chatogt.chat.chats.ForFindingChats
-import cat.vonblum.chatogt.chat.producer.store.MongoReadStore
+import cat.vonblum.chatogt.chat.producer.store.mongo.MongoReadStore
 import cat.vonblum.chatogt.chat.shared.ChatId
 import cat.vonblum.chatogt.chat.shared.UserId
 import org.springframework.stereotype.Component

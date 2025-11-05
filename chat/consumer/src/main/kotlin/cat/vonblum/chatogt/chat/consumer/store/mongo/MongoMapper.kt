@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chat.consumer.store
+package cat.vonblum.chatogt.chat.consumer.store.mongo
 
 import cat.vonblum.chatogt.chat.chats.ChatCreatedEvent
 import cat.vonblum.chatogt.chat.messages.MessageCreatedEvent

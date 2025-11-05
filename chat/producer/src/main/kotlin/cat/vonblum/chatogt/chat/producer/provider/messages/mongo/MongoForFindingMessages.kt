@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chat.producer.provider.mongo.messages
+package cat.vonblum.chatogt.chat.producer.provider.messages.mongo
 
 import cat.vonblum.chatogt.chat.messages.ForFindingMessages
 import cat.vonblum.chatogt.chat.messages.Message

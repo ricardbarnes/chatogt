@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chat.consumer.entrypoint
+package cat.vonblum.chatogt.chat.consumer.entrypoint.spring
 
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication

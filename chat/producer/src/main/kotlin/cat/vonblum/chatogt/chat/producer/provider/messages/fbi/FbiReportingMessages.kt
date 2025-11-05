@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chat.producer.provider.fbi.messages
+package cat.vonblum.chatogt.chat.producer.provider.messages.fbi
 
 import cat.vonblum.chatogt.chat.messages.Message
 import cat.vonblum.chatogt.chat.messages.ReportingMessages

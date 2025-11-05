@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chat.producer.provider.cia.messages
+package cat.vonblum.chatogt.chat.producer.provider.messages.cia
 
 import cat.vonblum.chatogt.chat.messages.Message
 import cat.vonblum.chatogt.chat.messages.ReportingMessages
