@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chat.producer.handler.query
+package cat.vonblum.chatogt.chat.producer.handler.query.kafka
 
 import cat.vonblum.chatogt.chat.chats.find.FindChatIdsByUserIdQuery
 import cat.vonblum.chatogt.chat.chats.find.FindChatQuery

@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chat.producer.handler.command
+package cat.vonblum.chatogt.chat.producer.handler.command.kafka
 
 import com.google.gson.Gson
 import org.springframework.stereotype.Component

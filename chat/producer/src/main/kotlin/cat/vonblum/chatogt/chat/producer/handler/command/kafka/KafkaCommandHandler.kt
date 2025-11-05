@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chat.producer.handler.command
+package cat.vonblum.chatogt.chat.producer.handler.command.kafka
 
 import cat.vonblum.chatogt.chat.chats.create.CreateChatCommand
 import cat.vonblum.chatogt.chat.chats.create.CreateChatCommandHandler

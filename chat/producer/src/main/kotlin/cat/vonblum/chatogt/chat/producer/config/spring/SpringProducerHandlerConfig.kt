@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chat.producer.config
+package cat.vonblum.chatogt.chat.producer.config.spring
 
 import cat.vonblum.chatogt.chat.chats.ForFindingChats
 import cat.vonblum.chatogt.chat.chats.create.CreateChatCommandHandler

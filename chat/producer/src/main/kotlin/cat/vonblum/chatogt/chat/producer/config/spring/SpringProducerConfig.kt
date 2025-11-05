@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chat.producer.config
+package cat.vonblum.chatogt.chat.producer.config.spring
 
 import cat.vonblum.chatogt.shared.infrastructure.config.shared.spring.SpringKafkaConfig
 import org.springframework.context.annotation.ComponentScan

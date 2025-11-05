@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.chat.producer.store.mongo
 
 import cat.vonblum.chatogt.chat.chats.ChatCreatedEvent
-import cat.vonblum.chatogt.chat.producer.bus.event.MongoEventMapper
+import cat.vonblum.chatogt.chat.producer.bus.event.mongo.MongoEventMapper
 import cat.vonblum.chatogt.shared.domain.event.Event
 import cat.vonblum.chatogt.shared.domain.valueobject.Id
 import cat.vonblum.chats.shared.infrastructure.model.MongoEvent
