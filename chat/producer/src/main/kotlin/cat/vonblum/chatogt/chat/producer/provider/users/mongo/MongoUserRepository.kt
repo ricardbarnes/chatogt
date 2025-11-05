@@ -2,7 +2,7 @@ package cat.vonblum.chatogt.chat.producer.provider.users.mongo
 
 import cat.vonblum.chatogt.chat.users.User
 import cat.vonblum.chatogt.chat.users.UserName
-import cat.vonblum.chats.shared.infrastructure.model.MongoUserCreatedEvent
+import cat.vonblum.chats.shared.infrastructure.model.mongo.MongoUserCreatedEvent
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.query.Criteria
 import org.springframework.data.mongodb.core.query.Query

@@ -1,4 +1,4 @@
-package cat.vonblum.chats.shared.infrastructure.model
+package cat.vonblum.chats.shared.infrastructure.model.mongo
 
 import java.time.Instant
 

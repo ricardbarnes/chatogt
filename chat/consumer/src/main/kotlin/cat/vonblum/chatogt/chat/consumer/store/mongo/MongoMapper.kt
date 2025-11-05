@@ -4,10 +4,10 @@ import cat.vonblum.chatogt.chat.chats.ChatCreatedEvent
 import cat.vonblum.chatogt.chat.messages.MessageCreatedEvent
 import cat.vonblum.chatogt.chat.users.UserCreatedEvent
 import cat.vonblum.chatogt.shared.domain.event.Event
-import cat.vonblum.chats.shared.infrastructure.model.MongoChatCreatedEvent
-import cat.vonblum.chats.shared.infrastructure.model.MongoEvent
-import cat.vonblum.chats.shared.infrastructure.model.MongoMessageCreatedEvent
-import cat.vonblum.chats.shared.infrastructure.model.MongoUserCreatedEvent
+import cat.vonblum.chats.shared.infrastructure.model.mongo.MongoChatCreatedEvent
+import cat.vonblum.chats.shared.infrastructure.model.mongo.MongoEvent
+import cat.vonblum.chats.shared.infrastructure.model.mongo.MongoMessageCreatedEvent
+import cat.vonblum.chats.shared.infrastructure.model.mongo.MongoUserCreatedEvent
 import org.springframework.stereotype.Component
 
 @Component
