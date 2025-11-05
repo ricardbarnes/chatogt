@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.chat.consumer.store.mongo
+package cat.vonblum.chatogt.chat.consumer.store
 
 import cat.vonblum.chatogt.shared.domain.event.Event
 
