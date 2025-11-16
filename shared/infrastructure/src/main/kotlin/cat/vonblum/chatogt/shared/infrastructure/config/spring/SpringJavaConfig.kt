@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.shared.infrastructure.config.shared.spring
+package cat.vonblum.chatogt.shared.infrastructure.config.spring
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

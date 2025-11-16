@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.shared.infrastructure.config.shared.spring
+package cat.vonblum.chatogt.shared.infrastructure.config.spring
 
 import cat.vonblum.chatogt.shared.infrastructure.io.serializer.gson.GsonInstantTypeAdapter
 import com.google.gson.Gson

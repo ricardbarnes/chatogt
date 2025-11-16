@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.context.annotation.Import
 import org.springframework.kafka.core.KafkaTemplate
-import cat.vonblum.chatogt.shared.infrastructure.config.shared.spring.SpringKafkaConfig as SharedKafkaConfig
+import cat.vonblum.chatogt.shared.infrastructure.config.spring.SpringKafkaConfig as SharedKafkaConfig
 
 @Configuration
 @Import(SharedKafkaConfig::class)

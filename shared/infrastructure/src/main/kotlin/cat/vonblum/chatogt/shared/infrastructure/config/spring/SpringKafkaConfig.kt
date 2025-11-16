@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.shared.infrastructure.config.shared.spring
+package cat.vonblum.chatogt.shared.infrastructure.config.spring
 
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.consumer.KafkaConsumer

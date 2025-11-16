@@ -15,7 +15,6 @@ class KafkaCommandBus(private val producer: MessageProducer) : CommandBus {
         when (command) {
             is CreateUserCommand -> dispatchUserCommand(command)
             is DeleteUserByIdCommand -> dispatchUserCommand(command)
-            // add further commands upon here
             else -> throw KafkaUnsupportedCommandException.becauseOf(command)
         }
     }
@@ -35,7 +34,5 @@ class KafkaCommandBus(private val producer: MessageProducer) : CommandBus {
         )
         producer.send(envelope)
     }
-
-    // add further command dispatcher methods (for new aggregates) upon here
 
 }
