@@ -32,7 +32,12 @@ class KafkaCommandBus(private val producer: MessageProducer) : CommandBus {
                 "target" to "user-management-producer"
             )
         )
-        producer.send(envelope)
+        try {
+            producer.send(envelope)
+        } catch (e: Exception) {
+            println(e.message)
+        }
+
     }
 
 }
