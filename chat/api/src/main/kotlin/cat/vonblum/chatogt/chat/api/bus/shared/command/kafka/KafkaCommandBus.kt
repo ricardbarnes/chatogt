@@ -18,7 +18,7 @@ import kotlin.reflect.KClass
 class KafkaCommandBus(
     private val mapper: KafkaCommandMapper,
     private val producer: KafkaProducer<UUID, String>,
-    @Value("\${kafka.topics.commands}") private val topic: String
+    @param:Value("\${kafka.topics.commands}") private val topic: String
 ) : CommandBus {
 
     override fun dispatch(command: Command) {
