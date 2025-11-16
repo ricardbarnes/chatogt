@@ -2,8 +2,10 @@ package cat.vonblum.chatogt.usermanagement.api.entrypoint.spring
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
+@ComponentScan("cat.vonblum.chatogt.usermanagement.api.config.shared.spring")
 class SpringEntrypoint
 
 fun main(args: Array<String>) {
