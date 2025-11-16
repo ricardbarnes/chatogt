@@ -4,10 +4,8 @@ import cat.vonblum.chatogt.shared.infrastructure.io.message.Message
 import cat.vonblum.chatogt.shared.infrastructure.io.message.MessageResolver
 import org.springframework.kafka.annotation.KafkaListener
 import org.springframework.messaging.handler.annotation.Header
-import org.springframework.stereotype.Component
-import java.util.UUID
+import java.util.*
 
-@Component
 class SpringKafkaSubscriber(private val resolver: MessageResolver) {
 
     @KafkaListener(

@@ -1,13 +1,6 @@
 server:
   port: ${SPRING_SERVER_PORT}
 
-kafka:
-  topics:
-    commands: commands
-    queries: queries
-    responses: responses
-    events: events
-
 spring:
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}

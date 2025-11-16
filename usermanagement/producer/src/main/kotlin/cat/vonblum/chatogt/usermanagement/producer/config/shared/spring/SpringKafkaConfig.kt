@@ -9,6 +9,7 @@ import cat.vonblum.chatogt.shared.infrastructure.io.message.MessageResolver
 import cat.vonblum.chatogt.usermanagement.producer.bus.event.kafka.KafkaEventBus
 import cat.vonblum.chatogt.usermanagement.producer.handler.shared.kafka.KafkaMessageMapper
 import cat.vonblum.chatogt.usermanagement.producer.handler.shared.kafka.KafkaMessageResolver
+import cat.vonblum.chatogt.usermanagement.producer.handler.shared.spring.SpringKafkaSubscriber
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import kotlin.reflect.KClass
@@ -37,6 +38,11 @@ class SpringKafkaConfig {
             queryHandlers,
             mapper
         )
+    }
+
+    @Bean
+    fun kafkaSubscriber(kafkaMessageResolver: MessageResolver): SpringKafkaSubscriber {
+        return SpringKafkaSubscriber(kafkaMessageResolver)
     }
 
 }
