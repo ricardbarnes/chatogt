@@ -1,5 +1,5 @@
 server:
-  port: ${APPLICATION_PORT:8080}
+  port: ${SPRING_SERVER_PORT}
 
 spring:
   kafka:
@@ -7,7 +7,7 @@ spring:
 
 grpc:
   server:
-    port: 6565
+    port: ${GRPC_SERVER_PORT}
     reflection-service-enabled: true
 
 bus:
