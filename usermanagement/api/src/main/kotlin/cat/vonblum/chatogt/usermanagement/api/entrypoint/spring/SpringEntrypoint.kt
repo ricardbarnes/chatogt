@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan
 @ComponentScan(
     value = [
         "cat.vonblum.chatogt.usermanagement.api.config.shared.spring",
+        "cat.vonblum.chatogt.usermanagement.api.controller.users.grpc",
     ]
 )
 class SpringEntrypoint
