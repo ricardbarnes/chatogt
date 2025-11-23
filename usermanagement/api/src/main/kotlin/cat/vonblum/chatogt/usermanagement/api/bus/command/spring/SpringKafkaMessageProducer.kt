@@ -13,12 +13,16 @@ class SpringKafkaMessageProducer(
 
     override fun send(message: Message) {
         val topic = topicResolver(message)
-        // TODO
+        val payload = map(message.payload)
         template.send(
             topic,
             message.key.toByteArray(),
-            null // TODO
+            payload
         )
+    }
+
+    fun map(payload: Any): ByteArray {
+        TODO()
     }
 
 }
