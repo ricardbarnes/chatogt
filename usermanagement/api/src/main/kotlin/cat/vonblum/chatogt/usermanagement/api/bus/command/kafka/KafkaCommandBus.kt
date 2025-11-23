@@ -20,7 +20,7 @@ class KafkaCommandBus(private val producer: MessageProducer) : CommandBus {
     }
 
     private fun dispatchUserCommand(command: Command) {
-        val envelope = Message(
+        val message = Message(
             id = UUID.randomUUID(),
             aggregate = "users",
             type = "command",
@@ -33,7 +33,7 @@ class KafkaCommandBus(private val producer: MessageProducer) : CommandBus {
             )
         )
         try {
-            producer.send(envelope)
+            producer.send(message)
         } catch (e: Exception) {
             println(e.message)
         }
