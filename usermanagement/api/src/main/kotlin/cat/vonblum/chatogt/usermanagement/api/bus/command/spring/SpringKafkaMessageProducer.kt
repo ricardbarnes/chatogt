@@ -13,7 +13,6 @@ class SpringKafkaMessageProducer(
 
     override fun send(message: Message) {
         val topic = topicResolver(message)
-        val content = message.payload to message.type
         // TODO
         template.send(
             topic,
