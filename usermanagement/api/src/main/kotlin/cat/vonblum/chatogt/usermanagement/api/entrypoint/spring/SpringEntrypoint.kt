@@ -3,10 +3,12 @@ package cat.vonblum.chatogt.usermanagement.api.entrypoint.spring
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
-@SpringBootApplication(scanBasePackages = [
-    "cat.vonblum.chatogt.usermanagement.api.config.shared.spring",
-    "cat.vonblum.chatogt.usermanagement.api.controller.users.grpc",
-])
+@SpringBootApplication(
+    scanBasePackages = [
+        "cat.vonblum.chatogt.usermanagement.api.config.shared.spring",
+        "cat.vonblum.chatogt.usermanagement.api.controller.users.grpc",
+    ]
+)
 class SpringEntrypoint
 
 fun main(args: Array<String>) {
