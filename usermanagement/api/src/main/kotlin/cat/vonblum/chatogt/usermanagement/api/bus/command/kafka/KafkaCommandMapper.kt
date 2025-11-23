@@ -4,23 +4,39 @@ import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.delete.DeleteUserByIdCommand
 import cat.vonblum.chatogt.usermanagement.users.update.UpdateUserNameCommand
 import cat.vonblum.chatogt.usermanagement.users.update.UpdateUserPasswordCommand
+import user.User
 
 class KafkaCommandMapper {
 
     fun toInfra(command: CreateUserCommand): ByteArray {
-        TODO()
+        return User.CreateUserRequest.newBuilder()
+            .setName(command.name)
+            .setPassword(command.password)
+            .build()
+            .toByteArray()
     }
 
     fun toInfra(command: DeleteUserByIdCommand): ByteArray {
-        TODO()
+        return User.DeleteUserByIdRequest.newBuilder()
+            .setId(command.id.toString())
+            .build()
+            .toByteArray()
     }
 
     fun toInfra(command: UpdateUserNameCommand): ByteArray {
-        TODO()
+        return User.UpdateUserNameRequest.newBuilder()
+            .setId(command.id.toString())
+            .setName(command.name)
+            .build()
+            .toByteArray()
     }
 
     fun toInfra(command: UpdateUserPasswordCommand): ByteArray {
-        TODO()
+        return User.UpdateUserPasswordRequest.newBuilder()
+            .setId(command.id.toString())
+            .setPassword(command.password)
+            .build()
+            .toByteArray()
     }
 
 }

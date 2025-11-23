@@ -9,6 +9,8 @@ service UserService {
   rpc FindUserById(FindUserByIdRequest) returns (FindUserByIdResponse);
   rpc FindUserByName(FindUserByNameRequest) returns (FindUserByNameResponse);
   rpc DeleteUserById(DeleteUserByIdRequest) returns (google.protobuf.Empty);
+  rpc UpdateUserName(UpdateUserNameRequest) returns (google.protobuf.Empty);
+  rpc UpdateUserPassword(UpdateUserPasswordRequest) returns (google.protobuf.Empty);
 }
 
 message CreateUserRequest {
@@ -37,3 +39,14 @@ message FindUserByNameResponse {
 message DeleteUserByIdRequest {
   string id = 1;
 }
+
+message UpdateUserNameRequest {
+  string id = 1;
+  string name = 2;
+}
+
+message UpdateUserPasswordRequest {
+  string id = 1;
+  string password = 2;
+}
+
