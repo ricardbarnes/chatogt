@@ -19,12 +19,12 @@ tasks.test {
 }
 
 dependencies {
-    implementation(project(":shared:infrastructure"))
-    implementation(project(":usermanagement:domain:core"))
     api("com.google.protobuf:protobuf-java:4.28.2")
     api("io.grpc:grpc-kotlin-stub:1.4.3")
     api("io.grpc:grpc-stub:1.64.0")
     api("io.grpc:grpc-protobuf:1.64.0")
+    implementation(project(":shared:infrastructure"))
+    implementation(project(":usermanagement:domain:core"))
 }
 
 protobuf {
