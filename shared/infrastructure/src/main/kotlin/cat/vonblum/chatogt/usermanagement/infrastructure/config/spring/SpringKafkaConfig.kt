@@ -12,9 +12,6 @@ import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.kafka.core.DefaultKafkaProducerFactory
-import org.springframework.kafka.core.KafkaTemplate
-import org.springframework.kafka.core.ProducerFactory
 import java.util.*
 
 @Configuration
@@ -54,20 +51,6 @@ class SpringKafkaConfig {
         @Qualifier("kafkaConsumerProperties") properties: Map<String, Any>
     ): KafkaConsumer<UUID, String> {
         return KafkaConsumer(properties)
-    }
-
-    @Bean
-    fun producerFactory(
-        @Qualifier("kafkaProducerProperties") properties: Map<String, Any>
-    ): ProducerFactory<String, Any> {
-        return DefaultKafkaProducerFactory(properties)
-    }
-
-    @Bean
-    fun kafkaTemplate(
-        producerFactory: ProducerFactory<ByteArray, ByteArray>
-    ): KafkaTemplate<ByteArray, ByteArray> {
-        return KafkaTemplate(producerFactory)
     }
 
 }
