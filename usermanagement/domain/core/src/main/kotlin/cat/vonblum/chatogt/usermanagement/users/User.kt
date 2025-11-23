@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.users
 
-import cat.vonblum.chatogt.shared.domain.aggregate.AggregateRoot
-import cat.vonblum.chatogt.shared.domain.event.Event
+import cat.vonblum.chatogt.usermanagement.domain.aggregate.AggregateRoot
+import cat.vonblum.chatogt.usermanagement.domain.event.Event
 
 class User private constructor() : AggregateRoot() {
 

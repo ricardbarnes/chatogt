@@ -1,8 +1,8 @@
 package cat.vonblum.chatogt.chat.users
 
 import cat.vonblum.chatogt.chat.shared.UserId
-import cat.vonblum.chatogt.shared.domain.aggregate.AggregateRoot
-import cat.vonblum.chatogt.shared.domain.event.Event
+import cat.vonblum.chatogt.usermanagement.domain.aggregate.AggregateRoot
+import cat.vonblum.chatogt.usermanagement.domain.event.Event
 
 class User(
     val id: UserId,

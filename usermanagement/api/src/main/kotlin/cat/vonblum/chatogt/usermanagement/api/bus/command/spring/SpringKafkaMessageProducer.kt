@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.api.bus.command.spring
 
-import cat.vonblum.chatogt.shared.infrastructure.io.message.Message
-import cat.vonblum.chatogt.shared.infrastructure.io.message.MessageProducer
+import cat.vonblum.chatogt.usermanagement.infrastructure.io.message.Message
+import cat.vonblum.chatogt.usermanagement.infrastructure.io.message.MessageProducer
 import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandMapper
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.delete.DeleteUserByIdCommand

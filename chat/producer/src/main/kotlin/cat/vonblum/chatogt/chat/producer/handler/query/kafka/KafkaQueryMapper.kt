@@ -2,7 +2,7 @@ package cat.vonblum.chatogt.chat.producer.handler.query.kafka
 
 import cat.vonblum.chatogt.chat.chats.find.FindChatIdsByUserIdQuery
 import cat.vonblum.chatogt.chat.chats.find.FindChatQuery
-import cat.vonblum.chatogt.shared.domain.query.Response
+import cat.vonblum.chatogt.usermanagement.domain.query.Response
 import com.google.gson.Gson
 import org.springframework.stereotype.Component
 

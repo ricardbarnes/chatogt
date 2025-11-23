@@ -1,8 +1,8 @@
 package cat.vonblum.chatogt.usermanagement.users.create
 
-import cat.vonblum.chatogt.shared.domain.event.EventBus
-import cat.vonblum.chatogt.shared.domain.generator.IdGenerator
-import cat.vonblum.chatogt.shared.domain.valueobject.IdFaker
+import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
+import cat.vonblum.chatogt.usermanagement.domain.generator.IdGenerator
+import cat.vonblum.chatogt.usermanagement.domain.valueobject.IdFaker
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.InjectMocks

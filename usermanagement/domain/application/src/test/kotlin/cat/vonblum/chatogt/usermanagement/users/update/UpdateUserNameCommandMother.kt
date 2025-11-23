@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.users.update
 
-import cat.vonblum.chatogt.shared.domain.valueobject.IdFaker
-import cat.vonblum.chatogt.shared.domain.valueobject.StringFaker
+import cat.vonblum.chatogt.usermanagement.domain.valueobject.IdFaker
+import cat.vonblum.chatogt.usermanagement.domain.valueobject.StringFaker
 import java.util.UUID
 
 object UpdateUserNameCommandMother {

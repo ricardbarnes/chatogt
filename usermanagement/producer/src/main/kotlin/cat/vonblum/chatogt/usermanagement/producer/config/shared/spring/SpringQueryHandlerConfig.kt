@@ -1,8 +1,8 @@
 package cat.vonblum.chatogt.usermanagement.producer.config.shared.spring
 
-import cat.vonblum.chatogt.shared.domain.query.Query
-import cat.vonblum.chatogt.shared.domain.query.QueryHandler
-import cat.vonblum.chatogt.shared.infrastructure.handler.query.QueryDispatcher
+import cat.vonblum.chatogt.usermanagement.domain.query.Query
+import cat.vonblum.chatogt.usermanagement.domain.query.QueryHandler
+import cat.vonblum.chatogt.usermanagement.infrastructure.handler.query.QueryDispatcher
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQuery
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQueryHandler
 import org.springframework.context.annotation.Bean

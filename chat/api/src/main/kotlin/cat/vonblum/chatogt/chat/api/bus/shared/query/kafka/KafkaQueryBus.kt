@@ -4,10 +4,9 @@ import cat.vonblum.chatogt.chat.api.bus.chats.query.kafka.KafkaChatQueryMapper
 import cat.vonblum.chatogt.chat.chats.find.FindChatIdsByUserIdQuery
 import cat.vonblum.chatogt.chat.chats.find.FindChatQuery
 import cat.vonblum.chatogt.chat.users.find.FindUserByNameQuery
-import cat.vonblum.chatogt.chat.api.bus.shared.query.kafka.KafkaUserQueryMapper
-import cat.vonblum.chatogt.shared.domain.query.Query
-import cat.vonblum.chatogt.shared.domain.query.QueryBus
-import cat.vonblum.chatogt.shared.domain.query.Response
+import cat.vonblum.chatogt.usermanagement.domain.query.Query
+import cat.vonblum.chatogt.usermanagement.domain.query.QueryBus
+import cat.vonblum.chatogt.usermanagement.domain.query.Response
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerRecord

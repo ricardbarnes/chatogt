@@ -4,8 +4,8 @@ import cat.vonblum.chatogt.chat.api.controller.users.rest.RestUserChatIdsDto
 import cat.vonblum.chatogt.chat.api.controller.users.rest.RestUserDto
 import cat.vonblum.chatogt.chat.api.mapper.RestUserMapper
 import cat.vonblum.chatogt.chat.chats.find.FindChatIdsByUserIdResponse
-import cat.vonblum.chatogt.shared.domain.command.CommandBus
-import cat.vonblum.chatogt.shared.domain.query.QueryBus
+import cat.vonblum.chatogt.usermanagement.domain.command.CommandBus
+import cat.vonblum.chatogt.usermanagement.domain.query.QueryBus
 import cat.vonblum.chatogt.chat.users.find.FindUserByNameResponse
 import org.springframework.http.HttpStatus.*
 import org.springframework.web.bind.annotation.*

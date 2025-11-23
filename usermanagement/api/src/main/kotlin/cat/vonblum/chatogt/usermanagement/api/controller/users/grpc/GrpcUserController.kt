@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.api.controller.users.grpc
 
-import cat.vonblum.chatogt.shared.domain.command.CommandBus
-import cat.vonblum.chatogt.shared.domain.query.QueryBus
+import cat.vonblum.chatogt.usermanagement.domain.command.CommandBus
+import cat.vonblum.chatogt.usermanagement.domain.query.QueryBus
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdResponse
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByNameResponse
 import com.google.protobuf.Empty

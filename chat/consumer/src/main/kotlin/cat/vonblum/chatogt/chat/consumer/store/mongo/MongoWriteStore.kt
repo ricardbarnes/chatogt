@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.chat.consumer.store.mongo
 
 import cat.vonblum.chatogt.chat.consumer.store.WriteStore
-import cat.vonblum.chatogt.shared.domain.event.Event
+import cat.vonblum.chatogt.usermanagement.domain.event.Event
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.stereotype.Component
 

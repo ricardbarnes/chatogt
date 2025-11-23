@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.users
 
-import cat.vonblum.chatogt.shared.domain.aggregate.AggregateRehydrator
+import cat.vonblum.chatogt.usermanagement.domain.aggregate.AggregateRehydrator
 
 object UserMother {
 

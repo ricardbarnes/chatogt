@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.chat.producer.bus.event.mongo
 
-import cat.vonblum.chatogt.shared.domain.event.Event
+import cat.vonblum.chatogt.usermanagement.domain.event.Event
 import cat.vonblum.chats.shared.infrastructure.model.mongo.MongoEvent
 import org.springframework.stereotype.Component
 

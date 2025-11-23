@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.users.update
 
-import cat.vonblum.chatogt.shared.domain.event.EventBus
+import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 import cat.vonblum.chatogt.usermanagement.users.ForFindingUsers
 import cat.vonblum.chatogt.usermanagement.users.UserId
 import cat.vonblum.chatogt.usermanagement.users.UserName

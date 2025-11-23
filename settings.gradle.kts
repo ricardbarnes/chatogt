@@ -9,6 +9,7 @@ include(
     ":usermanagement:api",
     ":usermanagement:producer",
     ":usermanagement:consumer",
+    ":usermanagement:shared",
 
     ":chat:domain:core",
     ":chat:domain:application",

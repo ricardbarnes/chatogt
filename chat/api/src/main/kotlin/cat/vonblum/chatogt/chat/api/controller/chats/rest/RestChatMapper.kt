@@ -5,7 +5,7 @@ import cat.vonblum.chatogt.chat.chats.create.CreateChatCommand
 import cat.vonblum.chatogt.chat.chats.delete.DeleteChatCommand
 import cat.vonblum.chatogt.chat.chats.find.FindChatQuery
 import cat.vonblum.chatogt.chat.chats.find.FindChatResponse
-import cat.vonblum.chatogt.shared.domain.command.Command
+import cat.vonblum.chatogt.usermanagement.domain.command.Command
 import org.springframework.stereotype.Component
 import java.util.*
 

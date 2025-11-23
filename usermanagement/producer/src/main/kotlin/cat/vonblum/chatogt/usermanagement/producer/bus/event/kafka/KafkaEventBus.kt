@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.producer.bus.event.kafka
 
-import cat.vonblum.chatogt.shared.domain.event.Event
-import cat.vonblum.chatogt.shared.domain.event.EventBus
+import cat.vonblum.chatogt.usermanagement.domain.event.Event
+import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 
 class KafkaEventBus : EventBus {
 

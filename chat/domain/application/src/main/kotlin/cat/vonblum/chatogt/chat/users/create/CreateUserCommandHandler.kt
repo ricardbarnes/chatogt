@@ -1,9 +1,9 @@
 package cat.vonblum.chatogt.chat.users.create
 
 import cat.vonblum.chatogt.chat.shared.UserId
-import cat.vonblum.chatogt.shared.domain.event.EventBus
-import cat.vonblum.chatogt.shared.domain.generator.HashGenerator
-import cat.vonblum.chatogt.shared.domain.generator.IdGenerator
+import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
+import cat.vonblum.chatogt.usermanagement.domain.generator.HashGenerator
+import cat.vonblum.chatogt.usermanagement.domain.generator.IdGenerator
 import cat.vonblum.chatogt.chat.users.User
 import cat.vonblum.chatogt.chat.users.UserName
 import cat.vonblum.chatogt.chat.users.UserPassword

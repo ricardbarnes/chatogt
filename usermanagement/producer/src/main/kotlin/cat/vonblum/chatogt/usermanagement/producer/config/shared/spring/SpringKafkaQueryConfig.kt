@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.producer.config.shared.spring
 
-import cat.vonblum.chatogt.shared.infrastructure.handler.query.QueryDispatcher
+import cat.vonblum.chatogt.usermanagement.infrastructure.handler.query.QueryDispatcher
 import cat.vonblum.chatogt.usermanagement.producer.handler.query.users.kafka.KafkaUserQueryHandler
 import cat.vonblum.chatogt.usermanagement.producer.handler.query.users.kafka.KafkaUserQueryMapper
 import org.springframework.context.annotation.Bean

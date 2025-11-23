@@ -2,8 +2,8 @@ package cat.vonblum.chatogt.chat.api.controller
 
 import cat.vonblum.chatogt.chat.api.controller.messages.rest.RestMessageDto
 import cat.vonblum.chatogt.chat.api.mapper.RestMessageMapper
-import cat.vonblum.chatogt.shared.domain.command.CommandBus
-import cat.vonblum.chatogt.shared.domain.query.QueryBus
+import cat.vonblum.chatogt.usermanagement.domain.command.CommandBus
+import cat.vonblum.chatogt.usermanagement.domain.query.QueryBus
 import org.springframework.http.HttpStatus.CREATED
 import org.springframework.http.HttpStatus.OK
 import org.springframework.web.bind.annotation.*

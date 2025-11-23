@@ -2,8 +2,8 @@ package cat.vonblum.chatogt.chat.messages
 
 import cat.vonblum.chatogt.chat.shared.ChatId
 import cat.vonblum.chatogt.chat.shared.UserId
-import cat.vonblum.chatogt.shared.domain.aggregate.AggregateRoot
-import cat.vonblum.chatogt.shared.domain.event.Event
+import cat.vonblum.chatogt.usermanagement.domain.aggregate.AggregateRoot
+import cat.vonblum.chatogt.usermanagement.domain.event.Event
 
 class Message(
     val id: MessageId,

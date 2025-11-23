@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.users
 
-import cat.vonblum.chatogt.shared.domain.error.Error
+import cat.vonblum.chatogt.usermanagement.domain.error.Error
 
 class UserAlreadyExists(override val message: String) : Error(message) {
 

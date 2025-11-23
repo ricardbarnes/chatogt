@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.users
 
-import cat.vonblum.chatogt.shared.domain.valueobject.StringFaker
+import cat.vonblum.chatogt.usermanagement.domain.valueobject.StringFaker
 
 object UserNameMother {
 

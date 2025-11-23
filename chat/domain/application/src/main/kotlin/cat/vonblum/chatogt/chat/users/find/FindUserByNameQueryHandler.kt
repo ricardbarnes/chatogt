@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.chat.users.find
 
-import cat.vonblum.chatogt.shared.domain.command.CommandHandler
+import cat.vonblum.chatogt.usermanagement.domain.command.CommandHandler
 import cat.vonblum.chatogt.chat.users.ForFindingUsers
 import cat.vonblum.chatogt.chat.users.UserName
 

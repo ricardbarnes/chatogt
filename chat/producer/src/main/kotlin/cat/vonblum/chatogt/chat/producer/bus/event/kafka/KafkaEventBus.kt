@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.chat.producer.bus.event.kafka
 
-import cat.vonblum.chatogt.shared.domain.event.Event
-import cat.vonblum.chatogt.shared.domain.event.EventBus
+import cat.vonblum.chatogt.usermanagement.domain.event.Event
+import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.header.Headers

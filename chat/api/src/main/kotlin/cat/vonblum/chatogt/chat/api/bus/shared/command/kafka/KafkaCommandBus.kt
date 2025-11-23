@@ -3,8 +3,8 @@ package cat.vonblum.chatogt.chat.api.bus.shared.command.kafka
 import cat.vonblum.chatogt.chat.chats.create.CreateChatCommand
 import cat.vonblum.chatogt.chat.messages.create.CreateMessageCommand
 import cat.vonblum.chatogt.chat.users.create.CreateUserCommand
-import cat.vonblum.chatogt.shared.domain.command.Command
-import cat.vonblum.chatogt.shared.domain.command.CommandBus
+import cat.vonblum.chatogt.usermanagement.domain.command.Command
+import cat.vonblum.chatogt.usermanagement.domain.command.CommandBus
 import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.header.Headers

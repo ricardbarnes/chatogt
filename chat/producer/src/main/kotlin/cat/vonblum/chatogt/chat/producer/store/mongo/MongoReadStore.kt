@@ -2,8 +2,8 @@ package cat.vonblum.chatogt.chat.producer.store.mongo
 
 import cat.vonblum.chatogt.chat.chats.ChatCreatedEvent
 import cat.vonblum.chatogt.chat.producer.bus.event.mongo.MongoEventMapper
-import cat.vonblum.chatogt.shared.domain.event.Event
-import cat.vonblum.chatogt.shared.domain.valueobject.Id
+import cat.vonblum.chatogt.usermanagement.domain.event.Event
+import cat.vonblum.chatogt.usermanagement.domain.valueobject.Id
 import cat.vonblum.chats.shared.infrastructure.model.mongo.MongoEvent
 import org.springframework.data.mongodb.core.MongoTemplate
 import org.springframework.data.mongodb.core.query.Criteria

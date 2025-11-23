@@ -6,7 +6,7 @@ import cat.vonblum.chatogt.chat.messages.delete.DeleteMessageCommand
 import cat.vonblum.chatogt.chat.messages.find.FindMessageIdsQuery
 import cat.vonblum.chatogt.chat.messages.find.FindMessageQuery
 import cat.vonblum.chatogt.chat.messages.update.UpdateMessageCommand
-import cat.vonblum.chatogt.shared.domain.query.Response
+import cat.vonblum.chatogt.usermanagement.domain.query.Response
 import org.springframework.stereotype.Component
 import java.util.*
 

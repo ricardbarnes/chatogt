@@ -4,7 +4,7 @@ import cat.vonblum.chatogt.chat.api.controller.users.rest.RestUserChatIdsDto
 import cat.vonblum.chatogt.chat.api.controller.users.rest.RestUserDto
 import cat.vonblum.chatogt.chat.chats.find.FindChatIdsByUserIdQuery
 import cat.vonblum.chatogt.chat.chats.find.FindChatIdsByUserIdResponse
-import cat.vonblum.chatogt.shared.domain.command.Command
+import cat.vonblum.chatogt.usermanagement.domain.command.Command
 import cat.vonblum.chatogt.chat.users.create.CreateUserCommand
 import cat.vonblum.chatogt.chat.users.delete.DeleteUserCommand
 import cat.vonblum.chatogt.chat.users.find.FindUserByNameQuery

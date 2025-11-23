@@ -2,7 +2,7 @@ package cat.vonblum.chatogt.chat.chats.find
 
 import cat.vonblum.chatogt.chat.chats.ForFindingChats
 import cat.vonblum.chatogt.chat.shared.UserId
-import cat.vonblum.chatogt.shared.domain.query.QueryHandler
+import cat.vonblum.chatogt.usermanagement.domain.query.QueryHandler
 
 class FindChatIdsByUserIdQueryHandler(private val finding: ForFindingChats) : QueryHandler {
 

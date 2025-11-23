@@ -3,8 +3,8 @@ package cat.vonblum.chatogt.chat.messages.update
 import cat.vonblum.chatogt.chat.messages.ForFindingMessages
 import cat.vonblum.chatogt.chat.messages.MessageContent
 import cat.vonblum.chatogt.chat.messages.MessageId
-import cat.vonblum.chatogt.shared.domain.command.CommandHandler
-import cat.vonblum.chatogt.shared.domain.event.EventBus
+import cat.vonblum.chatogt.usermanagement.domain.command.CommandHandler
+import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 
 class UpdateMessageCommandHandler(
     private val finding: ForFindingMessages,

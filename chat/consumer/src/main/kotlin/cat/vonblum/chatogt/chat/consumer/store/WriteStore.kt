@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.chat.consumer.store
 
-import cat.vonblum.chatogt.shared.domain.event.Event
+import cat.vonblum.chatogt.usermanagement.domain.event.Event
 
 interface WriteStore {
 

@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.chat.chats
 
 import cat.vonblum.chatogt.chat.shared.ChatId
-import cat.vonblum.chatogt.shared.domain.error.Error
+import cat.vonblum.chatogt.usermanagement.domain.error.Error
 
 class ChatNotFound(override val message: String) : Error(message) {
 
