@@ -65,8 +65,8 @@ class SpringKafkaConfig {
 
     @Bean
     fun kafkaTemplate(
-        producerFactory: ProducerFactory<String, Any>
-    ): KafkaTemplate<String, Any> {
+        producerFactory: ProducerFactory<ByteArray, ByteArray>
+    ): KafkaTemplate<ByteArray, ByteArray> {
         return KafkaTemplate(producerFactory)
     }
 

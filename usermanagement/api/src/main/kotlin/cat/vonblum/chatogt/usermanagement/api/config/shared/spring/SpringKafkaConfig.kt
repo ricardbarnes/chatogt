@@ -1,8 +1,9 @@
 package cat.vonblum.chatogt.usermanagement.api.config.shared.spring
 
 import cat.vonblum.chatogt.shared.infrastructure.io.message.MessageProducer
-import cat.vonblum.chatogt.shared.infrastructure.bus.command.spring.SpringKafkaMessageProducer
+import cat.vonblum.chatogt.usermanagement.api.bus.command.spring.SpringKafkaMessageProducer
 import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandBus
+import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandMapper
 import cat.vonblum.chatogt.usermanagement.api.bus.query.kafka.KafkaQueryBus
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
@@ -22,13 +23,20 @@ class SpringKafkaConfig {
     }
 
     @Bean
+    fun kafkaCommandMapper(): KafkaCommandMapper {
+        return KafkaCommandMapper()
+    }
+
+    @Bean
     fun kafkaMessageProducer(
-        kafkaTemplate: KafkaTemplate<String, Any>,
-        kafkaTopicResolver: SpringKafkaTopicResolver
+        kafkaTemplate: KafkaTemplate<ByteArray, ByteArray>,
+        kafkaTopicResolver: SpringKafkaTopicResolver,
+        kafkaCommandMapper: KafkaCommandMapper
     ): MessageProducer {
         return SpringKafkaMessageProducer(
             kafkaTemplate,
-            kafkaTopicResolver::resolve
+            kafkaTopicResolver::resolve,
+            kafkaCommandMapper
         )
     }
 
