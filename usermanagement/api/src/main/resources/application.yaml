@@ -9,6 +9,8 @@ grpc:
   server:
     port: ${GRPC_SERVER_PORT}
     reflection-service-enabled: true
+    security:
+      enabled: false # TODO: remove for prod
 
 bus:
   commands:
