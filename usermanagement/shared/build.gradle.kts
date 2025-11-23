@@ -39,7 +39,6 @@ protobuf {
     protoc {
         artifact = "com.google.protobuf:protoc:3.25.3"
     }
-
     plugins {
         id("grpc") {
             artifact = "io.grpc:protoc-gen-grpc-java:1.72.0"
@@ -48,7 +47,6 @@ protobuf {
             artifact = "io.grpc:protoc-gen-grpc-kotlin:1.4.3:jdk8@jar"
         }
     }
-
     generateProtoTasks {
         all().forEach {
             it.plugins {
@@ -57,16 +55,4 @@ protobuf {
             }
         }
     }
-}
-
-sourceSets {
-    main {
-        proto {
-            srcDir("src/main/proto")
-        }
-        resources {
-            exclude("**/*.proto")
-        }
-    }
-
 }
