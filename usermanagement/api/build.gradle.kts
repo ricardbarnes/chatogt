@@ -28,8 +28,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-validation")
     implementation("com.google.code.gson:gson:2.11.0")
     implementation("org.springframework.boot:spring-boot-starter-data-mongodb:3.4.4")
-    implementation("io.grpc:grpc-kotlin-stub:1.4.3")
-    implementation("com.google.protobuf:protobuf-java:4.28.2")
     implementation("net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE")
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.4")
 }
