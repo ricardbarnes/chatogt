@@ -23,8 +23,6 @@ dependencies {
     api("io.grpc:grpc-kotlin-stub:1.4.3")
     api("io.grpc:grpc-stub:1.64.0")
     api("io.grpc:grpc-protobuf:1.64.0")
-    implementation(project(":shared:infrastructure"))
-    implementation(project(":usermanagement:domain:core"))
 }
 
 protobuf {
