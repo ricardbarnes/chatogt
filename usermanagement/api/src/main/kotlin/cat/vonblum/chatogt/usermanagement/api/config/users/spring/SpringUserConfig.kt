@@ -21,7 +21,11 @@ class SpringUserConfig {
         commandBus: CommandBus,
         queryBus: QueryBus
     ): GrpcUserController {
-        return GrpcUserController(mapper, commandBus, queryBus)
+        return GrpcUserController(
+            mapper,
+            commandBus,
+            queryBus
+        )
     }
 
 }
