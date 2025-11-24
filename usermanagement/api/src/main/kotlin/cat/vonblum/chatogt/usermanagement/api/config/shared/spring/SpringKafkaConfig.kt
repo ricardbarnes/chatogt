@@ -29,7 +29,7 @@ class SpringKafkaConfig {
 
     @Bean
     fun kafkaMessageProducer(
-        kafkaTemplate: KafkaTemplate<ByteArray, ByteArray>,
+        kafkaTemplate: KafkaTemplate<String, ByteArray>,
         kafkaTopicResolver: SpringKafkaTopicResolver,
         kafkaCommandMapper: KafkaCommandMapper
     ): MessageProducer {

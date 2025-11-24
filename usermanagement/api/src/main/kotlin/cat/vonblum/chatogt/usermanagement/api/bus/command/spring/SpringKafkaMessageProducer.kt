@@ -10,7 +10,7 @@ import cat.vonblum.chatogt.usermanagement.users.update.UpdateUserPasswordCommand
 import org.springframework.kafka.core.KafkaTemplate
 
 class SpringKafkaMessageProducer(
-    private val template: KafkaTemplate<ByteArray, ByteArray>,
+    private val template: KafkaTemplate<String, ByteArray>,
     private val topicResolver: (Message) -> String,
     private val mapper: KafkaCommandMapper
 ) : MessageProducer {
@@ -20,7 +20,7 @@ class SpringKafkaMessageProducer(
         val payload = map(message.payload)
         template.send(
             topic,
-            message.key.toByteArray(),
+            message.key,
             payload
         )
     }
