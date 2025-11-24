@@ -29,8 +29,8 @@ dependencies {
     implementation("net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE")
     implementation("com.google.protobuf:protobuf-java:4.28.2")
     implementation("io.grpc:grpc-kotlin-stub:1.4.3")
-    implementation("io.grpc:grpc-stub:1.64.0")
-    implementation("io.grpc:grpc-protobuf:1.64.0")
+    implementation("io.grpc:grpc-stub:1.45.1")
+    implementation("io.grpc:grpc-protobuf:1.45.1")
     testImplementation("org.springframework.boot:spring-boot-starter-test:3.4.4")
 }
 
