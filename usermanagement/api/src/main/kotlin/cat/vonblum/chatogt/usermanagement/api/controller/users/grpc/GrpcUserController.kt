@@ -5,11 +5,9 @@ import cat.vonblum.chatogt.usermanagement.domain.query.QueryBus
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdResponse
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByNameResponse
 import com.google.protobuf.Empty
-import net.devh.boot.grpc.server.service.GrpcService
 import user.User
 import user.UserServiceGrpcKt
 
-@GrpcService
 class GrpcUserController(
     private val mapper: GrpcUserMapper,
     private val commandBus: CommandBus,
