@@ -6,11 +6,9 @@ import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQuery
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdResponse
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByNameQuery
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByNameResponse
-import org.springframework.stereotype.Component
 import user.User
-import java.util.UUID
+import java.util.*
 
-@Component
 class GrpcUserMapper {
 
     fun toDomain(dto: User.CreateUserRequest): CreateUserCommand {
