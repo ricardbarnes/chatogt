@@ -9,7 +9,7 @@ import net.devh.boot.grpc.server.service.GrpcService
 import user.User
 import user.UserServiceGrpcKt
 
-@GrpcService // TODO: handle this manually to make it framework-agnostic
+@GrpcService // TODO: handle this manually to make it framework-agnostic (disable Springboot auto-config, etc.)
 class GrpcUserController(
     private val mapper: GrpcUserMapper,
     private val commandBus: CommandBus,
