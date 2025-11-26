@@ -7,7 +7,7 @@ import cat.vonblum.chatogt.usermanagement.infrastructure.io.message.Message
 import cat.vonblum.chatogt.usermanagement.infrastructure.io.message.MessageProducer
 import cat.vonblum.chatogt.usermanagement.infrastructure.bus.query.kafka.KafkaUnsupportedQueryException
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQuery
-import cat.vonblum.chatogt.usermanagement.users.find.FindUserByNameQuery
+import cat.vonblum.chatogt.usermanagement.users.find.FindUserByEmailQuery
 import java.util.*
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.ConcurrentHashMap
@@ -21,7 +21,7 @@ class KafkaQueryBus(private val producer: MessageProducer) : QueryBus {
     override fun ask(query: Query): Response {
         return when (query) {
             is FindUserByIdQuery -> askUserQuery(query)
-            is FindUserByNameQuery -> askUserQuery(query)
+            is FindUserByEmailQuery -> askUserQuery(query)
             else -> throw KafkaUnsupportedQueryException.becauseOf(query)
         }
     }

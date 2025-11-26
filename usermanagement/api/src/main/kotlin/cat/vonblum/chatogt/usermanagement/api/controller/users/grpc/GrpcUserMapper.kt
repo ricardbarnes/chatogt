@@ -4,8 +4,8 @@ import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.delete.DeleteUserByIdCommand
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQuery
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdResponse
-import cat.vonblum.chatogt.usermanagement.users.find.FindUserByNameQuery
-import cat.vonblum.chatogt.usermanagement.users.find.FindUserByNameResponse
+import cat.vonblum.chatogt.usermanagement.users.find.FindUserByEmailQuery
+import cat.vonblum.chatogt.usermanagement.users.find.FindUserByEmailResponse
 import user.User
 import java.util.*
 
@@ -13,7 +13,7 @@ class GrpcUserMapper {
 
     fun toDomain(dto: User.CreateUserRequest): CreateUserCommand {
         return CreateUserCommand(
-            dto.name,
+            dto.email,
             dto.password
         )
     }
@@ -25,18 +25,18 @@ class GrpcUserMapper {
     fun toInfra(response: FindUserByIdResponse): User.FindUserByIdResponse {
         return User.FindUserByIdResponse.newBuilder()
             .setId(response.id.toString())
-            .setName(response.name)
+            .setEmail(response.email)
             .build()
     }
 
-    fun toDomain(dto: User.FindUserByNameRequest): FindUserByNameQuery {
-        return FindUserByNameQuery(dto.name)
+    fun toDomain(dto: User.FindUserByEmailRequest): FindUserByEmailQuery {
+        return FindUserByEmailQuery(dto.email)
     }
 
-    fun toInfra(response: FindUserByNameResponse): User.FindUserByNameResponse {
-        return User.FindUserByNameResponse.newBuilder()
+    fun toInfra(response: FindUserByEmailResponse): User.FindUserByEmailResponse {
+        return User.FindUserByEmailResponse.newBuilder()
             .setId(response.id.toString())
-            .setName(response.name)
+            .setEmail(response.email)
             .build()
     }
 

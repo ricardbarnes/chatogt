@@ -8,7 +8,7 @@ class UserNotFound(override val message: String) : Error(message) {
 
         fun becauseOf(id: UserId): Error = UserNotFound("User ID \"$id\" not found")
 
-        fun becauseOf(id: UserName): Error = UserNotFound("User name \"$id\" not found")
+        fun becauseOf(email: UserEmail): Error = UserNotFound("User email \"$email\" not found")
 
     }
 

@@ -7,14 +7,14 @@ package user;
 service UserService {
   rpc CreateUser (CreateUserRequest) returns (google.protobuf.Empty);
   rpc FindUserById(FindUserByIdRequest) returns (FindUserByIdResponse);
-  rpc FindUserByName(FindUserByNameRequest) returns (FindUserByNameResponse);
+  rpc FindUserByEmail(FindUserByEmailRequest) returns (FindUserByEmailResponse);
   rpc DeleteUserById(DeleteUserByIdRequest) returns (google.protobuf.Empty);
-  rpc UpdateUserName(UpdateUserNameRequest) returns (google.protobuf.Empty);
+  rpc UpdateUserEmail(UpdateUserEmailRequest) returns (google.protobuf.Empty);
   rpc UpdateUserPassword(UpdateUserPasswordRequest) returns (google.protobuf.Empty);
 }
 
 message CreateUserRequest {
-  string name = 1;
+  string email = 1;
   string password = 2;
 }
 
@@ -24,25 +24,25 @@ message FindUserByIdRequest {
 
 message FindUserByIdResponse {
   string id = 1;
-  string name = 2;
+  string email = 2;
 }
 
-message FindUserByNameRequest {
-  string name = 1;
+message FindUserByEmailRequest {
+  string email = 1;
 }
 
-message FindUserByNameResponse {
+message FindUserByEmailResponse {
   string id = 1;
-  string name = 2;
+  string email = 2;
 }
 
 message DeleteUserByIdRequest {
   string id = 1;
 }
 
-message UpdateUserNameRequest {
+message UpdateUserEmailRequest {
   string id = 1;
-  string name = 2;
+  string email = 2;
 }
 
 message UpdateUserPasswordRequest {

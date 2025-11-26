@@ -12,7 +12,7 @@ class CreateUserCommandHandler(
 
     fun handle(command: CreateUserCommand) = User.create(
         UserId(idGenerator.next()),
-        UserName(command.name),
+        UserEmail(command.email),
         UserPassword(command.password),
     ).also { user -> eventBus.publish(user.pullEvents()) }
 

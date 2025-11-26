@@ -4,6 +4,6 @@ interface ForFindingUsers {
 
     fun findById(id: UserId): User
 
-    fun findByName(name: UserName): User
+    fun findByEmail(name: UserEmail): User
 
 }

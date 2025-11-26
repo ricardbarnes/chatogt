@@ -6,7 +6,7 @@ object UserMother {
 
     fun create(
         id: UserId? = UserIdMother.random(),
-        name: UserName? = UserNameMother.random(),
+        name: UserEmail? = UserEmailMother.random(),
         password: UserPassword? = UserPasswordMother.random(),
     ): User {
         val event = UserCreatedEventMother.create(

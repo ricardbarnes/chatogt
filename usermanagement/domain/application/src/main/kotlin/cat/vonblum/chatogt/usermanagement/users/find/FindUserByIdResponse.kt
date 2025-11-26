@@ -5,5 +5,5 @@ import java.util.UUID
 
 class FindUserByIdResponse(
     val id: UUID,
-    val name: String
+    val email: String
 ) : Response

@@ -4,7 +4,7 @@ import cat.vonblum.chatogt.usermanagement.domain.valueobject.StringFaker
 
 object FindUserByNameQueryMother {
 
-    fun create(name: String?): FindUserByNameQuery =
-        FindUserByNameQuery(name ?: StringFaker.name())
+    fun create(name: String?): FindUserByEmailQuery =
+        FindUserByEmailQuery(name ?: StringFaker.name())
 
 }

@@ -5,7 +5,6 @@ import cat.vonblum.chatogt.usermanagement.infrastructure.io.message.MessageProdu
 import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandMapper
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.delete.DeleteUserByIdCommand
-import cat.vonblum.chatogt.usermanagement.users.update.UpdateUserNameCommand
 import cat.vonblum.chatogt.usermanagement.users.update.UpdateUserPasswordCommand
 import org.springframework.kafka.core.KafkaTemplate
 
@@ -29,7 +28,6 @@ class SpringKafkaMessageProducer(
         return when (val kClass = payload::class) {
             CreateUserCommand::class -> mapper.toInfra(payload as CreateUserCommand)
             DeleteUserByIdCommand::class -> mapper.toInfra(payload as DeleteUserByIdCommand)
-            UpdateUserNameCommand::class -> mapper.toInfra(payload as UpdateUserNameCommand)
             UpdateUserPasswordCommand::class -> mapper.toInfra(payload as UpdateUserPasswordCommand)
             else -> throw IllegalArgumentException("$kClass is not supported")
         }

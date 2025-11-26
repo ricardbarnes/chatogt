@@ -8,7 +8,7 @@ class User private constructor() : AggregateRoot() {
     lateinit var id: UserId
         private set
 
-    lateinit var name: UserName
+    lateinit var email: UserEmail
         private set
 
     lateinit var password: UserPassword
@@ -21,14 +21,14 @@ class User private constructor() : AggregateRoot() {
 
         fun create(
             id: UserId,
-            name: UserName,
+            email: UserEmail,
             password: UserPassword
         ): User {
             val user = User()
             user.applyEvent(
                 UserCreatedEvent(
                     id.value,
-                    name.value,
+                    email.value,
                     password.value
                 )
             )
@@ -47,7 +47,7 @@ class User private constructor() : AggregateRoot() {
 
     private fun applyUserCreated(event: UserCreatedEvent) {
         id = UserId(event.aggregateId)
-        name = UserName(event.name)
+        email = UserEmail(event.email)
         password = UserPassword(event.password)
         status = UserStatus.ACTIVE
     }
@@ -58,16 +58,6 @@ class User private constructor() : AggregateRoot() {
 
     private fun applyUserDeleted() {
         this.status = UserStatus.DELETED
-    }
-
-    fun updateName(newName: UserName) {
-        name = newName
-        record(
-            UserNameUpdatedEvent(
-                id.value,
-                newName.value
-            )
-        )
     }
 
     fun updatePassword(newPassword: UserPassword) {

@@ -3,7 +3,7 @@ package cat.vonblum.chatogt.usermanagement.users.find
 import cat.vonblum.chatogt.usermanagement.domain.query.Response
 import java.util.UUID
 
-class FindUserByNameResponse(
+class FindUserByEmailResponse(
     val id: UUID,
-    val name: String
+    val email: String
 ) : Response

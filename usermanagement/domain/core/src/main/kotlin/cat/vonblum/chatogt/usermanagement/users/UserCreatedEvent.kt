@@ -6,7 +6,7 @@ import java.util.UUID
 
 class UserCreatedEvent(
     aggregateId: UUID,
-    val name: String,
+    val email: String,
     val password: String,
     id: UUID = UUID.randomUUID(),
     occurredOn: Instant = Instant.now(),
