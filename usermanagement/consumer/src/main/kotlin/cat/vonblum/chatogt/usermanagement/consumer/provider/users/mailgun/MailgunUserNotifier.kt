@@ -5,7 +5,7 @@ import cat.vonblum.chatogt.usermanagement.users.UserNotifier
 
 class MailgunUserNotifier : UserNotifier {
 
-    override fun notifyCreation(event: UserCreatedEvent) {
+    override fun notify(event: UserCreatedEvent) {
         TODO("Not yet implemented")
     }
 
