@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.users
 
-interface UserNotifier {
+interface ForNotifyingUsers {
 
     fun notifyCreation(user: User)
 

@@ -1,9 +1,9 @@
 package cat.vonblum.chatogt.usermanagement.consumer.provider.users.mailgun
 
 import cat.vonblum.chatogt.usermanagement.users.User
-import cat.vonblum.chatogt.usermanagement.users.UserNotifier
+import cat.vonblum.chatogt.usermanagement.users.ForNotifyingUsers
 
-class MailgunUserNotifier : UserNotifier {
+class MailgunForNotifyingUsers : ForNotifyingUsers {
 
     override fun notifyCreation(user: User) {
         TODO("Not yet implemented")
