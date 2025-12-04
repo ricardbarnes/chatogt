@@ -1,9 +1,10 @@
 package cat.vonblum.chatogt.usermanagement.users.find
 
+import cat.vonblum.chatogt.usermanagement.domain.query.QueryHandler
 import cat.vonblum.chatogt.usermanagement.users.ForFindingUsers
 import cat.vonblum.chatogt.usermanagement.users.UserId
 
-class FindUserByIdQueryHandler(private val finding: ForFindingUsers) {
+class FindUserByIdQueryHandler(private val finding: ForFindingUsers) : QueryHandler {
 
     fun handle(query: FindUserByIdQuery): FindUserByIdResponse =
         finding.findById(UserId(query.id)).let { user ->
