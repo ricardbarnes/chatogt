@@ -5,8 +5,10 @@ spring:
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
     consumer:
-      group-id: chat-consumers
+      group-id: chatogt-user-management
       auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
   data:
     mongodb:
       database: ${MONGO_DATABASE_NAME}
@@ -29,9 +31,6 @@ handler:
         exchange: users.queries
       pubsub:
         subscription: users.queries
-  shared:
-    kafka:
-      consumer-group-id: chatogt-user-management
 
 bus:
   events:

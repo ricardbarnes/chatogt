@@ -5,7 +5,10 @@ import cat.vonblum.chatogt.usermanagement.domain.command.Command
 import cat.vonblum.chatogt.usermanagement.domain.command.CommandBus
 import cat.vonblum.chatogt.usermanagement.infrastructure.bus.command.kafka.KafkaUnsupportedCommandException
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
+import org.apache.kafka.clients.producer.ProducerRecord
+import org.apache.kafka.common.header.internals.RecordHeader
 import org.springframework.kafka.core.KafkaTemplate
+import user.User
 import java.util.*
 
 class KafkaCommandBus(
@@ -17,21 +20,27 @@ class KafkaCommandBus(
     override fun dispatch(command: Command) {
         when (command) {
             is CreateUserCommand -> dispatchUserCommand(command)
-            // TODO
             else -> throw KafkaUnsupportedCommandException.becauseOf(command)
         }
     }
 
     private fun dispatchUserCommand(command: CreateUserCommand) {
-        val topic = props.commands["users"]?.kafka?.topic
+        val topic = props.commands["users"]?.kafka?.topic ?: throw KafkaUnsupportedCommandException.becauseOf(command)
         val payload = mapper.toInfra(command)
-        if (topic != null) {
-            template.send(
-                topic,
-                UUID.randomUUID().toString(),
-                payload
+        val record = ProducerRecord(
+            topic,
+            UUID.randomUUID().toString(),
+            payload
+        ).apply {
+            headers().add(
+                RecordHeader(
+                    "proto.type",
+                    User.CreateUserRequest::class.java.simpleName.toByteArray()
+                )
             )
         }
+
+        template.send(record)
     }
 
 }
