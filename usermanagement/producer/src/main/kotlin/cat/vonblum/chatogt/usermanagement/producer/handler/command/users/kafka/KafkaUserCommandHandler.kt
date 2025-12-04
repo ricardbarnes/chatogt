@@ -15,7 +15,6 @@ class KafkaUserCommandHandler(
     )
     fun handle(record: ConsumerRecord<String, ByteArray>) {
         // TODO
-        println("Received command: $record")
     }
 
 }
