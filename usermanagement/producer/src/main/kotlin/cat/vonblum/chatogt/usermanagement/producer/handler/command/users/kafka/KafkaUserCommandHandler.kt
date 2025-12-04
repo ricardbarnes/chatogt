@@ -10,11 +10,12 @@ class KafkaUserCommandHandler(
 ) {
 
     @KafkaListener(
-        topics = ["\$handler.commands.users.kafka.topic"],
-        groupId = "\$handler.shared.kafka.consumer-group-id",
+        topics = ["\${handler.commands.users.kafka.topic}"],
+        groupId = "\${handler.shared.kafka.consumer-group-id}",
     )
     fun handle(record: ConsumerRecord<String, ByteArray>) {
         // TODO
+        println(record)
     }
 
 }
