@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka
 
-import cat.vonblum.chatogt.usermanagement.domain.command.Command
 import cat.vonblum.chatogt.usermanagement.infrastructure.handler.command.CommandDispatcher
+import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.springframework.kafka.annotation.KafkaListener
 
 class KafkaUserCommandHandler(
@@ -10,12 +10,12 @@ class KafkaUserCommandHandler(
 ) {
 
     @KafkaListener(
-        topics = ["users.commands"],
-        groupId = "user-management",
+        topics = ["\$handler.commands.users.kafka.topic"],
+        groupId = "\$handler.shared.kafka.consumer-group-id",
     )
-    fun handle(command: Command) {
+    fun handle(record: ConsumerRecord<String, ByteArray>) {
         // TODO
-        println("Received command: $command")
+        println("Received command: $record")
     }
 
 }

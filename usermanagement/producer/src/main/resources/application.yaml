@@ -31,7 +31,7 @@ handler:
         subscription: users.queries
   shared:
     kafka:
-      consumer-group-id: chatogt
+      consumer-group-id: chatogt-user-management
 
 bus:
   events:
