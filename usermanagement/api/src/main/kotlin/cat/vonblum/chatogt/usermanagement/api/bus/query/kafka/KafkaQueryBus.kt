@@ -1,22 +1,20 @@
 package cat.vonblum.chatogt.usermanagement.api.bus.query.kafka
 
+import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandMapper
+import cat.vonblum.chatogt.usermanagement.api.config.shared.spring.SpringBusProps
 import cat.vonblum.chatogt.usermanagement.domain.query.Query
 import cat.vonblum.chatogt.usermanagement.domain.query.QueryBus
 import cat.vonblum.chatogt.usermanagement.domain.query.Response
-import cat.vonblum.chatogt.usermanagement.infrastructure.io.message.Message
-import cat.vonblum.chatogt.usermanagement.infrastructure.io.message.MessageProducer
 import cat.vonblum.chatogt.usermanagement.infrastructure.bus.query.kafka.KafkaUnsupportedQueryException
-import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQuery
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByEmailQuery
-import java.util.*
-import java.util.concurrent.CompletableFuture
-import java.util.concurrent.ConcurrentHashMap
-import java.util.concurrent.TimeUnit
+import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQuery
+import org.springframework.kafka.core.KafkaTemplate
 
-class KafkaQueryBus(private val producer: MessageProducer) : QueryBus {
-
-    // Map to correlate envelope keys with responses
-    private val responseMap = ConcurrentHashMap<String, CompletableFuture<Response>>()
+class KafkaQueryBus(
+    kafkaTemplate: KafkaTemplate<String, ByteArray>,
+    mapper: KafkaCommandMapper,
+    props: SpringBusProps
+) : QueryBus {
 
     override fun ask(query: Query): Response {
         return when (query) {
@@ -27,33 +25,7 @@ class KafkaQueryBus(private val producer: MessageProducer) : QueryBus {
     }
 
     private fun askUserQuery(query: Query): Response {
-        val key = UUID.randomUUID().toString()
-        val envelope = Message(
-            id = UUID.randomUUID(),
-            aggregate = "users",
-            type = "query",
-            name = query::class.simpleName ?: "UnknownQuery",
-            key = key,
-            payload = query,
-            metadata = mapOf(
-                "source" to "user-management-api",
-                "target" to "user-management-producer"
-            )
-        )
-
-        // Prepare a future to wait for the response
-        val future = CompletableFuture<Response>()
-        responseMap[key] = future
-
-        // Send the query
-        producer.send(envelope)
-
-        // Wait for the response (timeout example: 5 seconds)
-        return try {
-            future.get(5, TimeUnit.SECONDS)
-        } finally {
-            responseMap.remove(key)
-        }
+        TODO()
     }
 
 }
