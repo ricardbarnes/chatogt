@@ -5,7 +5,10 @@ import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.springframework.kafka.annotation.KafkaListener
 import user.User
 
-class KafkaUserCommandHandler(private val dispatcher: CommandDispatcher) {
+class KafkaUserCommandHandler(
+    private val dispatcher: CommandDispatcher,
+    private val mapper: KafkaUserCommandMapper,
+) {
 
     @KafkaListener(
         topics = ["\${handler.commands.users.kafka.topic}"],
