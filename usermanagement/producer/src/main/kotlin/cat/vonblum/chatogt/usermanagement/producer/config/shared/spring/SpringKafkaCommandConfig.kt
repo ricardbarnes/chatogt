@@ -4,7 +4,6 @@ import cat.vonblum.chatogt.usermanagement.domain.command.Command
 import cat.vonblum.chatogt.usermanagement.domain.command.CommandHandler
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandHandler
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandMapper
-import cat.vonblum.chatogt.usermanagement.users.User
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommandHandler
 import org.springframework.context.annotation.Bean
@@ -32,7 +31,7 @@ class SpringKafkaCommandConfig {
 
     @Bean
     fun kafkaUserCommandHandler(
-        userHandlerMap: Map<KClass<out User>, CommandHandler>,
+        userHandlerMap: Map<KClass<out Command>, CommandHandler>,
         mapper: KafkaUserCommandMapper,
     ): KafkaUserCommandHandler {
         return KafkaUserCommandHandler(
