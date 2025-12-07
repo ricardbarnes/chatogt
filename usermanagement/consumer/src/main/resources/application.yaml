@@ -6,6 +6,8 @@ kafka:
     events: events
 
 spring:
+  config:
+    import: "classpath:shared.yaml"
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
     consumer:
