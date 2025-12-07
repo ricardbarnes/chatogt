@@ -17,3 +17,13 @@ spring:
     mongodb:
       database: ${MONGO_DATABASE_NAME}
       uri: ${MONGO_DATABASE_URI}
+
+handler:
+  events:
+    users:
+      kafka:
+        topic: users.events
+      rabbit:
+        exchange: users.events
+      pubsub:
+        subscription: users.events

@@ -12,6 +12,7 @@ class KafkaUserEventHandler(
         groupId = "\${spring.kafka.consumer.group-id}"
     )
     fun handle(record: ConsumerRecord<String, ByteArray>) {
+        // TODO
         println(record)
     }
 
