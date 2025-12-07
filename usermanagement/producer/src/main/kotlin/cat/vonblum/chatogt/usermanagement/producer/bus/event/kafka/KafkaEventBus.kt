@@ -3,6 +3,7 @@ package cat.vonblum.chatogt.usermanagement.producer.bus.event.kafka
 import cat.vonblum.chatogt.usermanagement.domain.event.Event
 import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 import cat.vonblum.chatogt.usermanagement.shared.config.spring.SpringBusProps
+import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
 import org.springframework.kafka.core.KafkaTemplate
 
 class KafkaEventBus(
@@ -12,8 +13,15 @@ class KafkaEventBus(
 ) : EventBus {
 
     override fun publish(events: List<Event>) {
-        // TODO
-        println(events)
+        events.forEach { event ->
+            when (event) {
+                is UserCreatedEvent -> dispatchUserCreatedEvent(event)
+            }
+        }
+    }
+
+    private fun dispatchUserCreatedEvent(event: UserCreatedEvent) {
+        TODO()
     }
 
 }

@@ -20,12 +20,11 @@ class KafkaCommandBus(
 
     override fun dispatch(command: Command) {
         when (command) {
-            is CreateUserCommand -> dispatchUserCommand(command)
-            else -> throw KafkaUnsupportedCommandException.becauseOf(command)
+            is CreateUserCommand -> dispatchUserCreatedCommand(command)
         }
     }
 
-    private fun dispatchUserCommand(command: CreateUserCommand) {
+    private fun dispatchUserCreatedCommand(command: CreateUserCommand) {
         val topic = props.commands["users"]?.kafka?.topic ?: throw KafkaUnsupportedCommandException.becauseOf(command)
         val payload = mapper.toInfra(command)
         val record = ProducerRecord(
