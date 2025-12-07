@@ -9,7 +9,7 @@ abstract class AggregateRoot {
     protected abstract fun applyEvent(event: Event)
 
     /**
-     * Applies historical events. Used for rehydration only, via reflection.
+     * Applies historical events. Used for rehydration only.
      */
     protected fun applyEvents(events: List<Event>) {
         events.forEach { event -> applyEvent(event) }
