@@ -2,7 +2,7 @@ package cat.vonblum.chatogt.usermanagement.producer.config.users.spring
 
 import cat.vonblum.chatogt.usermanagement.domain.command.Command
 import cat.vonblum.chatogt.usermanagement.domain.command.CommandHandler
-import cat.vonblum.chatogt.usermanagement.domain.command.CommandHandlerMap
+import cat.vonblum.chatogt.usermanagement.domain.command.CommandHandlerDispatcher
 import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 import cat.vonblum.chatogt.usermanagement.domain.generator.IdGenerator
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandHandler
@@ -30,12 +30,17 @@ class SpringUserCommandConfig {
     @Bean
     fun userCommandHandlerMap(
         createUserCommandHandler: CreateUserCommandHandler
-    ): CommandHandlerMap {
-        return CommandHandlerMap(
-            mapOf(
-                CreateUserCommand::class as KClass<out Command> to createUserCommandHandler as CommandHandler,
-            )
+    ): Map<KClass<out Command>, CommandHandler> {
+        return mapOf(
+            CreateUserCommand::class as KClass<out Command> to createUserCommandHandler as CommandHandler,
         )
+    }
+
+    @Bean
+    fun userCommandHandlerDispatcher(
+        userCommandHandlerMap: Map<KClass<out Command>, CommandHandler>
+    ): CommandHandlerDispatcher {
+        return CommandHandlerDispatcher(userCommandHandlerMap)
     }
 
     @Bean
@@ -45,11 +50,11 @@ class SpringUserCommandConfig {
 
     @Bean
     fun kafkaUserCommandHandler(
-        commandHandlerMap: CommandHandlerMap,
+        commandHandlerDispatcher: CommandHandlerDispatcher,
         mapper: KafkaUserCommandMapper,
     ): KafkaUserCommandHandler {
         return KafkaUserCommandHandler(
-            commandHandlerMap,
+            commandHandlerDispatcher,
             mapper
         )
     }

@@ -3,7 +3,7 @@ package cat.vonblum.chatogt.usermanagement.domain.command
 import kotlin.reflect.KClass
 import kotlin.reflect.full.declaredFunctions
 
-class CommandHandlerMap(
+class CommandHandlerDispatcher(
     private val handlers: Map<KClass<out Command>, CommandHandler>
 ) {
 
