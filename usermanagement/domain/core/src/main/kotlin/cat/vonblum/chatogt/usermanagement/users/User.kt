@@ -30,8 +30,8 @@ class User private constructor() : AggregateRoot() {
                 password.value
             )
             val user = User()
-            user.record(event)
             user.apply(event)
+            user.record(event)
             return user
         }
     }
