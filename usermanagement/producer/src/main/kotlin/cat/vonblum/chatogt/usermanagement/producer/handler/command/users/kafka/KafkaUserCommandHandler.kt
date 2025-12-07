@@ -22,8 +22,8 @@ class KafkaUserCommandHandler(
                 ?.value()
                 ?.toString(Charsets.UTF_8)
         ) {
-            User.CreateUserRequest::class.java.simpleName -> {
-                val proto = User.CreateUserRequest.parseFrom(record.value())
+            User.CreateUserCommand::class.java.simpleName -> {
+                val proto = User.CreateUserCommand.parseFrom(record.value())
                 handle(proto)
             }
 
@@ -31,7 +31,7 @@ class KafkaUserCommandHandler(
         }
     }
 
-    private fun handle(createUserRequest: User.CreateUserRequest) {
+    private fun handle(createUserRequest: User.CreateUserCommand) {
         val command = mapper.toDomain(createUserRequest)
         dispatcher.dispatch(command)
     }

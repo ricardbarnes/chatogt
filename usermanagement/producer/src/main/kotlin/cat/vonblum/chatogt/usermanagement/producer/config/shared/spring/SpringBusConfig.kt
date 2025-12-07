@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class SpringBusConfig {
 
-    @Bean
-    fun eventBus(): EventBus {
-        return KafkaEventBus()
-    }
+//    @Bean
+//    fun eventBus(): EventBus {
+//        return KafkaEventBus()
+//    }
 
 }

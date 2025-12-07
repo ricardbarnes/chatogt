@@ -18,6 +18,16 @@ message CreateUserRequest {
   string password = 2;
 }
 
+message CreateUserCommand {
+  string email = 1;
+  string password = 2;
+}
+
+message UserCreatedEvent {
+  string email = 1;
+  string password = 2;
+}
+
 message FindUserByIdRequest {
   string id = 1;
 }
@@ -49,4 +59,3 @@ message UpdateUserPasswordRequest {
   string id = 1;
   string password = 2;
 }
-

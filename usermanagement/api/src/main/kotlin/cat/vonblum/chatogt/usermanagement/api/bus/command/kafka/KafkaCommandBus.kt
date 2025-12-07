@@ -35,7 +35,7 @@ class KafkaCommandBus(
             headers().add(
                 RecordHeader(
                     KafkaHeader.PROTO_TYPE,
-                    User.CreateUserRequest::class.java.simpleName.toByteArray()
+                    User.CreateUserCommand::class.java.simpleName.toByteArray()
                 )
             )
         }
