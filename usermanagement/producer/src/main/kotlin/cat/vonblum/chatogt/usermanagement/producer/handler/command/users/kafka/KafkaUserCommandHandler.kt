@@ -7,7 +7,7 @@ import org.springframework.kafka.annotation.KafkaListener
 import user.User
 
 class KafkaUserCommandHandler(
-    private val handlerMap: CommandHandlerDispatcher,
+    private val dispatcher: CommandHandlerDispatcher,
     private val mapper: KafkaUserCommandMapper,
 ) {
 
