@@ -1,0 +1,27 @@
+bus:
+  commands:
+    users:
+      kafka:
+        topic: users.commands
+      rabbit:
+        exchange: users.commands
+      pubsub:
+        subscription: users.commands
+
+  queries:
+    users:
+      kafka:
+        topic: users.queries
+      rabbit:
+        exchange: users.queries
+      pubsub:
+        subscription: users.queries
+
+  responses:
+    users:
+      kafka:
+        topic: users.responses
+      rabbit:
+        exchange: users.responses
+      pubsub:
+        subscription: users.responses

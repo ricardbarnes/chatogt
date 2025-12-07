@@ -2,6 +2,8 @@ server:
   port: ${SPRING_SERVER_PORT}
 
 spring:
+  config:
+    import: "classpath:shared.yaml"
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
     consumer:
@@ -31,13 +33,3 @@ handler:
         exchange: users.queries
       pubsub:
         subscription: users.queries
-
-bus:
-  events:
-    users:
-      kafka:
-        topic: users.commands
-      rabbit:
-        exchange: users.commands
-      pubsub:
-        subscription: users.commands

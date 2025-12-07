@@ -2,6 +2,8 @@ server:
   port: ${SPRING_SERVER_PORT}
 
 spring:
+  config:
+    import: "classpath:shared.yaml"
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
     producer:
@@ -12,29 +14,3 @@ grpc:
   server:
     port: ${GRPC_SERVER_PORT}
     reflection-service-enabled: true
-
-bus:
-  commands:
-    users:
-      kafka:
-        topic: users.commands
-      rabbit:
-        exchange: users.commands
-      pubsub:
-        subscription: users.commands
-  queries:
-    users:
-      kafka:
-        topic: users.queries
-      rabbit:
-        exchange: users.queries
-      pubsub:
-        subscription: users.queries
-  responses:
-    users:
-      kafka:
-        topic: users.responses
-      rabbit:
-        exchange: users.responses
-      pubsub:
-        subscription: users.responses
