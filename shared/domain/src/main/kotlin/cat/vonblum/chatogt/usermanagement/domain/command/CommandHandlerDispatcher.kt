@@ -7,7 +7,7 @@ class CommandHandlerDispatcher(
     private val handlers: Map<KClass<out Command>, CommandHandler>
 ) {
 
-    fun handle(command: Command) {
+    fun dispatch(command: Command) {
         val handler = handlers[command::class]
             ?: throw CommandHandlerNotFound.becauseOf(command::class)
 

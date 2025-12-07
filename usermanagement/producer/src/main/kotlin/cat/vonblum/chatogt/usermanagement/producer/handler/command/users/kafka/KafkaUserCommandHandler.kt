@@ -33,8 +33,7 @@ class KafkaUserCommandHandler(
 
     private fun handle(createUserRequest: User.CreateUserRequest) {
         val command = mapper.toDomain(createUserRequest)
-        // TODO
-        println(command)
+        dispatcher.dispatch(command)
     }
 
 }
