@@ -9,7 +9,6 @@ import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.header.internals.RecordHeader
 import org.springframework.kafka.core.KafkaTemplate
-import org.springframework.kafka.support.KafkaHeaders
 import user.User
 import java.util.*
 
