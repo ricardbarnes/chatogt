@@ -5,7 +5,7 @@ import kotlin.reflect.full.declaredFunctions
 
 class CommandHandlerMap(
     private val handlers: Map<KClass<out Command>, CommandHandler>
-) : Map<KClass<out Command>, CommandHandler> by handlers {
+) {
 
     fun handle(command: Command) {
         val handler = handlers[command::class]

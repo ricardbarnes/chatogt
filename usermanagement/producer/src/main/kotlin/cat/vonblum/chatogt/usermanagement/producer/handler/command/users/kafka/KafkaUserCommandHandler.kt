@@ -1,15 +1,13 @@
 package cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka
 
-import cat.vonblum.chatogt.usermanagement.domain.command.Command
-import cat.vonblum.chatogt.usermanagement.domain.command.CommandHandler
+import cat.vonblum.chatogt.usermanagement.domain.command.CommandHandlerMap
 import cat.vonblum.chatogt.usermanagement.infrastructure.bus.shared.kafka.KafkaHeader
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.springframework.kafka.annotation.KafkaListener
 import user.User
-import kotlin.reflect.KClass
 
 class KafkaUserCommandHandler(
-    private val handlerMap: Map<KClass<out Command>, CommandHandler>,
+    private val handlerMap: CommandHandlerMap,
     private val mapper: KafkaUserCommandMapper,
 ) {
 
