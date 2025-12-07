@@ -11,7 +11,7 @@ import org.springframework.kafka.core.KafkaTemplate
 
 @Configuration
 @EnableConfigurationProperties(SpringBusProps::class)
-class SpringKafkaConfig {
+class SpringConfig {
 
     @Bean
     fun kafkaCommandMapper(): KafkaCommandMapper {
