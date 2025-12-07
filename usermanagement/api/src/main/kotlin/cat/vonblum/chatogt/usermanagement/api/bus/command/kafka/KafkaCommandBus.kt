@@ -4,10 +4,12 @@ import cat.vonblum.chatogt.usermanagement.api.config.shared.spring.SpringBusProp
 import cat.vonblum.chatogt.usermanagement.domain.command.Command
 import cat.vonblum.chatogt.usermanagement.domain.command.CommandBus
 import cat.vonblum.chatogt.usermanagement.infrastructure.bus.command.kafka.KafkaUnsupportedCommandException
+import cat.vonblum.chatogt.usermanagement.infrastructure.bus.shared.kafka.KafkaHeader
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.header.internals.RecordHeader
 import org.springframework.kafka.core.KafkaTemplate
+import org.springframework.kafka.support.KafkaHeaders
 import user.User
 import java.util.*
 
@@ -34,7 +36,7 @@ class KafkaCommandBus(
         ).apply {
             headers().add(
                 RecordHeader(
-                    "proto.type",
+                    KafkaHeader.PROTO_TYPE,
                     User.CreateUserRequest::class.java.simpleName.toByteArray()
                 )
             )

@@ -2,6 +2,7 @@ package cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka
 
 import cat.vonblum.chatogt.usermanagement.domain.command.Command
 import cat.vonblum.chatogt.usermanagement.domain.command.CommandHandler
+import cat.vonblum.chatogt.usermanagement.infrastructure.bus.shared.kafka.KafkaHeader
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.springframework.kafka.annotation.KafkaListener
 import user.User
@@ -19,7 +20,7 @@ class KafkaUserCommandHandler(
     fun handle(record: ConsumerRecord<String, ByteArray>) {
         when (
             val protoType = record.headers()
-                .lastHeader("proto.type")
+                .lastHeader(KafkaHeader.PROTO_TYPE)
                 ?.value()
                 ?.toString(Charsets.UTF_8)
         ) {
