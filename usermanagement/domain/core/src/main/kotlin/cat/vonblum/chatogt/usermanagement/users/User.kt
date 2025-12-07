@@ -24,19 +24,19 @@ class User private constructor() : AggregateRoot() {
             email: UserEmail,
             password: UserPassword
         ): User {
-            val user = User()
-            user.applyEvent(
-                UserCreatedEvent(
-                    id.value,
-                    email.value,
-                    password.value
-                )
+            val event = UserCreatedEvent(
+                id.value,
+                email.value,
+                password.value
             )
+            val user = User()
+            user.record(event)
+            user.apply(event)
             return user
         }
     }
 
-    override fun applyEvent(event: Event) {
+    override fun apply(event: Event) {
         when (event) {
             is UserCreatedEvent -> applyUserCreated(event)
             is UserPasswordUpdatedEvent -> applyUserPasswordUpdated(event)

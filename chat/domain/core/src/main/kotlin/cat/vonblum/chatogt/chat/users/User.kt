@@ -29,7 +29,7 @@ class User(
 
     }
 
-    override fun applyEvent(event: Event) {
+    override fun apply(event: Event) {
         TODO("Not yet implemented")
     }
 

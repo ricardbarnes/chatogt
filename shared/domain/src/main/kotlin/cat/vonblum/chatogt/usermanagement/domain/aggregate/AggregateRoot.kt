@@ -6,13 +6,13 @@ abstract class AggregateRoot {
 
     private var events: MutableList<Event> = mutableListOf()
 
-    protected abstract fun applyEvent(event: Event)
+    protected abstract fun apply(event: Event)
 
     /**
      * Applies historical events. Used for rehydration only.
      */
-    protected fun applyEvents(events: List<Event>) {
-        events.forEach { event -> applyEvent(event) }
+    protected fun apply(events: List<Event>) {
+        events.forEach { event -> apply(event) }
     }
 
     protected fun record(event: Event) {
