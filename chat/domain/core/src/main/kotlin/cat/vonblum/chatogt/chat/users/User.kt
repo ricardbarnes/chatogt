@@ -18,7 +18,13 @@ class User(
             name: UserName,
             password: UserPassword,
         ): User = User(id, name, password, mutableSetOf()).also { user ->
-            user.record(UserCreatedEvent(id.value, name.value, password.value))
+            user.record(
+                UserCreatedEvent(
+                    id.value,
+                    name.value,
+                    password.value
+                )
+            )
         }
 
     }

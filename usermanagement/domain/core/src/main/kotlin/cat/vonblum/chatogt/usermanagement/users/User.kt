@@ -34,7 +34,6 @@ class User private constructor() : AggregateRoot() {
             )
             return user
         }
-
     }
 
     override fun applyEvent(event: Event) {
