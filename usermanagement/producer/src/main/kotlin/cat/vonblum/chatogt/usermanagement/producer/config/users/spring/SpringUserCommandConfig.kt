@@ -27,17 +27,17 @@ class SpringUserCommandConfig {
     }
 
     @Bean
-    fun kafkaUserCommandMapper(): KafkaUserCommandMapper {
-        return KafkaUserCommandMapper()
-    }
-
-    @Bean
     fun userHandlerMap(
         createUserCommandHandler: CreateUserCommandHandler
     ): Map<KClass<out Command>, CommandHandler> {
         return mapOf(
             CreateUserCommand::class as KClass<out Command> to createUserCommandHandler as CommandHandler,
         )
+    }
+
+    @Bean
+    fun kafkaUserCommandMapper(): KafkaUserCommandMapper {
+        return KafkaUserCommandMapper()
     }
 
     @Bean
