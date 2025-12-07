@@ -7,14 +7,22 @@ import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 import cat.vonblum.chatogt.usermanagement.domain.generator.IdGenerator
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandHandler
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandMapper
+import cat.vonblum.chatogt.usermanagement.producer.provider.users.mongo.MongoForFindingUsers
+import cat.vonblum.chatogt.usermanagement.users.ForFindingUsers
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommandHandler
+import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQueryHandler
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import kotlin.reflect.KClass
 
 @Configuration
-class SpringUserCommandConfig {
+class SpringUserConfig {
+
+    @Bean
+    fun mongoFinding(): ForFindingUsers {
+        return MongoForFindingUsers()
+    }
 
     @Bean
     fun createUserCommandHandler(
@@ -57,6 +65,11 @@ class SpringUserCommandConfig {
             commandHandlerDispatcher,
             mapper
         )
+    }
+
+    @Bean
+    fun findUserByIdQueryHandler(finding: ForFindingUsers): FindUserByIdQueryHandler {
+        return FindUserByIdQueryHandler(finding)
     }
 
 }
