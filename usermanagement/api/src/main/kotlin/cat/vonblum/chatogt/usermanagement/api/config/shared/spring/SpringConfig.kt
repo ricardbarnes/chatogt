@@ -2,7 +2,6 @@ package cat.vonblum.chatogt.usermanagement.api.config.shared.spring
 
 import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandBus
 import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandMapper
-import cat.vonblum.chatogt.usermanagement.api.bus.query.kafka.KafkaQueryBus
 import cat.vonblum.chatogt.usermanagement.shared.config.spring.SpringBusProps
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
@@ -21,25 +20,12 @@ class SpringConfig {
     @Bean
     fun kafkaCommandBus(
         kafkaTemplate: KafkaTemplate<String, ByteArray>,
-        mapper: KafkaCommandMapper,
+        kafkaCommandMapper: KafkaCommandMapper,
         props: SpringBusProps
     ): KafkaCommandBus {
         return KafkaCommandBus(
             kafkaTemplate,
-            mapper,
-            props,
-        )
-    }
-
-    @Bean
-    fun kafkaQueryBus(
-        kafkaTemplate: KafkaTemplate<String, ByteArray>,
-        mapper: KafkaCommandMapper,
-        props: SpringBusProps
-    ): KafkaQueryBus {
-        return KafkaQueryBus(
-            kafkaTemplate,
-            mapper,
+            kafkaCommandMapper,
             props
         )
     }
