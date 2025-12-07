@@ -3,7 +3,7 @@ package cat.vonblum.chatogt.usermanagement.api.bus.command.kafka
 import cat.vonblum.chatogt.usermanagement.shared.config.spring.SpringBusProps
 import cat.vonblum.chatogt.usermanagement.domain.command.Command
 import cat.vonblum.chatogt.usermanagement.domain.command.CommandBus
-import cat.vonblum.chatogt.usermanagement.infrastructure.bus.command.kafka.KafkaUnsupportedCommandException
+import cat.vonblum.chatogt.usermanagement.domain.command.UnsupportedCommand
 import cat.vonblum.chatogt.usermanagement.infrastructure.bus.shared.kafka.KafkaHeader
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import org.apache.kafka.clients.producer.ProducerRecord
@@ -25,7 +25,7 @@ class KafkaCommandBus(
     }
 
     private fun dispatchUserCreatedCommand(command: CreateUserCommand) {
-        val topic = props.commands["users"]?.kafka?.topic ?: throw KafkaUnsupportedCommandException.becauseOf(command)
+        val topic = props.commands["users"]?.kafka?.topic ?: throw UnsupportedCommand.becauseOf(command)
         val payload = mapper.toInfra(command)
         val record = ProducerRecord(
             topic,

@@ -2,6 +2,7 @@ package cat.vonblum.chatogt.usermanagement.producer.bus.event.kafka
 
 import cat.vonblum.chatogt.usermanagement.domain.event.Event
 import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
+import cat.vonblum.chatogt.usermanagement.domain.event.UnsupportedEvent
 import cat.vonblum.chatogt.usermanagement.shared.config.spring.SpringBusProps
 import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
 import org.springframework.kafka.core.KafkaTemplate
@@ -21,7 +22,8 @@ class KafkaEventBus(
     }
 
     private fun dispatchUserCreatedEvent(event: UserCreatedEvent) {
-        TODO()
+        val topic = props.events["users"]?.kafka?.topic ?: throw UnsupportedEvent.becauseOf(event)
+        val payload = mapper.toInfra(event)
     }
 
 }

@@ -20,7 +20,12 @@ data class SpringBusProps(
 
     @get:NotEmpty(message = "Response buses cannot be empty")
     @get:Valid
-    val responses: Map<@NotEmpty(message = "Aggregate name for responses cannot be empty") String, @Valid BusProperties>
+    val responses: Map<@NotEmpty(message = "Aggregate name for responses cannot be empty") String, @Valid BusProperties>,
+
+    @get:NotEmpty(message = "Event buses cannot be empty")
+    @get:Valid
+    val events: Map<@NotEmpty(message = "Aggregate name for events cannot be empty") String, @Valid BusProperties>
+
 ) {
 
     data class BusProperties(
