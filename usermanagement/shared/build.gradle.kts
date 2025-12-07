@@ -19,6 +19,13 @@ dependencies {
     api("io.grpc:grpc-kotlin-stub:1.4.3")
     api("io.grpc:grpc-stub:1.45.1")
     api("io.grpc:grpc-protobuf:1.45.1")
+    api("org.springframework.boot:spring-boot-starter-validation:3.4.5")
+    api("org.springframework.boot:spring-boot-starter:3.4.5")
+    api("org.springframework.kafka:spring-kafka:3.3.5")
+    api("com.google.code.gson:gson:2.11.0")
+    api("org.springframework.boot:spring-boot-starter-data-mongodb:3.4.5")
+    api("net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE")
+    testApi("org.springframework.boot:spring-boot-starter-test:3.4.5")
 }
 
 tasks.test {

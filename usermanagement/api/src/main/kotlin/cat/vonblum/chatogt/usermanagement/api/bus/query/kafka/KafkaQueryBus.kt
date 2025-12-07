@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.api.bus.query.kafka
 
 import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandMapper
-import cat.vonblum.chatogt.usermanagement.api.config.shared.spring.SpringBusProps
+import cat.vonblum.chatogt.usermanagement.shared.config.spring.SpringBusProps
 import cat.vonblum.chatogt.usermanagement.domain.query.Query
 import cat.vonblum.chatogt.usermanagement.domain.query.QueryBus
 import cat.vonblum.chatogt.usermanagement.domain.query.Response
