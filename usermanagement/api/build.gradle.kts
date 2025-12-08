@@ -18,4 +18,5 @@ dependencies {
     implementation(project(":usermanagement:shared"))
     implementation(project(":usermanagement:domain:core"))
     implementation(project(":usermanagement:domain:application"))
+    implementation("net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE")
 }
