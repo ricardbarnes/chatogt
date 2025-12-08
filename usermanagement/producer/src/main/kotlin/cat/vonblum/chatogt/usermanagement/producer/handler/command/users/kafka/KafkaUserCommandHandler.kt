@@ -31,8 +31,8 @@ class KafkaUserCommandHandler(
         }
     }
 
-    private fun handle(createUserRequest: User.CreateUserCommand) {
-        val command = mapper.toDomain(createUserRequest)
+    private fun handle(dto: User.CreateUserCommand) {
+        val command = mapper.toDomain(dto)
         dispatcher.dispatch(command)
     }
 
