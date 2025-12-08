@@ -5,10 +5,10 @@ import user.User
 
 class KafkaUserCommandMapper {
 
-    fun toDomain(request: User.CreateUserCommand): CreateUserCommand {
+    fun toDomain(dto: User.CreateUserCommand): CreateUserCommand {
         return CreateUserCommand(
-            request.email,
-            request.password,
+            dto.email,
+            dto.password,
         )
     }
 
