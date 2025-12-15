@@ -7,10 +7,13 @@ import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 import cat.vonblum.chatogt.usermanagement.domain.generator.IdGenerator
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandHandler
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandMapper
+import cat.vonblum.chatogt.usermanagement.producer.provider.users.cia.CiaForSendingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.fbi.FbiForSendingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.mongo.MongoForFindingUsers
+import cat.vonblum.chatogt.usermanagement.producer.provider.users.shared.UserSenderResolverImpl
 import cat.vonblum.chatogt.usermanagement.users.ForFindingUsers
 import cat.vonblum.chatogt.usermanagement.users.ForSendingUsers
+import cat.vonblum.chatogt.usermanagement.users.UserSenderResolver
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommandHandler
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQueryHandler
@@ -27,19 +30,35 @@ class SpringUserConfig {
     }
 
     @Bean
-    fun fbForSendingUsers(): ForSendingUsers {
+    fun fbiForSendingUsers(): FbiForSendingUsers {
         return FbiForSendingUsers()
+    }
+
+    @Bean
+    fun ciaForSendingUsers(): CiaForSendingUsers {
+        return CiaForSendingUsers()
+    }
+
+    @Bean
+    fun userSenderResolver(
+        fbiForSendingUsers: FbiForSendingUsers,
+        ciaForSendingUsers: CiaForSendingUsers,
+    ): UserSenderResolver {
+        return UserSenderResolverImpl(
+            fbiForSendingUsers,
+            ciaForSendingUsers,
+        )
     }
 
     @Bean
     fun createUserCommandHandler(
         idGenerator: IdGenerator,
-        sending: ForSendingUsers,
+        userSenderResolver: UserSenderResolver,
         eventBus: EventBus
     ): CreateUserCommandHandler {
         return CreateUserCommandHandler(
             idGenerator,
-            sending,
+            userSenderResolver,
             eventBus
         )
     }

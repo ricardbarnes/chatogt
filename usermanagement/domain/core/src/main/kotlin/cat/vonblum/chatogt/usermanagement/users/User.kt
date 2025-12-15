@@ -55,6 +55,7 @@ class User private constructor() : AggregateRoot() {
         email = UserEmail(event.email)
         password = UserPassword(event.password)
         status = UserStatus.ACTIVE
+        type = UserType.valueOf(event.type)
     }
 
     private fun applyUserPasswordUpdated(event: UserPasswordUpdatedEvent) {
@@ -82,6 +83,14 @@ class User private constructor() : AggregateRoot() {
                 id.value
             )
         )
+    }
+
+    fun isPoor(): Boolean {
+        return UserType.POOR == type
+    }
+
+    fun isRich(): Boolean {
+        return UserType.RICH == type
     }
 
 }

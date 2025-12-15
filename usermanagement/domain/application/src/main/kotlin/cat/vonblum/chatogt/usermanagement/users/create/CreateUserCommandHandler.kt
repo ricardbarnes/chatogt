@@ -7,7 +7,7 @@ import cat.vonblum.chatogt.usermanagement.users.*
 
 class CreateUserCommandHandler(
     private val idGenerator: IdGenerator,
-    private val sending: ForSendingUsers,
+    private val senderResolver: UserSenderResolver,
     private val eventBus: EventBus
 ) : CommandHandler {
 
@@ -17,7 +17,7 @@ class CreateUserCommandHandler(
         UserPassword(command.password),
         UserType.valueOf(command.type),
     ).also { user ->
-        sending.send(user)
+        senderResolver.resolveFor(user).send(user)
         eventBus.publish(user.pullEvents())
     }
 
