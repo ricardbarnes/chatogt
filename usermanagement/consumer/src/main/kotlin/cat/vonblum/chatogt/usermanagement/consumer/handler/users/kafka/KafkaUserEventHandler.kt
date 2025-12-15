@@ -5,9 +5,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.springframework.kafka.annotation.KafkaListener
 import user.User
 
-class KafkaUserEventHandler(
-    private val mapper: KafkaUserEventMapper,
-) {
+class KafkaUserEventHandler {
 
     @KafkaListener(
         topics = ["\${handler.events.users.kafka.topic}"],
