@@ -20,7 +20,7 @@ class KafkaUserEventHandler(
                 ?.value()
                 ?.toString(Charsets.UTF_8)
         ) {
-            User.CreateUserCommand::class.java.simpleName -> {
+            User.UserCreatedEvent::class.java.simpleName -> {
                 val proto = User.UserCreatedEvent.parseFrom(record.value())
                 handle(proto)
             }
