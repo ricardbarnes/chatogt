@@ -9,6 +9,7 @@ class KafkaEventMapper {
         return User.UserCreatedEvent.newBuilder()
             .setEmail(event.email)
             .setPassword(event.password)
+            .setType(event.type)
             .build()
             .toByteArray()
     }
