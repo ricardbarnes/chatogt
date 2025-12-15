@@ -7,8 +7,10 @@ import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 import cat.vonblum.chatogt.usermanagement.domain.generator.IdGenerator
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandHandler
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandMapper
+import cat.vonblum.chatogt.usermanagement.producer.provider.users.fbi.FbiForSendingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.mongo.MongoForFindingUsers
 import cat.vonblum.chatogt.usermanagement.users.ForFindingUsers
+import cat.vonblum.chatogt.usermanagement.users.ForSendingUsers
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommandHandler
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQueryHandler
@@ -25,12 +27,19 @@ class SpringUserConfig {
     }
 
     @Bean
+    fun fbForSendingUsers(): ForSendingUsers {
+        return FbiForSendingUsers()
+    }
+
+    @Bean
     fun createUserCommandHandler(
         idGenerator: IdGenerator,
+        sending: ForSendingUsers,
         eventBus: EventBus
     ): CreateUserCommandHandler {
         return CreateUserCommandHandler(
             idGenerator,
+            sending,
             eventBus
         )
     }
