@@ -17,17 +17,22 @@ class User private constructor() : AggregateRoot() {
     lateinit var status: UserStatus
         private set
 
+    lateinit var type: UserType
+        private set
+
     companion object {
 
         fun create(
             id: UserId,
             email: UserEmail,
-            password: UserPassword
+            password: UserPassword,
+            type: UserType
         ): User {
             val event = UserCreatedEvent(
                 id.value,
                 email.value,
-                password.value
+                password.value,
+                type.name
             )
             val user = User()
             user.apply(event)

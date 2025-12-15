@@ -8,6 +8,7 @@ class UserCreatedEvent(
     aggregateId: UUID,
     val email: String,
     val password: String,
+    val type: String,
     id: UUID = UUID.randomUUID(),
     occurredOn: Instant = Instant.now(),
 ) : Event(aggregateId, id, occurredOn)

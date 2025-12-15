@@ -6,6 +6,4 @@ object UserPasswordMother {
 
     fun create(password: String?): UserPassword = UserPassword(password ?: StringFaker.password())
 
-    fun random(): UserPassword = create(null)
-
 }

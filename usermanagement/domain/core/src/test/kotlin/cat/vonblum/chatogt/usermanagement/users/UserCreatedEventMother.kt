@@ -12,12 +12,14 @@ object UserCreatedEventMother {
         aggregateId: UUID?,
         name: String?,
         password: String?,
+        type: UserType?,
         id: UUID?,
         occurredOn: Instant?,
     ) = UserCreatedEvent(
         aggregateId ?: IdFaker.random(),
         name ?: StringFaker.name(),
         password ?: StringFaker.password(),
+        type?.name ?: UserType.POOR.name,
         id ?: IdFaker.random(),
         occurredOn ?: InstantFaker.utcNow(),
     )

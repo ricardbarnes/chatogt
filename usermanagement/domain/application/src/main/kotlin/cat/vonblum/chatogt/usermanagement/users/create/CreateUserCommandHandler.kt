@@ -14,6 +14,7 @@ class CreateUserCommandHandler(
         UserId(idGenerator.next()),
         UserEmail(command.email),
         UserPassword(command.password),
+        UserType.valueOf(command.type),
     ).also { user -> eventBus.publish(user.pullEvents()) }
 
 }

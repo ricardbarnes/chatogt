@@ -14,7 +14,8 @@ class GrpcUserMapper {
     fun toDomain(dto: User.CreateUserRequest): CreateUserCommand {
         return CreateUserCommand(
             dto.email,
-            dto.password
+            dto.password,
+            dto.type,
         )
     }
 

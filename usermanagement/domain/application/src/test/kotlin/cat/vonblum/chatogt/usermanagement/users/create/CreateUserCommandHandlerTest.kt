@@ -24,15 +24,15 @@ class CreateUserCommandHandlerTest {
 
     @Test
     fun `It should create a user`() {
-        // Given
-        val command = CreateUserCommandMother.random()
+        // given
+        val command = CreateUserCommandMother.create(null, null, null)
         `when`(idGeneratorMock.next())
             .thenReturn(IdFaker.random())
 
-        // When
+        // when
         sut.handle(command)
 
-        // Then
+        // then
         verify(eventBusMock).publish(anyList())
     }
 

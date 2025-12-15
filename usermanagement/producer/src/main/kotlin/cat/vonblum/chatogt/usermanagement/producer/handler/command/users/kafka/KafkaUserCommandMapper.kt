@@ -9,6 +9,7 @@ class KafkaUserCommandMapper {
         return CreateUserCommand(
             dto.email,
             dto.password,
+            dto.type,
         )
     }
 

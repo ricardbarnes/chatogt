@@ -7,6 +7,4 @@ object UserIdMother {
 
     fun create(id: UUID?): UserId = UserId(id ?: IdFaker.random())
 
-    fun random(): UserId = UserId(IdFaker.random())
-
 }

@@ -6,15 +6,12 @@ object CreateUserCommandMother {
 
     fun create(
         name: String?,
-        password: String?
+        password: String?,
+        type: String?
     ): CreateUserCommand = CreateUserCommand(
         name ?: StringFaker.name(),
-        password ?: StringFaker.password()
-    )
-
-    fun random(): CreateUserCommand = create(
-        null,
-        null
+        password ?: StringFaker.password(),
+        type ?: "POOR"
     )
 
 }
