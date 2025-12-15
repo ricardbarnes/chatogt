@@ -9,6 +9,7 @@ class KafkaCommandMapper {
         return User.CreateUserCommand.newBuilder()
             .setEmail(command.email)
             .setPassword(command.password)
+            .setType(command.type)
             .build()
             .toByteArray()
     }
