@@ -10,7 +10,7 @@ class UserNotifierResolverImpl(
     private val smsNotifying: ForNotifyingUsers
 ) : UserNotifierResolver {
 
-    override fun resolveFor(user: User): Set<ForNotifyingUsers> {
+    override fun resolveAllFor(user: User): Set<ForNotifyingUsers> {
         return user.notificationTypes
             .map {
                 when (it) {

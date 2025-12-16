@@ -8,7 +8,7 @@ import cat.vonblum.chatogt.usermanagement.users.*
 class CreateUserCommandHandler(
     private val idGenerator: IdGenerator,
     private val senderResolver: UserSenderResolver,
-    private val notifierResolver: UserNotifierResolver,
+    private val notifiersResolver: UserNotifierResolver,
     private val eventBus: EventBus
 ) : CommandHandler {
 
@@ -20,7 +20,7 @@ class CreateUserCommandHandler(
         command.notificationTypes.map { UserNotificationType.valueOf(it) }.toSet()
     ).also { user ->
         senderResolver.resolveFor(user).send(user)
-        notifierResolver.resolveFor(user).stream().forEach { it.notify(user) }
+        notifiersResolver.resolveAllFor(user).stream().forEach { it.notify(user) }
         eventBus.publish(user.pullEvents())
     }
 
