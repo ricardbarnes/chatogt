@@ -59,19 +59,6 @@ class SpringUserConfig {
     }
 
     @Bean
-    fun createUserCommandHandler(
-        idGenerator: IdGenerator,
-        userSenderResolver: UserSenderResolver,
-        eventBus: EventBus
-    ): CreateUserCommandHandler {
-        return CreateUserCommandHandler(
-            idGenerator,
-            userSenderResolver,
-            eventBus
-        )
-    }
-
-    @Bean
     fun userCommandHandlerMap(
         createUserCommandHandler: CreateUserCommandHandler
     ): Map<KClass<out Command>, CommandHandler> {
@@ -151,6 +138,37 @@ class SpringUserConfig {
         return UserNotifierResolverImpl(
             mailgun,
             twilio
+        )
+    }
+
+    @Bean
+    fun createUserCommandHandler(
+        idGenerator: IdGenerator,
+        userSenderResolver: UserSenderResolver,
+        userNotifierResolver: UserNotifierResolver,
+        eventBus: EventBus
+    ): CreateUserCommandHandler {
+        return CreateUserCommandHandler(
+            idGenerator,
+            userSenderResolver,
+            userNotifierResolver,
+            eventBus
+        )
+    }
+
+    @Bean
+    @Profile("prod")
+    fun createUserCommandHandlerProd(
+        idGenerator: IdGenerator,
+        userSenderResolver: UserSenderResolver,
+        userNotifierResolverProd: UserNotifierResolver,
+        eventBus: EventBus
+    ): CreateUserCommandHandler {
+        return CreateUserCommandHandler(
+            idGenerator,
+            userSenderResolver,
+            userNotifierResolverProd,
+            eventBus
         )
     }
 
