@@ -16,6 +16,7 @@ class CreateUserCommandHandler(
         UserEmail(command.email),
         UserPassword(command.password),
         UserType.valueOf(command.type),
+        command.notificationTypes.map { UserNotificationType.valueOf(it) }.toSet()
     ).also { user ->
         senderResolver.resolveFor(user).send(user)
         eventBus.publish(user.pullEvents())

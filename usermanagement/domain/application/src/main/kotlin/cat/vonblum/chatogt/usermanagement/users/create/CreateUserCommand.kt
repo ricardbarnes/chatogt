@@ -6,4 +6,5 @@ data class CreateUserCommand(
     val email: String,
     val password: String,
     val type: String,
+    val notificationTypes: Set<String>,
 ) : Command

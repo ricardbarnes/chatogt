@@ -10,6 +10,7 @@ class KafkaCommandMapper {
             .setEmail(command.email)
             .setPassword(command.password)
             .setType(command.type)
+            .addAllNotificationTypes(command.notificationTypes)
             .build()
             .toByteArray()
     }

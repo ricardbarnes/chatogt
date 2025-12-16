@@ -13,6 +13,7 @@ object UserCreatedEventMother {
         name: String?,
         password: String?,
         type: UserType?,
+        notificationType: UserNotificationType?,
         id: UUID?,
         occurredOn: Instant?,
     ) = UserCreatedEvent(
@@ -20,6 +21,7 @@ object UserCreatedEventMother {
         name ?: StringFaker.name(),
         password ?: StringFaker.password(),
         type?.name ?: UserType.POOR.name,
+        setOf(notificationType?.name ?: UserNotificationType.EMAIL.name),
         id ?: IdFaker.random(),
         occurredOn ?: InstantFaker.utcNow(),
     )

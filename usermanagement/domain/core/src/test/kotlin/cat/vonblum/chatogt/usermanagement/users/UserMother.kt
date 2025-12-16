@@ -9,13 +9,15 @@ object UserMother {
         id: UserId? = UserId(UUID.randomUUID()),
         name: UserEmail? = UserEmail("pepe@pepe.com"),
         password: UserPassword? = UserPassword("pepe"),
-        type: UserType? = UserTypeMother.poor()
+        type: UserType? = UserTypeMother.poor(),
+        notificationType: UserNotificationType? = UserNotificationType.EMAIL,
     ): User {
         val event = UserCreatedEventMother.create(
             id?.value,
             name?.value,
             password?.value,
             type,
+            notificationType,
             null,
             null
         )

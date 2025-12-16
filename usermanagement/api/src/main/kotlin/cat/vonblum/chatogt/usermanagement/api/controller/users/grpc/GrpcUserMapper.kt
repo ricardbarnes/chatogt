@@ -1,5 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.api.controller.users.grpc
 
+import cat.vonblum.chatogt.usermanagement.users.UserNotificationType
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.delete.DeleteUserByIdCommand
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQuery
@@ -11,13 +12,13 @@ import java.util.*
 
 class GrpcUserMapper {
 
-    fun toDomain(dto: User.CreateUserRequest): CreateUserCommand {
-        return CreateUserCommand(
+    fun toDomain(dto: User.CreateUserRequest): CreateUserCommand =
+        CreateUserCommand(
             dto.email,
             dto.password,
             dto.type,
+            dto.notificationTypesList.toSet()
         )
-    }
 
     fun toDomain(dto: User.FindUserByIdRequest): FindUserByIdQuery {
         return FindUserByIdQuery(UUID.fromString(dto.id))

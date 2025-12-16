@@ -10,6 +10,7 @@ class KafkaUserCommandMapper {
             dto.email,
             dto.password,
             dto.type,
+            dto.notificationTypesList.toSet(),
         )
     }
 

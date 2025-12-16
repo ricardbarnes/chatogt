@@ -9,16 +9,24 @@ import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.K
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandMapper
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.cia.CiaForSendingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.fbi.FbiForSendingUsers
+import cat.vonblum.chatogt.usermanagement.producer.provider.users.mailchimp.MailchimpForNotifyingUsers
+import cat.vonblum.chatogt.usermanagement.producer.provider.users.mailgun.MailgunForNotifyingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.mongo.MongoForFindingUsers
+import cat.vonblum.chatogt.usermanagement.producer.provider.users.plivo.PlivoForNotifyingUsers
+import cat.vonblum.chatogt.usermanagement.producer.provider.users.shared.UserNotifierResolverImpl
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.shared.UserSenderResolverImpl
+import cat.vonblum.chatogt.usermanagement.producer.provider.users.twilio.TwilioForNotifyingUsers
 import cat.vonblum.chatogt.usermanagement.users.ForFindingUsers
-import cat.vonblum.chatogt.usermanagement.users.ForSendingUsers
+import cat.vonblum.chatogt.usermanagement.users.ForNotifyingUsers
+import cat.vonblum.chatogt.usermanagement.users.UserNotifierResolver
 import cat.vonblum.chatogt.usermanagement.users.UserSenderResolver
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommandHandler
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQueryHandler
+import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Profile
 import kotlin.reflect.KClass
 
 @Configuration
@@ -68,7 +76,8 @@ class SpringUserConfig {
         createUserCommandHandler: CreateUserCommandHandler
     ): Map<KClass<out Command>, CommandHandler> {
         return mapOf(
-            CreateUserCommand::class as KClass<out Command> to createUserCommandHandler as CommandHandler,
+            CreateUserCommand::class as KClass<out Command>
+                    to createUserCommandHandler as CommandHandler,
         )
     }
 
@@ -98,6 +107,51 @@ class SpringUserConfig {
     @Bean
     fun findUserByIdQueryHandler(finding: ForFindingUsers): FindUserByIdQueryHandler {
         return FindUserByIdQueryHandler(finding)
+    }
+
+    @Bean
+    fun mailchimpForNotifyingUsers(): MailchimpForNotifyingUsers {
+        return MailchimpForNotifyingUsers()
+    }
+
+    @Bean
+    @Profile("prod")
+    fun mailgunForNotifyingUsers(): MailgunForNotifyingUsers {
+        return MailgunForNotifyingUsers()
+    }
+
+    @Bean
+    fun plivoForNotifyingUsers(): ForNotifyingUsers {
+        return PlivoForNotifyingUsers()
+    }
+
+    @Bean
+    @Profile("prod")
+    fun twilioForNotifyingUsers(): ForNotifyingUsers {
+        return TwilioForNotifyingUsers()
+    }
+
+    @Bean
+    fun userNotifierResolver(
+        @Qualifier("mailchimpForNotifyingUsers") mailchimp: ForNotifyingUsers,
+        @Qualifier("plivoForNotifyingUsers") plivo: ForNotifyingUsers,
+    ): UserNotifierResolver {
+        return UserNotifierResolverImpl(
+            mailchimp,
+            plivo
+        )
+    }
+
+    @Bean
+    @Profile("prod")
+    fun userNotifierResolverProd(
+        @Qualifier("mailgunForNotifyingUsers") mailgun: ForNotifyingUsers,
+        @Qualifier("twilioForNotifyingUsers") twilio: ForNotifyingUsers,
+    ): UserNotifierResolver {
+        return UserNotifierResolverImpl(
+            mailgun,
+            twilio
+        )
     }
 
 }

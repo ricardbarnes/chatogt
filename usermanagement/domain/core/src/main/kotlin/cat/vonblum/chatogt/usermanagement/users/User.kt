@@ -20,19 +20,24 @@ class User private constructor() : AggregateRoot() {
     lateinit var type: UserType
         private set
 
+    lateinit var notificationTypes: Set<UserNotificationType>
+        private set
+
     companion object {
 
         fun create(
             id: UserId,
             email: UserEmail,
             password: UserPassword,
-            type: UserType
+            type: UserType,
+            notificationTypes: Set<UserNotificationType>
         ): User {
             val event = UserCreatedEvent(
                 id.value,
                 email.value,
                 password.value,
-                type.name
+                type.name,
+                notificationTypes.map { it.name }.toSet(),
             )
             val user = User()
             user.apply(event)

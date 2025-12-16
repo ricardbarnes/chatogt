@@ -10,6 +10,7 @@ class KafkaEventMapper {
             .setEmail(event.email)
             .setPassword(event.password)
             .setType(event.type)
+            .addAllNotificationTypes(event.notificationTypes)
             .build()
             .toByteArray()
     }
