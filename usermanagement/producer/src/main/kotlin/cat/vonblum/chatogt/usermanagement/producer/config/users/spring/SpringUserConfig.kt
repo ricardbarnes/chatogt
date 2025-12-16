@@ -97,6 +97,7 @@ class SpringUserConfig {
     }
 
     @Bean
+    @Profile("dev")
     fun mailchimpForNotifyingUsers(): MailchimpForNotifyingUsers {
         return MailchimpForNotifyingUsers()
     }
@@ -108,6 +109,7 @@ class SpringUserConfig {
     }
 
     @Bean
+    @Profile("dev")
     fun plivoForNotifyingUsers(): ForNotifyingUsers {
         return PlivoForNotifyingUsers()
     }
@@ -119,7 +121,8 @@ class SpringUserConfig {
     }
 
     @Bean
-    fun userNotifierResolver(
+    @Profile("dev")
+    fun userNotifierResolverDev(
         @Qualifier("mailchimpForNotifyingUsers") mailchimp: ForNotifyingUsers,
         @Qualifier("plivoForNotifyingUsers") plivo: ForNotifyingUsers,
     ): UserNotifierResolver {
@@ -142,16 +145,17 @@ class SpringUserConfig {
     }
 
     @Bean
-    fun createUserCommandHandler(
+    @Profile("dev")
+    fun createUserCommandHandlerDev(
         idGenerator: IdGenerator,
         userSenderResolver: UserSenderResolver,
-        userNotifierResolver: UserNotifierResolver,
+        userNotifierResolverDev: UserNotifierResolver,
         eventBus: EventBus
     ): CreateUserCommandHandler {
         return CreateUserCommandHandler(
             idGenerator,
             userSenderResolver,
-            userNotifierResolver,
+            userNotifierResolverDev,
             eventBus
         )
     }
