@@ -9,6 +9,7 @@ class CreateUserCommandHandler(
     private val idGenerator: IdGenerator,
     private val senderResolver: UserSenderResolver,
     private val notifiersResolver: UserNotifierResolver,
+    private val reporting: ForReportingUsers,
     private val eventBus: EventBus
 ) : CommandHandler {
 
@@ -22,6 +23,7 @@ class CreateUserCommandHandler(
     ).also { user ->
         senderResolver.resolveFor(user).send(user)
         notifiersResolver.resolveAllFor(user).stream().forEach { it.notify(user) }
+        reporting.report(user)
         eventBus.publish(user.pullEvents())
     }
 

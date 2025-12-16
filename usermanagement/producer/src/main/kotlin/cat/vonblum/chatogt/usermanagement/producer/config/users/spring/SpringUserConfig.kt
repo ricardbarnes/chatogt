@@ -9,6 +9,7 @@ import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.K
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandMapper
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.cia.CiaForSendingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.fbi.FbiForSendingUsers
+import cat.vonblum.chatogt.usermanagement.producer.provider.users.kotlin.KotlinForReportingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.mailchimp.MailchimpForNotifyingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.mailgun.MailgunForNotifyingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.mongo.MongoForFindingUsers
@@ -18,6 +19,7 @@ import cat.vonblum.chatogt.usermanagement.producer.provider.users.shared.UserSen
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.twilio.TwilioForNotifyingUsers
 import cat.vonblum.chatogt.usermanagement.users.ForFindingUsers
 import cat.vonblum.chatogt.usermanagement.users.ForNotifyingUsers
+import cat.vonblum.chatogt.usermanagement.users.ForReportingUsers
 import cat.vonblum.chatogt.usermanagement.users.UserNotifierResolver
 import cat.vonblum.chatogt.usermanagement.users.UserSenderResolver
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
@@ -145,17 +147,24 @@ class SpringUserConfig {
     }
 
     @Bean
+    fun forReportingUsers(): ForReportingUsers {
+        return KotlinForReportingUsers()
+    }
+
+    @Bean
     @Profile("dev")
     fun createUserCommandHandlerDev(
         idGenerator: IdGenerator,
         userSenderResolver: UserSenderResolver,
         userNotifierResolverDev: UserNotifierResolver,
+        forReportingUsers: ForReportingUsers,
         eventBus: EventBus
     ): CreateUserCommandHandler {
         return CreateUserCommandHandler(
             idGenerator,
             userSenderResolver,
             userNotifierResolverDev,
+            forReportingUsers,
             eventBus
         )
     }
@@ -166,12 +175,14 @@ class SpringUserConfig {
         idGenerator: IdGenerator,
         userSenderResolver: UserSenderResolver,
         userNotifierResolverProd: UserNotifierResolver,
+        forReportingUsers: ForReportingUsers,
         eventBus: EventBus
     ): CreateUserCommandHandler {
         return CreateUserCommandHandler(
             idGenerator,
             userSenderResolver,
             userNotifierResolverProd,
+            forReportingUsers,
             eventBus
         )
     }
