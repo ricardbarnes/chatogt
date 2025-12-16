@@ -12,6 +12,7 @@ class CreateUserCommandHandler(
     private val eventBus: EventBus
 ) : CommandHandler {
 
+    @Suppress("unused")
     fun handle(command: CreateUserCommand) = User.create(
         UserId(idGenerator.next()),
         UserEmail(command.email),
