@@ -2,6 +2,7 @@ package cat.vonblum.chatogt.usermanagement.users
 
 import cat.vonblum.chatogt.usermanagement.domain.aggregate.AggregateRoot
 import cat.vonblum.chatogt.usermanagement.domain.event.Event
+import java.util.stream.Collectors
 
 class User private constructor() : AggregateRoot() {
 
@@ -61,6 +62,8 @@ class User private constructor() : AggregateRoot() {
         password = UserPassword(event.password)
         status = UserStatus.ACTIVE
         type = UserType.valueOf(event.type)
+        notificationTypes =
+            event.notificationTypes.stream().map { UserNotificationType.valueOf(it) }.collect(Collectors.toSet())
     }
 
     private fun applyUserPasswordUpdated(event: UserPasswordUpdatedEvent) {
