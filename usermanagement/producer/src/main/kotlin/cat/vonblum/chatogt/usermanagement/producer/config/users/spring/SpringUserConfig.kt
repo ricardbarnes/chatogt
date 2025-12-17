@@ -5,6 +5,8 @@ import cat.vonblum.chatogt.usermanagement.domain.command.CommandHandler
 import cat.vonblum.chatogt.usermanagement.domain.command.CommandHandlerDispatcher
 import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 import cat.vonblum.chatogt.usermanagement.domain.generator.IdGenerator
+import cat.vonblum.chatogt.usermanagement.producer.clients.cia.CiaClient
+import cat.vonblum.chatogt.usermanagement.producer.clients.fbi.FbiClient
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandHandler
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandMapper
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.cia.CiaForSendingUsers
@@ -40,13 +42,13 @@ class SpringUserConfig {
     }
 
     @Bean
-    fun fbiForSendingUsers(): FbiForSendingUsers {
-        return FbiForSendingUsers()
+    fun fbiForSendingUsers(fbiClient: FbiClient): FbiForSendingUsers {
+        return FbiForSendingUsers(fbiClient)
     }
 
     @Bean
-    fun ciaForSendingUsers(): CiaForSendingUsers {
-        return CiaForSendingUsers()
+    fun ciaForSendingUsers(ciaClient: CiaClient): CiaForSendingUsers {
+        return CiaForSendingUsers(ciaClient)
     }
 
     @Bean
