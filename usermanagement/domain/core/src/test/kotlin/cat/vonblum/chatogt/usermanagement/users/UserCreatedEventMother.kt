@@ -20,7 +20,7 @@ object UserCreatedEventMother {
         aggregateId ?: IdFaker.random(),
         name ?: StringFaker.name(),
         password ?: StringFaker.password(),
-        type?.name ?: UserType.POOR.name,
+        type?.name ?: UserType.STANDARD.name,
         setOf(notificationType?.name ?: UserNotificationType.EMAIL.name),
         id ?: IdFaker.random(),
         occurredOn ?: InstantFaker.utcNow(),

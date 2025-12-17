@@ -16,7 +16,7 @@ service UserService {
 message CreateUserRequest {
   string email = 1; // Example: "pepe@pepe.com"
   string password = 2; // Example: "pepe123"
-  string type = 3; // Example: "POOR"
+  string type = 3; // Example: "STANDARD"
   repeated string notification_types = 4; // Example:  ["EMAIL", "SMS"]
 }
 

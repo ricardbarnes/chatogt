@@ -5,25 +5,21 @@ import cat.vonblum.chatogt.usermanagement.domain.command.CommandHandler
 import cat.vonblum.chatogt.usermanagement.domain.command.CommandHandlerDispatcher
 import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 import cat.vonblum.chatogt.usermanagement.domain.generator.IdGenerator
-import cat.vonblum.chatogt.usermanagement.producer.clients.cia.CiaClient
-import cat.vonblum.chatogt.usermanagement.producer.clients.fbi.FbiClient
+import cat.vonblum.chatogt.usermanagement.producer.clients.cia.Auth0Client
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandHandler
 import cat.vonblum.chatogt.usermanagement.producer.handler.command.users.kafka.KafkaUserCommandMapper
-import cat.vonblum.chatogt.usermanagement.producer.provider.users.cia.CiaForSendingUsers
-import cat.vonblum.chatogt.usermanagement.producer.provider.users.fbi.FbiForSendingUsers
+import cat.vonblum.chatogt.usermanagement.producer.provider.users.auth0.Auth0ForSendingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.kotlin.KotlinForReportingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.mailchimp.MailchimpForNotifyingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.mailgun.MailgunForNotifyingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.mongo.MongoForFindingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.plivo.PlivoForNotifyingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.shared.UserNotifierResolverImpl
-import cat.vonblum.chatogt.usermanagement.producer.provider.users.shared.UserSenderResolverImpl
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.twilio.TwilioForNotifyingUsers
 import cat.vonblum.chatogt.usermanagement.users.ForFindingUsers
 import cat.vonblum.chatogt.usermanagement.users.ForNotifyingUsers
 import cat.vonblum.chatogt.usermanagement.users.ForReportingUsers
 import cat.vonblum.chatogt.usermanagement.users.UserNotifierResolver
-import cat.vonblum.chatogt.usermanagement.users.UserSenderResolver
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommandHandler
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQueryHandler
@@ -39,27 +35,6 @@ class SpringUserConfig {
     @Bean
     fun mongoFinding(): ForFindingUsers {
         return MongoForFindingUsers()
-    }
-
-    @Bean
-    fun fbiForSendingUsers(fbiClient: FbiClient): FbiForSendingUsers {
-        return FbiForSendingUsers(fbiClient)
-    }
-
-    @Bean
-    fun ciaForSendingUsers(ciaClient: CiaClient): CiaForSendingUsers {
-        return CiaForSendingUsers(ciaClient)
-    }
-
-    @Bean
-    fun userSenderResolver(
-        fbiForSendingUsers: FbiForSendingUsers,
-        ciaForSendingUsers: CiaForSendingUsers,
-    ): UserSenderResolver {
-        return UserSenderResolverImpl(
-            fbiForSendingUsers,
-            ciaForSendingUsers,
-        )
     }
 
     @Bean
@@ -149,24 +124,29 @@ class SpringUserConfig {
     }
 
     @Bean
-    fun forReportingUsers(): ForReportingUsers {
+    fun kotlinForReportingUsers(): ForReportingUsers {
         return KotlinForReportingUsers()
+    }
+
+    @Bean
+    fun auth0ForSendingUsers(auth0Client: Auth0Client): Auth0ForSendingUsers {
+        return Auth0ForSendingUsers(auth0Client)
     }
 
     @Bean
     @Profile("dev")
     fun createUserCommandHandlerDev(
         idGenerator: IdGenerator,
-        userSenderResolver: UserSenderResolver,
+        auth0ForSendingUsers: Auth0ForSendingUsers,
         userNotifierResolverDev: UserNotifierResolver,
-        forReportingUsers: ForReportingUsers,
+        kotlinForReportingUsers: ForReportingUsers,
         eventBus: EventBus
     ): CreateUserCommandHandler {
         return CreateUserCommandHandler(
             idGenerator,
-            userSenderResolver,
+            auth0ForSendingUsers,
             userNotifierResolverDev,
-            forReportingUsers,
+            kotlinForReportingUsers,
             eventBus
         )
     }
@@ -175,14 +155,14 @@ class SpringUserConfig {
     @Profile("prod")
     fun createUserCommandHandlerProd(
         idGenerator: IdGenerator,
-        userSenderResolver: UserSenderResolver,
+        auth0ForSendingUsers: Auth0ForSendingUsers,
         userNotifierResolverProd: UserNotifierResolver,
         forReportingUsers: ForReportingUsers,
         eventBus: EventBus
     ): CreateUserCommandHandler {
         return CreateUserCommandHandler(
             idGenerator,
-            userSenderResolver,
+            auth0ForSendingUsers,
             userNotifierResolverProd,
             forReportingUsers,
             eventBus

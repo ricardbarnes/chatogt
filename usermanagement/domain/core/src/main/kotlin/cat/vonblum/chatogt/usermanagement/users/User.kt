@@ -93,12 +93,12 @@ class User private constructor() : AggregateRoot() {
         )
     }
 
-    fun isPoor(): Boolean {
-        return UserType.POOR == type
+    fun isStandard(): Boolean {
+        return UserType.STANDARD == type
     }
 
-    fun isRich(): Boolean {
-        return UserType.RICH == type
+    fun isPremium(): Boolean {
+        return UserType.PREMIUM == type
     }
 
 }
