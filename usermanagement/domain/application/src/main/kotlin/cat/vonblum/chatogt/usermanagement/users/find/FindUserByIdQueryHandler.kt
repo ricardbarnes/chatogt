@@ -9,8 +9,8 @@ class FindUserByIdQueryHandler(private val finding: ForFindingUsers) : QueryHand
     fun handle(query: FindUserByIdQuery): FindUserByIdResponse =
         finding.findById(UserId(query.id)).let { user ->
             FindUserByIdResponse(
-                user.id.value,
-                user.email.value
+                user.id().value,
+                user.email().value
             )
         }
 

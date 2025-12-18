@@ -6,7 +6,7 @@ import cat.vonblum.chatogt.usermanagement.users.User
 class MailgunForNotifyingUsers : ForNotifyingUsers {
 
     override fun notify(user: User) {
-        println("An email to ${user.email.value} has been sent through Mailgun")
+        println("An email to ${user.email().value} has been sent through Mailgun")
     }
 
 }

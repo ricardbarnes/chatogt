@@ -8,7 +8,7 @@ import cat.vonblum.chatogt.usermanagement.users.User
 class Auth0ForSendingUsers(private val client: Auth0Client) : ForSendingUsers {
 
     override fun send(user: User) {
-        client.doRequest(Auth0CreateUserRequest(user.email.value))
+        client.doRequest(Auth0CreateUserRequest(user.email().value))
     }
 
 }

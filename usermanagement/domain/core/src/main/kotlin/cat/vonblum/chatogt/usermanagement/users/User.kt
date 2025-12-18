@@ -6,23 +6,17 @@ import java.util.stream.Collectors
 
 class User private constructor() : AggregateRoot() {
 
-    lateinit var id: UserId
-        private set
+    private lateinit var id: UserId
 
-    lateinit var email: UserEmail
-        private set
+    private lateinit var email: UserEmail
 
-    lateinit var password: UserPassword
-        private set
+    private lateinit var password: UserPassword
 
-    lateinit var status: UserStatus
-        private set
+    private lateinit var status: UserStatus
 
-    lateinit var type: UserType
-        private set
+    private lateinit var type: UserType
 
-    lateinit var notificationTypes: Set<UserNotificationType>
-        private set
+    private lateinit var notificationTypes: Set<UserNotificationType>
 
     companion object {
 
@@ -93,12 +87,28 @@ class User private constructor() : AggregateRoot() {
         )
     }
 
+    fun id(): UserId = id
+
+    fun email(): UserEmail = email
+
+    fun password(): UserPassword = password
+
+    fun notificationTypes(): Set<UserNotificationType> = notificationTypes
+
+    fun isActive(): Boolean = status == UserStatus.ACTIVE
+
+    fun isDeleted(): Boolean = status == UserStatus.DELETED
+
     fun isStandard(): Boolean {
         return UserType.STANDARD == type
     }
 
-    fun isPremium(): Boolean {
-        return UserType.PREMIUM == type
-    }
+    fun isPremium(): Boolean = UserType.PREMIUM == type
+
+    fun hasEmailNotifications(): Boolean =
+        notificationTypes.any { type -> type.name == UserNotificationType.EMAIL.name }
+
+    fun hasSmsNotifications(): Boolean =
+        notificationTypes.any { type -> type.name == UserNotificationType.SMS.name }
 
 }

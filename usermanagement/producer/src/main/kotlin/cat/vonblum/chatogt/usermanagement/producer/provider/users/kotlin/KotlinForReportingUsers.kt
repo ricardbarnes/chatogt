@@ -6,7 +6,7 @@ import cat.vonblum.chatogt.usermanagement.users.User
 class KotlinForReportingUsers : ForReportingUsers {
 
     override fun report(user: User) {
-        println("User ${user.email.value} has been created")
+        println("User ${user.email().value} has been created")
     }
 
 }

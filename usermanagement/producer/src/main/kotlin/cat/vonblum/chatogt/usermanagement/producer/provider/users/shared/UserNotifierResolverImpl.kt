@@ -11,7 +11,7 @@ class UserNotifierResolverImpl(
 ) : UserNotifierResolver {
 
     override fun resolveAllFor(user: User): Set<ForNotifyingUsers> {
-        return user.notificationTypes
+        return user.notificationTypes()
             .map {
                 when (it) {
                     UserNotificationType.EMAIL -> emailNotifying

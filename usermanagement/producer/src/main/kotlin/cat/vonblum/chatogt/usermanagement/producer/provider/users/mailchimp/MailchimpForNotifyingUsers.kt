@@ -6,7 +6,7 @@ import cat.vonblum.chatogt.usermanagement.users.User
 class MailchimpForNotifyingUsers : ForNotifyingUsers {
 
     override fun notify(user: User) {
-        println("An email to ${user.email.value} has been sent through Mail Chimp")
+        println("An email to ${user.email().value} has been sent through Mail Chimp")
     }
 
 }

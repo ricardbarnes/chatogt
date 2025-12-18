@@ -8,8 +8,8 @@ class FindUserByEmailQueryHandler(private val finding: ForFindingUsers) {
     fun handle(query: FindUserByEmailQuery): FindUserByEmailResponse =
         finding.findByEmail(UserEmail(query.name)).let { user ->
             FindUserByEmailResponse(
-                user.id.value,
-                user.email.value
+                user.id().value,
+                user.email().value
             )
         }
 
