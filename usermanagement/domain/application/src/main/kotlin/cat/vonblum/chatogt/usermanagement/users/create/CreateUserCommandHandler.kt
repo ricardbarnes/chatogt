@@ -8,7 +8,7 @@ import cat.vonblum.chatogt.usermanagement.users.*
 class CreateUserCommandHandler(
     private val idGenerator: IdGenerator,
     private val sending: ForSendingUsers,
-    private val notifiersResolver: UserNotificationStrategyResolver,
+    private val notifyingMap: Map<UserNotificationType, ForNotifyingUsers>,
     private val eventBus: EventBus
 ) : CommandHandler {
 
@@ -21,8 +21,15 @@ class CreateUserCommandHandler(
         command.notificationTypes.map { UserNotificationType.valueOf(it) }.toSet()
     ).also { user ->
         sending.send(user)
-        notifiersResolver.resolveAllFor(user).stream().forEach { it.notify(user) }
+        notifyUser(user)
         eventBus.publish(user.pullEvents())
+    }
+
+    private fun notifyUser(user: User) {
+        user.notificationTypes()
+            .mapNotNull(notifyingMap::get)
+            .toSet()
+            .forEach { it.notify(user) }
     }
 
 }
