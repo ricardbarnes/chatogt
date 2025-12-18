@@ -13,11 +13,11 @@ import cat.vonblum.chatogt.usermanagement.producer.provider.users.mailchimp.Mail
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.mailgun.MailgunForNotifyingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.mongo.MongoForFindingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.plivo.PlivoForNotifyingUsers
-import cat.vonblum.chatogt.usermanagement.producer.provider.users.shared.UserNotifierResolverImpl
+import cat.vonblum.chatogt.usermanagement.users.UserNotificationStrategyResolver
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.twilio.TwilioForNotifyingUsers
 import cat.vonblum.chatogt.usermanagement.users.ForFindingUsers
 import cat.vonblum.chatogt.usermanagement.users.ForNotifyingUsers
-import cat.vonblum.chatogt.usermanagement.users.UserNotifierResolver
+import cat.vonblum.chatogt.usermanagement.users.UserNotificationType
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommandHandler
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQueryHandler
@@ -75,13 +75,13 @@ class SpringUserConfig {
 
     @Bean
     @Profile("dev")
-    fun mailchimpForNotifyingUsers(): MailchimpForNotifyingUsers {
+    fun mailchimpForNotifyingUsers(): ForNotifyingUsers {
         return MailchimpForNotifyingUsers()
     }
 
     @Bean
     @Profile("prod")
-    fun mailgunForNotifyingUsers(): MailgunForNotifyingUsers {
+    fun mailgunForNotifyingUsers(): ForNotifyingUsers {
         return MailgunForNotifyingUsers()
     }
 
@@ -99,25 +99,34 @@ class SpringUserConfig {
 
     @Bean
     @Profile("dev")
-    fun userNotifierResolverDev(
-        @Qualifier("mailchimpForNotifyingUsers") mailchimp: ForNotifyingUsers,
-        @Qualifier("plivoForNotifyingUsers") plivo: ForNotifyingUsers,
-    ): UserNotifierResolver {
-        return UserNotifierResolverImpl(
-            mailchimp,
-            plivo
+    fun userNotifiersDev(
+        mailchimpForNotifyingUsers: ForNotifyingUsers,
+        plivoForNotifyingUsers: ForNotifyingUsers,
+    ): Map<UserNotificationType, ForNotifyingUsers> {
+        return mapOf(
+            UserNotificationType.EMAIL to mailchimpForNotifyingUsers,
+            UserNotificationType.SMS to plivoForNotifyingUsers,
         )
     }
 
     @Bean
     @Profile("prod")
-    fun userNotifierResolverProd(
-        @Qualifier("mailgunForNotifyingUsers") mailgun: ForNotifyingUsers,
-        @Qualifier("twilioForNotifyingUsers") twilio: ForNotifyingUsers,
-    ): UserNotifierResolver {
-        return UserNotifierResolverImpl(
-            mailgun,
-            twilio
+    fun userNotifiersProd(
+        mailgunForNotifyingUsers: ForNotifyingUsers,
+        twilioForNotifyingUsers: ForNotifyingUsers,
+    ): Map<UserNotificationType, ForNotifyingUsers> {
+        return mapOf(
+            UserNotificationType.EMAIL to mailgunForNotifyingUsers,
+            UserNotificationType.SMS to twilioForNotifyingUsers,
+        )
+    }
+
+    @Bean
+    fun userNotificationStrategyResolverProd(
+        notifiers: Map<UserNotificationType, ForNotifyingUsers>
+    ): UserNotificationStrategyResolver {
+        return UserNotificationStrategyResolver(
+            notifiers
         )
     }
 
@@ -131,13 +140,13 @@ class SpringUserConfig {
     fun createUserCommandHandlerDev(
         idGenerator: IdGenerator,
         auth0ForSendingUsers: Auth0ForSendingUsers,
-        userNotifierResolverDev: UserNotifierResolver,
+        userNotificationStrategyResolverDev: UserNotificationStrategyResolver,
         eventBus: EventBus
     ): CreateUserCommandHandler {
         return CreateUserCommandHandler(
             idGenerator,
             auth0ForSendingUsers,
-            userNotifierResolverDev,
+            userNotificationStrategyResolverDev,
             eventBus
         )
     }
@@ -147,13 +156,13 @@ class SpringUserConfig {
     fun createUserCommandHandlerProd(
         idGenerator: IdGenerator,
         auth0ForSendingUsers: Auth0ForSendingUsers,
-        userNotifierResolverProd: UserNotifierResolver,
+        userNotificationStrategyResolverProd: UserNotificationStrategyResolver,
         eventBus: EventBus
     ): CreateUserCommandHandler {
         return CreateUserCommandHandler(
             idGenerator,
             auth0ForSendingUsers,
-            userNotifierResolverProd,
+            userNotificationStrategyResolverProd,
             eventBus
         )
     }

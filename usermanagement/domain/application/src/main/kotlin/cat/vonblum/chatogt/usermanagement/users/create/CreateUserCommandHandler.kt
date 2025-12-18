@@ -8,7 +8,7 @@ import cat.vonblum.chatogt.usermanagement.users.*
 class CreateUserCommandHandler(
     private val idGenerator: IdGenerator,
     private val sending: ForSendingUsers,
-    private val notifiersResolver: UserNotifierResolver,
+    private val notifiersResolver: UserNotificationStrategyResolver,
     private val eventBus: EventBus
 ) : CommandHandler {
 
