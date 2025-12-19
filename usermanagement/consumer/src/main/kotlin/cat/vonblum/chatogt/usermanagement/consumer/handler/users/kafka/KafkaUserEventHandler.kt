@@ -30,7 +30,6 @@ class KafkaUserEventHandler {
     private fun handle(dto: User.UserCreatedEvent) {
         // TODO: append event to event stream
         // TODO: update view model projection
-        // TODO: execute event side effects (send welcome email)
         println(dto)
     }
 
