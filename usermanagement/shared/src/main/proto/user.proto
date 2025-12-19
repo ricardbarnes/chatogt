@@ -28,10 +28,11 @@ message CreateUserCommand {
 }
 
 message UserCreatedEvent {
-  string email = 1;
-  string password = 2;
-  string type = 3;
-  repeated string notification_types = 4;
+  string id = 1;
+  string email = 2;
+  string password = 3;
+  string type = 4;
+  repeated string notification_types = 5;
 }
 
 message FindUserByIdRequest {

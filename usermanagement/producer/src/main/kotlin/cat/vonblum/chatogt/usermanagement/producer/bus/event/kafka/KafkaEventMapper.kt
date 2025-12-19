@@ -7,6 +7,7 @@ class KafkaEventMapper {
 
     fun toInfra(event: UserCreatedEvent): ByteArray {
         return User.UserCreatedEvent.newBuilder()
+            .setId(event.id.toString())
             .setEmail(event.email)
             .setPassword(event.password)
             .setType(event.type)
