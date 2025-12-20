@@ -6,8 +6,8 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db
-      - mongo-config:/data/configdb
+      - chatogt-mongo-data:/data/db
+      - chatogt-mongo-config:/data/configdb
       - ../scripts/mongo/init-replica.js:/docker-entrypoint-initdb.d/init-replica.js:ro
     healthcheck:
       test: echo 'rs.status().ok' | mongosh --quiet --port 27017
@@ -51,5 +51,5 @@ services:
       retries: 5
 
 volumes:
-  mongo-data:
-  mongo-config:
+  chatogt-mongo-data:
+  chatogt-mongo-config:
