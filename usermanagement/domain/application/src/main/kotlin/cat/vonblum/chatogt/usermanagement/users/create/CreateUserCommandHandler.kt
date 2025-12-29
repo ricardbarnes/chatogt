@@ -21,7 +21,7 @@ class CreateUserCommandHandler(
         command.notificationTypes.map { UserNotificationType.valueOf(it) }.toSet()
     ).also { user ->
         sending.send(user)
-        notifyUser(user)
+        notifyUser(user) // should this be a side effect (consumer side)?
         eventBus.publish(user.pullEvents())
     }
 

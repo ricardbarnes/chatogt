@@ -6,14 +6,14 @@ import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
 
 class MongoWriteStore : WriteStore {
 
-    override fun store(event: Event) {
+    override fun append(event: Event) {
         when (event) {
-            is UserCreatedEvent -> store(event)
+            is UserCreatedEvent -> append(event)
             else -> throw IllegalArgumentException("event type is not handled")
         }
     }
 
-    private fun store(event: UserCreatedEvent) {
+    private fun append(event: UserCreatedEvent) {
         TODO()
     }
 

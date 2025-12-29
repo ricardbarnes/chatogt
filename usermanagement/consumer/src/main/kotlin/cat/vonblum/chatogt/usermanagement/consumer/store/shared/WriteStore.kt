@@ -4,6 +4,6 @@ import cat.vonblum.chatogt.usermanagement.domain.event.Event
 
 interface WriteStore {
 
-    fun store(event: Event)
+    fun append(event: Event)
 
 }

@@ -35,7 +35,7 @@ class KafkaUserEventHandler(
 
     private fun handle(dto: User.UserCreatedEvent) {
         val event = mapper.toDomain(dto)
-        writeStore.store(event)
+        writeStore.append(event)
         projection.apply(event)
     }
 
