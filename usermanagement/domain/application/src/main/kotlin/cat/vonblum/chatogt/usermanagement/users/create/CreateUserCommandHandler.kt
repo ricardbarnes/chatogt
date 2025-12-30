@@ -21,7 +21,7 @@ class CreateUserCommandHandler(
         command.notificationTypes.map { UserNotificationType.valueOf(it) }.toSet()
     ).also { user ->
         sending.send(user)
-        notifyUser(user) // should this be a side effect (consumer side)?
+        notifyUser(user) // TODO: create a messaging service and consume the event there + remove notifications from this bounded context
         eventBus.publish(user.pullEvents())
     }
 
