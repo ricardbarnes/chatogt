@@ -8,7 +8,7 @@ import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
 class MongoStore : Store {
 
     override fun append(event: Event) {
-        TODO("not implemented")
+        TODO("Not yet implemented")
     }
 
     override fun load(aggregateId: Id): List<Event> {
@@ -16,7 +16,7 @@ class MongoStore : Store {
     }
 
     private fun append(event: UserCreatedEvent) {
-        TODO()
+        TODO("Not yet implemented")
     }
 
 }
