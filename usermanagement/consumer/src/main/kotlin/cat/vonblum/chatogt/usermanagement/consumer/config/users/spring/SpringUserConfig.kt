@@ -6,8 +6,8 @@ import cat.vonblum.chatogt.usermanagement.consumer.projection.users.UserProjecti
 import cat.vonblum.chatogt.usermanagement.consumer.projection.users.mongo.MongoUserProjection
 import cat.vonblum.chatogt.usermanagement.consumer.repository.users.UserRepository
 import cat.vonblum.chatogt.usermanagement.consumer.repository.users.mongo.MongoUserRepository
-import cat.vonblum.chatogt.usermanagement.consumer.store.shared.WriteStore
-import cat.vonblum.chatogt.usermanagement.consumer.store.shared.mongo.MongoWriteStore
+import cat.vonblum.chatogt.usermanagement.shared.store.shared.Store
+import cat.vonblum.chatogt.usermanagement.shared.store.shared.mongo.MongoStore
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -34,19 +34,19 @@ class SpringUserConfig {
     }
 
     @Bean
-    fun mongoWriteStore(): WriteStore {
-        return MongoWriteStore()
+    fun mongoWriteStore(): Store {
+        return MongoStore()
     }
 
     @Bean
     fun kafkaUserEventHandler(
         kafkaUserEventMapper: KafkaUserEventMapper,
-        mongoWriteStore: WriteStore,
+        mongoStore: Store,
         mongoUserProjection: UserProjection
     ): KafkaUserEventHandler {
         return KafkaUserEventHandler(
             kafkaUserEventMapper,
-            mongoWriteStore,
+            mongoStore,
             mongoUserProjection
         )
     }

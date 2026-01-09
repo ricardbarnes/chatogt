@@ -1,8 +1,8 @@
-package cat.vonblum.chatogt.usermanagement.consumer.store.shared
+package cat.vonblum.chatogt.usermanagement.shared.store.shared
 
 import cat.vonblum.chatogt.usermanagement.domain.event.Event
 
-interface WriteStore {
+interface Store {
 
     fun append(event: Event)
 

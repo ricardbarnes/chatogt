@@ -24,6 +24,8 @@ dependencies {
     api("org.springframework.kafka:spring-kafka:3.3.5")
     api("com.google.code.gson:gson:2.11.0")
     api("org.springframework.boot:spring-boot-starter-data-mongodb:3.4.5")
+    implementation(project(":shared:domain"))
+    implementation(project(":usermanagement:domain:core"))
     testApi("org.springframework.boot:spring-boot-starter-test:3.4.5")
 }
 

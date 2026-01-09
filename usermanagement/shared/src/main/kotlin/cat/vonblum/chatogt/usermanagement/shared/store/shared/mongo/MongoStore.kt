@@ -1,10 +1,10 @@
-package cat.vonblum.chatogt.usermanagement.consumer.store.shared.mongo
+package cat.vonblum.chatogt.usermanagement.shared.store.shared.mongo
 
-import cat.vonblum.chatogt.usermanagement.consumer.store.shared.WriteStore
+import cat.vonblum.chatogt.usermanagement.shared.store.shared.Store
 import cat.vonblum.chatogt.usermanagement.domain.event.Event
 import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
 
-class MongoWriteStore : WriteStore {
+class MongoStore : Store {
 
     override fun append(event: Event) {
         when (event) {
