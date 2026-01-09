@@ -29,7 +29,10 @@ class KafkaUserEventHandler(
                 handle(proto)
             }
 
-            else -> error("Unknown proto type: $protoType")
+            else -> {
+                println("Unknown proto type: $protoType")
+                return
+            }
         }
     }
 
