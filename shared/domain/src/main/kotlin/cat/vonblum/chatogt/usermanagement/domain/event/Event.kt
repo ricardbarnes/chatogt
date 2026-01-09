@@ -9,5 +9,5 @@ import java.util.*
 abstract class Event(
     val aggregateId: UUID,
     val id: UUID,
-    val occurredOn: Instant,
+    val occurredAt: Instant,
 )

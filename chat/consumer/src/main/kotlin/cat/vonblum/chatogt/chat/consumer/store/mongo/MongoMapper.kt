@@ -30,7 +30,7 @@ class MongoMapper {
             event.aggregateId.toString(),
             event.name,
             event.password,
-            event.occurredOn
+            event.occurredAt
         )
     }
 
@@ -38,7 +38,7 @@ class MongoMapper {
         return MongoChatCreatedEvent(
             event.id.toString(),
             event.aggregateId.toString(),
-            event.occurredOn,
+            event.occurredAt,
             event.participantIds.map { it.toString() }
         )
     }
@@ -49,7 +49,7 @@ class MongoMapper {
             event.aggregateId.toString(),
             event.chatId.toString(),
             event.content,
-            event.occurredOn
+            event.occurredAt
         )
     }
 
