@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.shared.store.shared.mongo
+package cat.vonblum.chatogt.usermanagement.shared.event.mongo
 
 import java.time.Instant
 import java.util.UUID

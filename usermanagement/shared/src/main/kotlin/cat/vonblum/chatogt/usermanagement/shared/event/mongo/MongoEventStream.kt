@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.shared.store.shared.mongo
+package cat.vonblum.chatogt.usermanagement.shared.event.mongo
 
 class MongoEventStream(
     val version: Int,

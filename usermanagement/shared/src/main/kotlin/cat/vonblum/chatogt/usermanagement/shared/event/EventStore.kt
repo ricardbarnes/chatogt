@@ -1,9 +1,9 @@
-package cat.vonblum.chatogt.usermanagement.shared.store.shared
+package cat.vonblum.chatogt.usermanagement.shared.event
 
 import cat.vonblum.chatogt.usermanagement.domain.event.Event
 import cat.vonblum.chatogt.usermanagement.domain.valueobject.Id
 
-interface Store {
+interface EventStore {
 
     fun append(event: Event)
 
