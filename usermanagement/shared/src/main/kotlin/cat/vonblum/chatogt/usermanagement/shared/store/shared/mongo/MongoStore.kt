@@ -8,10 +8,7 @@ import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
 class MongoStore : Store {
 
     override fun append(event: Event) {
-        when (event) {
-            is UserCreatedEvent -> append(event)
-            else -> throw IllegalArgumentException("event type is not handled")
-        }
+        TODO("not implemented")
     }
 
     override fun load(aggregateId: Id): List<Event> {
