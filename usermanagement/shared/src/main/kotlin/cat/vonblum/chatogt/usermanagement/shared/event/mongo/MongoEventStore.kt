@@ -10,11 +10,8 @@ class MongoEventStore(
     private val protoMapper: ProtoEventMapper,
 ) : EventStore {
 
-    override fun append(event: Event) {
-        when (event) {
-            is UserCreatedEvent -> append(event)
-            else -> throw IllegalArgumentException("event type is not handled: $event")
-        }
+    override fun append(events: Collection<Event>) {
+        TODO()
     }
 
     override fun load(aggregateId: Id): List<Event> {

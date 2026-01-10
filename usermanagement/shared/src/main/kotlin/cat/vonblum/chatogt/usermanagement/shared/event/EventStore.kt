@@ -5,7 +5,7 @@ import cat.vonblum.chatogt.usermanagement.domain.valueobject.Id
 
 interface EventStore {
 
-    fun append(event: Event)
+    fun append(events: Collection<Event>)
 
     fun load(aggregateId: Id): List<Event>
 
