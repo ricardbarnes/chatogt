@@ -6,6 +6,7 @@ import org.springframework.boot.runApplication
 @SpringBootApplication(
     scanBasePackages = [
         "cat.vonblum.chatogt.usermanagement.consumer",
+        "cat.vonblum.chatogt.usermanagement.shared"
     ]
 )
 class SpringEntrypoint
