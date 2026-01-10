@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.api.bus.command.kafka
 
-import cat.vonblum.chatogt.usermanagement.shared.config.spring.SpringBusProps
+import cat.vonblum.chatogt.usermanagement.shared.config.shared.spring.SpringBusProps
 import cat.vonblum.chatogt.usermanagement.domain.command.Command
 import cat.vonblum.chatogt.usermanagement.domain.command.CommandBus
 import cat.vonblum.chatogt.usermanagement.domain.command.UnsupportedCommand

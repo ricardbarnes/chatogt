@@ -3,7 +3,7 @@ package cat.vonblum.chatogt.usermanagement.api.config.shared.spring
 import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandBus
 import cat.vonblum.chatogt.usermanagement.api.bus.command.kafka.KafkaCommandMapper
 import cat.vonblum.chatogt.usermanagement.api.bus.query.kafka.KafkaQueryBus
-import cat.vonblum.chatogt.usermanagement.shared.config.spring.SpringBusProps
+import cat.vonblum.chatogt.usermanagement.shared.config.shared.spring.SpringBusProps
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

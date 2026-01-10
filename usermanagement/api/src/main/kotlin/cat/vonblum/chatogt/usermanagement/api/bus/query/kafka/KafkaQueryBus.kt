@@ -4,7 +4,7 @@ import cat.vonblum.chatogt.usermanagement.domain.query.Query
 import cat.vonblum.chatogt.usermanagement.domain.query.QueryBus
 import cat.vonblum.chatogt.usermanagement.domain.query.Response
 import cat.vonblum.chatogt.usermanagement.infrastructure.bus.query.kafka.KafkaUnsupportedQueryException
-import cat.vonblum.chatogt.usermanagement.shared.config.spring.SpringBusProps
+import cat.vonblum.chatogt.usermanagement.shared.config.shared.spring.SpringBusProps
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByEmailQuery
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQuery
 import org.springframework.kafka.core.KafkaTemplate

@@ -4,7 +4,7 @@ import cat.vonblum.chatogt.usermanagement.domain.event.Event
 import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 import cat.vonblum.chatogt.usermanagement.domain.event.UnsupportedEvent
 import cat.vonblum.chatogt.usermanagement.infrastructure.bus.shared.kafka.KafkaHeader
-import cat.vonblum.chatogt.usermanagement.shared.config.spring.SpringBusProps
+import cat.vonblum.chatogt.usermanagement.shared.config.shared.spring.SpringBusProps
 import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.header.internals.RecordHeader
