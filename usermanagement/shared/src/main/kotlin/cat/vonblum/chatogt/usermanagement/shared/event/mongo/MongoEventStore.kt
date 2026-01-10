@@ -3,12 +3,14 @@ package cat.vonblum.chatogt.usermanagement.shared.event.mongo
 import cat.vonblum.chatogt.usermanagement.domain.event.Event
 import cat.vonblum.chatogt.usermanagement.domain.valueobject.Id
 import cat.vonblum.chatogt.usermanagement.shared.event.EventStore
-import cat.vonblum.chatogt.usermanagement.shared.event.shared.ProtoEventMapper
+import cat.vonblum.chatogt.usermanagement.shared.event.shared.ProtoEventDeserializer
+import cat.vonblum.chatogt.usermanagement.shared.event.shared.ProtoEventSerializer
 import org.springframework.data.mongodb.core.MongoTemplate
 
 class MongoEventStore(
     private val template: MongoTemplate,
-    private val protoMapper: ProtoEventMapper,
+    private val serializer: ProtoEventSerializer,
+    private val deserializer: ProtoEventDeserializer
 ) : EventStore {
 
     override fun append(

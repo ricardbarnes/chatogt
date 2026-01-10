@@ -1,25 +1,22 @@
 package cat.vonblum.chatogt.usermanagement.shared.event.shared
 
+import cat.vonblum.chatogt.usermanagement.domain.event.Event
+import cat.vonblum.chatogt.usermanagement.shared.event.mongo.MongoEvent
 import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
 import user.User
 import java.time.Instant
 import java.util.UUID
 
-class ProtoEventMapper {
+class ProtoEventDeserializer {
 
-    fun toInfra(event: UserCreatedEvent): User.UserCreatedEvent {
-        return User.UserCreatedEvent.newBuilder()
-            .setAggregateId(event.aggregateId.toString())
-            .setEmail(event.email)
-            .setPassword(event.password)
-            .setType(event.type)
-            .addAllNotificationTypes(event.notificationTypes)
-            .setId(event.id.toString())
-            .setOccurredOn(event.occurredOn.toString())
-            .build()
-    }
+    fun deserialize(event: MongoEvent): Event =
+        when (event.eventType) {
+            UserCreatedEvent::class.qualifiedName -> toEvent(event.payload)
+            else ->
+                error("Unknown event type ${event.eventType}")
+        }
 
-    fun toDomain(payload: ByteArray): UserCreatedEvent {
+    private fun toEvent(payload: ByteArray): UserCreatedEvent {
         val proto = User.UserCreatedEvent.parseFrom(payload)
         return UserCreatedEvent(
             UUID.fromString(proto.aggregateId),
