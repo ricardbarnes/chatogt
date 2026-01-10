@@ -4,7 +4,6 @@ import cat.vonblum.chatogt.usermanagement.domain.event.Event
 import cat.vonblum.chatogt.usermanagement.domain.valueobject.Id
 import cat.vonblum.chatogt.usermanagement.shared.event.EventStore
 import cat.vonblum.chatogt.usermanagement.shared.event.shared.ProtoEventMapper
-import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
 
 class MongoEventStore(
     private val repository: MongoEventRepository,
