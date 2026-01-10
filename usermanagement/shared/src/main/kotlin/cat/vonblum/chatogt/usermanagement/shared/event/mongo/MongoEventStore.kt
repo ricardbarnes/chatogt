@@ -7,10 +7,15 @@ import cat.vonblum.chatogt.usermanagement.shared.event.shared.ProtoEventMapper
 import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
 
 class MongoEventStore(
+    private val repository: MongoEventRepository,
     private val protoMapper: ProtoEventMapper,
 ) : EventStore {
 
-    override fun append(events: Collection<Event>) {
+    override fun append(
+        aggregateId: Id,
+        expectedVersion: Int,
+        events: Collection<Event>
+    ) {
         TODO()
     }
 
