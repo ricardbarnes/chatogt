@@ -23,10 +23,4 @@ class MongoEventStore(
         TODO()
     }
 
-    private fun append(event: UserCreatedEvent) {
-        val proto = protoMapper.toInfra(event)
-        val serialized = proto.toByteArray()
-        TODO()
-    }
-
 }
