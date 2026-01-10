@@ -19,7 +19,7 @@ class ProtoEventMapper {
             .build()
     }
 
-    fun deserializeUserCreatedEvent(payload: ByteArray): UserCreatedEvent {
+    fun toDomain(payload: ByteArray): UserCreatedEvent {
         val proto = User.UserCreatedEvent.parseFrom(payload)
         return UserCreatedEvent(
             UUID.fromString(proto.aggregateId),
