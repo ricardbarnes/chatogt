@@ -18,7 +18,7 @@ class MongoEventStore(
     }
 
     override fun load(aggregateId: Id): List<Event> {
-        TODO("Not yet implemented")
+        TODO()
     }
 
     private fun append(event: UserCreatedEvent) {
