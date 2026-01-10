@@ -4,11 +4,10 @@ import cat.vonblum.chatogt.usermanagement.domain.event.Event
 import cat.vonblum.chatogt.usermanagement.domain.valueobject.Id
 import cat.vonblum.chatogt.usermanagement.shared.event.EventStore
 import cat.vonblum.chatogt.usermanagement.shared.event.shared.ProtoEventMapper
-import org.springframework.data.mongodb.repository.MongoRepository
-import kotlin.reflect.KClass
+import org.springframework.data.mongodb.core.MongoTemplate
 
 class MongoEventStore(
-    private val repositories: Map<KClass<out MongoEvent>, MongoRepository<out MongoEvent, String>>,
+    private val template: MongoTemplate,
     private val protoMapper: ProtoEventMapper,
 ) : EventStore {
 
