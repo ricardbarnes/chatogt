@@ -3,7 +3,7 @@ package cat.vonblum.chatogt.usermanagement.shared.event.mongo
 import java.time.Instant
 import java.util.UUID
 
-class MongoEvent(
+abstract class MongoEvent(
     val eventId: UUID,
     val aggregateId: UUID,
     val aggregateType: String,
