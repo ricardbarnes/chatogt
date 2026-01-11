@@ -1,8 +1,10 @@
 package cat.vonblum.chatogt.usermanagement.shared.event.mongo
 
+import org.springframework.data.mongodb.core.mapping.Document
 import java.time.Instant
 import java.util.UUID
 
+@Document
 class MongoEvent(
     val eventId: UUID,
     val aggregateId: UUID,
