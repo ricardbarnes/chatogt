@@ -15,6 +15,12 @@ import kotlin.reflect.KClass
 @Configuration
 class MongoEventConfig {
 
+    companion object {
+
+        const val USER_EVENTS_COLLECTION = "userEvents"
+
+    }
+
     @Bean
     fun protoEventSerializer(): ProtoEventSerializer {
         return ProtoEventSerializer()
@@ -43,8 +49,8 @@ class MongoEventConfig {
     @Bean
     fun mongoEventCollectionMap(): Map<KClass<out Event>, String> {
         return mapOf(
-            UserCreatedEvent::class to "userEvents",
-            UserDeletedEvent::class to "userEvents",
+            UserCreatedEvent::class to USER_EVENTS_COLLECTION,
+            UserDeletedEvent::class to USER_EVENTS_COLLECTION,
         )
     }
 
