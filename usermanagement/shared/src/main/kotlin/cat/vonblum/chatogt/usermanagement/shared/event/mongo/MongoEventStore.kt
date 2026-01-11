@@ -16,7 +16,9 @@ class MongoEventStore(
 ) : EventStore {
 
     override fun append(event: Event) {
-        TODO("Not yet implemented")
+        val collectionName = collectionMap[event::class]
+            ?: error("No collection named ${event::class.simpleName} found in collection map")
+        val proto = serializer.serialize(event)
     }
 
     override fun load(aggregateId: Id): List<Event> {
