@@ -43,7 +43,7 @@ class MongoEventStore(
         return mongoEvents.map(mapper::toDomain)
     }
 
-    private fun append(event: UserCreatedEvent) {
+    private fun append(event: UserCreatedEvent) { // TODO: add event streams to control concurrency
         val latestEvent = template.find(
             Query.query(Criteria.where("aggregateId").`is`(event.aggregateId))
                 .with(Sort.by(Sort.Direction.DESC, "version"))
