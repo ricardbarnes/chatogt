@@ -18,4 +18,16 @@ class MongoEventMapper {
         )
     }
 
+    fun toDomain(event: MongoUserCreatedEvent): UserCreatedEvent {
+        return UserCreatedEvent(
+            event.aggregateId,
+            event.email,
+            event.password,
+            event.eventType,
+            event.notificationType,
+            event.eventId,
+            event.occurredOn
+        )
+    }
+
 }

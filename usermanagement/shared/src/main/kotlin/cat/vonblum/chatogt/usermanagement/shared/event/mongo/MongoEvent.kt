@@ -6,9 +6,9 @@ import java.util.UUID
 
 @Document
 abstract class MongoEvent(
-    val eventId: UUID,
-    val aggregateId: UUID,
-    val version: Long,
-    val eventType: String,
-    val occurredOn: Instant
+    open val eventId: UUID,
+    open val aggregateId: UUID,
+    open val version: Long,
+    open val eventType: String,
+    open val occurredOn: Instant
 )

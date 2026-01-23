@@ -3,6 +3,7 @@ package cat.vonblum.chatogt.usermanagement.shared.event.mongo
 import cat.vonblum.chatogt.usermanagement.domain.event.Event
 import cat.vonblum.chatogt.usermanagement.domain.valueobject.Id
 import cat.vonblum.chatogt.usermanagement.shared.event.EventStore
+import cat.vonblum.chatogt.usermanagement.shared.event.EventStream
 import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
 import org.springframework.data.domain.Sort
 import org.springframework.data.mongodb.core.MongoTemplate
@@ -28,11 +29,21 @@ class MongoEventStore(
     }
 
     override fun load(aggregateId: Id): List<Event> {
-        TODO("Not yet implemented")
+        val mongoEvents = template.find(
+            Query.query(Criteria.where("aggregateId").`is`(aggregateId.value))
+                .with(Sort.by(Sort.Direction.ASC, "version")),
+            MongoUserCreatedEvent::class.java,
+            USERS_COLLECTION
+        )
+
+        if (mongoEvents.isEmpty()) {
+            return emptyList()
+        }
+
+        return mongoEvents.map(mapper::toDomain)
     }
 
     private fun append(event: UserCreatedEvent) {
-        // Get latest event version for this aggregate
         val latestEvent = template.find(
             Query.query(Criteria.where("aggregateId").`is`(event.aggregateId))
                 .with(Sort.by(Sort.Direction.DESC, "version"))
@@ -42,11 +53,8 @@ class MongoEventStore(
         ).firstOrNull()
 
         val nextVersion = (latestEvent?.version ?: 0L) + 1
-
-        // Map to Mongo event
         val mongoEvent = mapper.toInfra(event, nextVersion)
 
-        // Append (never update)
         template.insert(mongoEvent, USERS_COLLECTION)
     }
 

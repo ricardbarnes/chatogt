@@ -4,15 +4,15 @@ import java.time.Instant
 import java.util.UUID
 
 class MongoUserCreatedEvent(
-    eventId: UUID,
-    aggregateId: UUID,
-    version: Long,
-    eventType: String,
-    occurredOn: Instant,
-    email: String,
-    password: String,
-    type: String,
-    notificationType: Set<String>
+    override val eventId: UUID,
+    override val aggregateId: UUID,
+    override val version: Long,
+    override val eventType: String,
+    override val occurredOn: Instant,
+    val email: String,
+    val password: String,
+    val type: String,
+    val notificationType: Set<String>
 ) : MongoEvent(
     eventId,
     aggregateId,
