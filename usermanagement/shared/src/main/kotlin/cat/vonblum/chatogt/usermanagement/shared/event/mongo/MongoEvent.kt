@@ -5,12 +5,10 @@ import java.time.Instant
 import java.util.UUID
 
 @Document
-class MongoEvent(
+abstract class MongoEvent(
     val eventId: UUID,
     val aggregateId: UUID,
-    val aggregateType: String,
     val version: Long,
     val eventType: String,
-    val payload: ByteArray,
-    val occurredAt: Instant
+    val occurredOn: Instant
 )
