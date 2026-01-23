@@ -7,7 +7,7 @@ PROJECT_NAME="chatogt-dev-infra"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../../" && pwd)"
 
-COMPOSE_FILE="$REPO_ROOT/tools/docker/compose/docker-compose.yml"
+COMPOSE_FILE="$REPO_ROOT/devtools/docker/compose/docker-compose.yml"
 
 # --- Functions ---
 

@@ -4,7 +4,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/../../" && pwd)"
 
-COMPOSE_FILE="$REPO_ROOT/tools/docker/compose/docker-compose.yml"
+COMPOSE_FILE="$REPO_ROOT/devtools/docker/compose/docker-compose.yml"
 PROJECT_NAME="chatogt-dev-infra"
 
 # Check if any containers are running or exist for the project
