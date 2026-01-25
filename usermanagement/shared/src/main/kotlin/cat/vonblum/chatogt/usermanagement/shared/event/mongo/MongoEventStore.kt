@@ -15,7 +15,9 @@ class MongoEventStore(
 ) : EventStore {
 
     companion object {
+
         private const val USERS_COLLECTION = "users"
+
     }
 
     override fun append(event: Event) {
