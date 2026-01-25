@@ -6,7 +6,13 @@ import java.util.UUID
 
 class UserNameUpdatedEvent(
     aggregateId: UUID,
+    aggregateVersion: Long,
     val name: String,
     id: UUID = UUID.randomUUID(),
     occurredOn: Instant = Instant.now(),
-) : Event(aggregateId, id, occurredOn)
+) : Event(
+    aggregateId,
+    aggregateVersion,
+    id,
+    occurredOn
+)

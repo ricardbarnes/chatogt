@@ -5,8 +5,14 @@ import java.time.Instant
 import java.util.UUID
 
 class UserBlockedEvent(
-    val blockedId: UUID,
     aggregateId: UUID,
+    aggregateVersion: Long,
+    val blockedId: UUID,
     id: UUID = UUID.randomUUID(),
     occurredOn: Instant = Instant.now(),
-) : Event(aggregateId, id, occurredOn)
+) : Event(
+    aggregateId,
+    aggregateVersion,
+    id,
+    occurredOn
+)

@@ -9,6 +9,7 @@ class KafkaUserEventMapper {
     fun toDomain(event: User.UserCreatedEvent): UserCreatedEvent {
         return UserCreatedEvent(
             UUID.fromString(event.id),
+            event.aggregateVersion,
             event.email,
             event.password,
             event.type,

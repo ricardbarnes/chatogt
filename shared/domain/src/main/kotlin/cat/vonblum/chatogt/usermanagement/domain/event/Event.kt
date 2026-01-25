@@ -8,6 +8,7 @@ import java.util.*
 @UsedBy("events")
 abstract class Event(
     val aggregateId: UUID,
+    val aggregateVersion: Long,
     val id: UUID,
     val occurredOn: Instant,
 )

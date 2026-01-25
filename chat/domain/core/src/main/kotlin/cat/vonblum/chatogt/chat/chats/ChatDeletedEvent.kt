@@ -6,6 +6,12 @@ import java.util.*
 
 class ChatDeletedEvent(
     aggregateId: UUID,
+    aggregateVersion: Long,
     id: UUID = UUID.randomUUID(),
     occurredOn: Instant = Instant.now()
-) : Event(aggregateId, id, occurredOn)
+) : Event(
+    aggregateId,
+    aggregateVersion,
+    id,
+    occurredOn
+)

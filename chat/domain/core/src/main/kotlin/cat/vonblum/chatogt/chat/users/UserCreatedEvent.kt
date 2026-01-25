@@ -10,4 +10,9 @@ class UserCreatedEvent(
     val password: String,
     id: UUID = UUID.randomUUID(),
     occurredOn: Instant = Instant.now(),
-) : Event(aggregateId, id, occurredOn)
+) : Event(
+    aggregateId,
+    0,
+    id,
+    occurredOn
+)

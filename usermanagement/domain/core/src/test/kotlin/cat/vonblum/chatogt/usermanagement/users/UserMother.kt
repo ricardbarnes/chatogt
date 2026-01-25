@@ -1,7 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.users
 
-import cat.vonblum.chatogt.usermanagement.domain.aggregate.AggregateRehydrator
-import java.util.UUID
+import java.util.*
 
 object UserMother {
 
@@ -12,16 +11,7 @@ object UserMother {
         type: UserType? = UserTypeMother.standard(),
         notificationType: UserNotificationType? = UserNotificationType.EMAIL,
     ): User {
-        val event = UserCreatedEventMother.create(
-            id?.value,
-            name?.value,
-            password?.value,
-            type,
-            notificationType,
-            null,
-            null
-        )
-        return AggregateRehydrator.apply(User::class, listOf(event))
+        TODO()
     }
 
 }

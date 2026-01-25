@@ -2,7 +2,6 @@ package cat.vonblum.chatogt.usermanagement.users
 
 import cat.vonblum.chatogt.usermanagement.domain.aggregate.AggregateRoot
 import cat.vonblum.chatogt.usermanagement.domain.event.Event
-import java.util.stream.Collectors
 
 class User private constructor() : AggregateRoot() {
 
@@ -27,16 +26,17 @@ class User private constructor() : AggregateRoot() {
             type: UserType,
             notificationTypes: Set<UserNotificationType>
         ): User {
-            val event = UserCreatedEvent(
-                id.value,
-                email.value,
-                password.value,
-                type.name,
-                notificationTypes.map { it.name }.toSet(),
-            )
             val user = User()
-            user.apply(event)
-            user.record(event)
+            user.record(
+                UserCreatedEvent(
+                    id.value,
+                    user.version,
+                    email.value,
+                    password.value,
+                    type.name,
+                    notificationTypes.map { it.name }.toSet(),
+                )
+            )
             return user
         }
 
@@ -57,7 +57,7 @@ class User private constructor() : AggregateRoot() {
         status = UserStatus.ACTIVE
         type = UserType.valueOf(event.type)
         notificationTypes =
-            event.notificationTypes.stream().map { UserNotificationType.valueOf(it) }.collect(Collectors.toSet())
+            event.notificationTypes.map { UserNotificationType.valueOf(it) }.toSet()
     }
 
     private fun applyUserPasswordUpdated(event: UserPasswordUpdatedEvent) {
@@ -69,20 +69,20 @@ class User private constructor() : AggregateRoot() {
     }
 
     fun updatePassword(newPassword: UserPassword) {
-        password = newPassword
         record(
             UserPasswordUpdatedEvent(
                 id.value,
+                version,
                 newPassword.value
             )
         )
     }
 
     fun delete() {
-        status = UserStatus.DELETED
         record(
             UserDeletedEvent(
-                id.value
+                id.value,
+                version
             )
         )
     }
@@ -99,9 +99,7 @@ class User private constructor() : AggregateRoot() {
 
     fun isDeleted(): Boolean = status == UserStatus.DELETED
 
-    fun isStandard(): Boolean {
-        return UserType.STANDARD == type
-    }
+    fun isStandard(): Boolean = UserType.STANDARD == type
 
     fun isPremium(): Boolean = UserType.PREMIUM == type
 

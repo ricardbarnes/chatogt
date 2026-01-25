@@ -4,21 +4,25 @@ import cat.vonblum.chatogt.usermanagement.domain.event.Event
 
 abstract class AggregateRoot {
 
-    private var events: MutableList<Event> = mutableListOf()
+    private var events = mutableListOf<Event>()
+
+    protected var version = 0L
 
     protected abstract fun apply(event: Event)
 
-    /**
-     * Applies historical events. Used for rehydration only.
-     */
-    protected fun apply(events: List<Event>) {
+    protected fun apply(events: List<Event>) =
         events.forEach { event -> apply(event) }
-    }
 
-    protected fun record(event: Event) {
-        events.add(event)
-    }
+    protected fun record(event: Event) =
+        version++.also {
+            apply(event)
+            events.add(event)
+        }
 
-    fun pullEvents(): List<Event> = events.also { events = mutableListOf() }
+    fun pullEvents(): List<Event> =
+        events.also {
+            events = mutableListOf()
+        }.toList()
+
 
 }

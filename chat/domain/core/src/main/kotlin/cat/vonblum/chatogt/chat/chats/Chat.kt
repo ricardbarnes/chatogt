@@ -17,8 +17,8 @@ class Chat(
             Chat(id, participantIds).also { chat ->
                 chat.record(
                     ChatCreatedEvent(
+                        id.value,
                         participantIds.stream().map { it.value }.toList(),
-                        id.value
                     )
                 )
             }
@@ -31,10 +31,16 @@ class Chat(
 
     val status: ChatStatus get() = this._status
 
-    fun mute() = { _status = ChatStatus.MUTED }.also { record(ChatMutedEvent(id.value)) }
+    fun mute() = { _status = ChatStatus.MUTED }.also {
+        record(ChatMutedEvent(id.value, version))
+    }
 
-    fun unmute() = { _status = ChatStatus.NORMAL }.also { record(ChatUnmutedEvent(id.value)) }
+    fun unmute() = { _status = ChatStatus.NORMAL }.also {
+        record(ChatUnmutedEvent(id.value, version))
+    }
 
-    fun delete() = { _status = ChatStatus.DELETED }.also { record(ChatDeletedEvent(id.value)) }
+    fun delete() = { _status = ChatStatus.DELETED }.also {
+        record(ChatDeletedEvent(id.value, version))
+    }
 
 }

@@ -21,6 +21,7 @@ class MongoEventMapper {
     fun toDomain(event: MongoUserCreatedEvent): UserCreatedEvent {
         return UserCreatedEvent(
             event.aggregateId,
+            event.version,
             event.email,
             event.password,
             event.eventType,
