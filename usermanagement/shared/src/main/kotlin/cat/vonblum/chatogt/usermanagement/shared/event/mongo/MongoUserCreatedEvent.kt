@@ -1,11 +1,10 @@
 package cat.vonblum.chatogt.usermanagement.shared.event.mongo
 
 import java.time.Instant
-import java.util.UUID
 
 class MongoUserCreatedEvent(
-    eventId: UUID,
-    aggregateId: UUID,
+    id: String,
+    aggregateId: String,
     version: Long,
     eventType: String,
     occurredOn: Instant,
@@ -14,7 +13,7 @@ class MongoUserCreatedEvent(
     val type: String,
     val notificationType: Set<String>
 ) : MongoEvent(
-    eventId,
+    id,
     aggregateId,
     version,
     eventType,
