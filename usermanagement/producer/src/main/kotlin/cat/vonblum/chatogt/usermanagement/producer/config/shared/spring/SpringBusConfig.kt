@@ -3,7 +3,7 @@ package cat.vonblum.chatogt.usermanagement.producer.config.shared.spring
 import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 import cat.vonblum.chatogt.usermanagement.producer.bus.event.kafka.KafkaEventBus
 import cat.vonblum.chatogt.usermanagement.producer.bus.event.kafka.KafkaEventMapper
-import cat.vonblum.chatogt.usermanagement.shared.config.shared.spring.SpringBusProps
+import cat.vonblum.chatogt.usermanagement.shared.config.SpringBusProps
 import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration

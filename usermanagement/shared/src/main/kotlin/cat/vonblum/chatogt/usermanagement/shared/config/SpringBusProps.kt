@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.shared.config.shared.spring
+package cat.vonblum.chatogt.usermanagement.shared.config
 
 import jakarta.validation.Valid
 import jakarta.validation.constraints.NotEmpty

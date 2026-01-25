@@ -2,7 +2,7 @@ package cat.vonblum.chatogt.usermanagement.consumer.handler.users.kafka
 
 import cat.vonblum.chatogt.usermanagement.consumer.projection.users.UserProjection
 import cat.vonblum.chatogt.usermanagement.infrastructure.bus.shared.kafka.KafkaHeader
-import cat.vonblum.chatogt.usermanagement.shared.event.EventStore
+import cat.vonblum.chatogt.usermanagement.infrastructure.event.EventStore
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.springframework.kafka.annotation.KafkaListener
 import user.User

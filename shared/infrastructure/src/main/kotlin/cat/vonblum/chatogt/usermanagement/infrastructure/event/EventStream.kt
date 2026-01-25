@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.shared.event
+package cat.vonblum.chatogt.usermanagement.infrastructure.event
 
 import cat.vonblum.chatogt.usermanagement.domain.event.Event
 
