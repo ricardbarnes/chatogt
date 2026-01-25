@@ -24,5 +24,4 @@ abstract class AggregateRoot {
             events = mutableListOf()
         }.toList()
 
-
 }
