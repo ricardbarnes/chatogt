@@ -9,7 +9,7 @@ import java.time.Instant
 class MongoUserCreatedEvent(
     id: String,
     aggregateId: String,
-    version: Long,
+    aggregateVersion: Long,
     eventType: String,
     occurredOn: Instant,
     @Indexed(unique = true) val email: String,
@@ -19,7 +19,7 @@ class MongoUserCreatedEvent(
 ) : MongoEvent(
     id,
     aggregateId,
-    version,
+    aggregateVersion,
     eventType,
     occurredOn
 )
