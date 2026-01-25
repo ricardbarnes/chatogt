@@ -10,9 +10,6 @@ abstract class AggregateRoot {
 
     protected abstract fun apply(event: Event)
 
-    protected fun apply(events: List<Event>) =
-        events.forEach { event -> apply(event) }
-
     protected fun record(event: Event) =
         version++.also {
             apply(event)
@@ -23,5 +20,13 @@ abstract class AggregateRoot {
         events.also {
             events = mutableListOf()
         }.toList()
+
+    fun replay(events: List<Event>) =
+        events.forEach { event ->
+            run {
+                version = event.aggregateVersion
+                apply(event)
+            }
+        }
 
 }
