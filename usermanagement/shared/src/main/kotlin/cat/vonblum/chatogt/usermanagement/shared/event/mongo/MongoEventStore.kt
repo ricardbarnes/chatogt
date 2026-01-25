@@ -30,7 +30,7 @@ class MongoEventStore(
     override fun load(aggregateId: Id): List<Event> {
         val mongoEvents = template.find(
             Query.query(Criteria.where("aggregateId").`is`(aggregateId.value))
-                .with(Sort.by(Sort.Direction.ASC, "version")),
+                .with(Sort.by(Sort.Direction.ASC, "aggregateVersion")),
             MongoUserCreatedEvent::class.java,
             USERS_COLLECTION
         )
@@ -42,18 +42,8 @@ class MongoEventStore(
         return mongoEvents.map(mapper::toDomain)
     }
 
-    private fun append(event: UserCreatedEvent) { // TODO: add event streams to control concurrency
-        val latestEvent = template.find(
-            Query.query(Criteria.where("aggregateId").`is`(event.aggregateId))
-                .with(Sort.by(Sort.Direction.DESC, "version"))
-                .limit(1),
-            MongoUserCreatedEvent::class.java,
-            USERS_COLLECTION
-        ).firstOrNull()
-
-        val nextVersion = (latestEvent?.version ?: 0L) + 1
-        val mongoEvent = mapper.toInfra(event, nextVersion)
-
+    private fun append(event: UserCreatedEvent) {
+        val mongoEvent = mapper.toInfra(event)
         template.insert(mongoEvent, USERS_COLLECTION)
     }
 

@@ -4,11 +4,11 @@ import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
 
 class MongoEventMapper {
 
-    fun toInfra(event: UserCreatedEvent, version: Long): MongoUserCreatedEvent {
+    fun toInfra(event: UserCreatedEvent): MongoUserCreatedEvent {
         return MongoUserCreatedEvent(
             event.id,
             event.aggregateId,
-            version,
+            event.aggregateVersion,
             event.javaClass.simpleName,
             event.occurredOn,
             event.email,
