@@ -24,8 +24,8 @@ abstract class AggregateRoot {
     fun replay(events: List<Event>) =
         events.forEach { event ->
             run {
-                version = event.aggregateVersion
                 apply(event)
+                version = event.aggregateVersion + 1
             }
         }
 
