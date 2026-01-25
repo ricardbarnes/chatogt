@@ -1,5 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.shared.event.mongo
 
+import org.springframework.data.mongodb.core.index.Indexed
 import java.time.Instant
 
 class MongoUserCreatedEvent(
@@ -8,7 +9,7 @@ class MongoUserCreatedEvent(
     version: Long,
     eventType: String,
     occurredOn: Instant,
-    val email: String,
+    @Indexed(unique = true) val email: String,
     val password: String,
     val type: String,
     val notificationType: Set<String>
