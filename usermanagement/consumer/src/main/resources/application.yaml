@@ -19,6 +19,7 @@ spring:
     mongodb:
       database: ${MONGO_DATABASE_NAME}
       uri: ${MONGO_DATABASE_URI}
+      auto-index-creation: true
 
 handler:
   events:

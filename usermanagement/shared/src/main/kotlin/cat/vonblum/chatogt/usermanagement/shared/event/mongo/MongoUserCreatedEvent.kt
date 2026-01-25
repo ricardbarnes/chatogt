@@ -1,8 +1,11 @@
 package cat.vonblum.chatogt.usermanagement.shared.event.mongo
 
+import cat.vonblum.chatogt.usermanagement.shared.event.mongo.MongoEvent.Companion.USERS_COLLECTION
 import org.springframework.data.mongodb.core.index.Indexed
+import org.springframework.data.mongodb.core.mapping.Document
 import java.time.Instant
 
+@Document(collection = USERS_COLLECTION)
 class MongoUserCreatedEvent(
     id: String,
     aggregateId: String,

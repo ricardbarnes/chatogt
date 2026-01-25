@@ -1,13 +1,20 @@
 package cat.vonblum.chatogt.usermanagement.shared.event.mongo
 
-import org.springframework.data.mongodb.core.mapping.Document
+import org.springframework.data.mongodb.core.index.Indexed
 import java.time.Instant
 
-@Document
 abstract class MongoEvent(
     val id: String,
     val aggregateId: String,
-    val version: Long,
+    @Indexed(unique = true) val aggregateVersion: Long,
     val eventType: String,
     val occurredOn: Instant
-)
+) {
+
+    companion object {
+
+        const val USERS_COLLECTION = "users"
+
+    }
+
+}

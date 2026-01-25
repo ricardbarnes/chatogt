@@ -22,7 +22,7 @@ class MongoEventMapper {
     fun toDomain(event: MongoUserCreatedEvent): UserCreatedEvent {
         return UserCreatedEvent(
             UUID.fromString(event.aggregateId),
-            event.version,
+            event.aggregateVersion,
             event.email,
             event.password,
             event.eventType,

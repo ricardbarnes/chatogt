@@ -3,6 +3,7 @@ package cat.vonblum.chatogt.usermanagement.shared.event.mongo
 import cat.vonblum.chatogt.usermanagement.domain.event.Event
 import cat.vonblum.chatogt.usermanagement.domain.valueobject.Id
 import cat.vonblum.chatogt.usermanagement.infrastructure.event.EventStore
+import cat.vonblum.chatogt.usermanagement.shared.event.mongo.MongoEvent.Companion.USERS_COLLECTION
 import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
 import org.springframework.data.domain.Sort
 import org.springframework.data.mongodb.core.MongoTemplate
@@ -13,12 +14,6 @@ class MongoEventStore(
     private val template: MongoTemplate,
     private val mapper: MongoEventMapper,
 ) : EventStore {
-
-    companion object {
-
-        private const val USERS_COLLECTION = "users"
-
-    }
 
     override fun append(event: Event) {
         when (event) {
