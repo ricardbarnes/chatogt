@@ -19,13 +19,13 @@ class User private constructor() : AggregateRoot() {
 
     override fun apply(event: Event) {
         when (event) {
-            is UserCreatedEvent -> applyUserCreated(event)
-            is UserPasswordUpdatedEvent -> applyUserPasswordUpdated(event)
-            is UserDeletedEvent -> applyUserDeleted()
+            is UserCreatedEvent -> on(event)
+            is UserPasswordUpdatedEvent -> on(event)
+            is UserDeletedEvent -> on(event)
         }
     }
 
-    private fun applyUserCreated(event: UserCreatedEvent) {
+    private fun on(event: UserCreatedEvent) {
         id = UserId(event.aggregateId)
         email = UserEmail(event.email)
         password = UserPassword(event.password)
@@ -35,11 +35,11 @@ class User private constructor() : AggregateRoot() {
             event.notificationTypes.map { UserNotificationType.valueOf(it) }.toSet()
     }
 
-    private fun applyUserPasswordUpdated(event: UserPasswordUpdatedEvent) {
+    private fun on(event: UserPasswordUpdatedEvent) {
         this.password = UserPassword(event.password)
     }
 
-    private fun applyUserDeleted() {
+    private fun on(event: UserDeletedEvent) {
         this.status = UserStatus.DELETED
     }
 
