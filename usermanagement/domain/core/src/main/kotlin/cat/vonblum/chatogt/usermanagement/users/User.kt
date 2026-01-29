@@ -17,31 +17,6 @@ class User private constructor() : AggregateRoot() {
 
     private lateinit var notificationTypes: Set<UserNotificationType>
 
-    companion object {
-
-        fun create(
-            id: UserId,
-            email: UserEmail,
-            password: UserPassword,
-            type: UserType,
-            notificationTypes: Set<UserNotificationType>
-        ): User {
-            val user = User()
-            user.record(
-                UserCreatedEvent(
-                    id.value,
-                    user.version,
-                    email.value,
-                    password.value,
-                    type.name,
-                    notificationTypes.map { it.name }.toSet(),
-                )
-            )
-            return user
-        }
-
-    }
-
     override fun apply(event: Event) {
         when (event) {
             is UserCreatedEvent -> applyUserCreated(event)
@@ -108,5 +83,30 @@ class User private constructor() : AggregateRoot() {
 
     fun hasSmsNotifications(): Boolean =
         notificationTypes.any { type -> type.name == UserNotificationType.SMS.name }
+
+    companion object {
+
+        fun create(
+            id: UserId,
+            email: UserEmail,
+            password: UserPassword,
+            type: UserType,
+            notificationTypes: Set<UserNotificationType>
+        ): User {
+            val user = User()
+            user.record(
+                UserCreatedEvent(
+                    id.value,
+                    user.version,
+                    email.value,
+                    password.value,
+                    type.name,
+                    notificationTypes.map { it.name }.toSet(),
+                )
+            )
+            return user
+        }
+
+    }
 
 }
