@@ -6,8 +6,8 @@ import cat.vonblum.chatogt.usermanagement.users.view.UserView
 
 interface ForFindingUsers {
 
-    fun findById(id: UserId): UserView?
+    fun findById(id: UserId): UserView
 
-    fun findByEmail(name: UserEmail): UserView?
+    fun findByEmail(name: UserEmail): UserView
 
 }
