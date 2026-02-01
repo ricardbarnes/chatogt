@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.users.error
 
 import cat.vonblum.chatogt.usermanagement.domain.error.Error
-import cat.vonblum.chatogt.usermanagement.users.aggregate.UserEmail
+import cat.vonblum.chatogt.usermanagement.users.model.UserEmail
 
 class UserAlreadyExistsError(override val message: String) : Error(message) {
 

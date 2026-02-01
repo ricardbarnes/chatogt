@@ -1,8 +1,8 @@
 package cat.vonblum.chatogt.usermanagement.users.error
 
 import cat.vonblum.chatogt.usermanagement.domain.error.Error
-import cat.vonblum.chatogt.usermanagement.users.aggregate.UserEmail
-import cat.vonblum.chatogt.usermanagement.users.aggregate.UserId
+import cat.vonblum.chatogt.usermanagement.users.model.UserEmail
+import cat.vonblum.chatogt.usermanagement.users.model.UserId
 
 class UserNotFoundError(override val message: String) : Error(message) {
 

@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.users.aggregate
+package cat.vonblum.chatogt.usermanagement.users.model
 
 import cat.vonblum.chatogt.usermanagement.domain.aggregate.AggregateRoot
 import cat.vonblum.chatogt.usermanagement.domain.event.Event

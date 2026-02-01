@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.producer.provider.users.plivo
 
 import cat.vonblum.chatogt.usermanagement.users.port.ForNotifyingUsers
-import cat.vonblum.chatogt.usermanagement.users.aggregate.User
+import cat.vonblum.chatogt.usermanagement.users.model.User
 
 class PlivoForNotifyingUsers : ForNotifyingUsers {
 

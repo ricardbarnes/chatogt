@@ -2,7 +2,7 @@ package cat.vonblum.chatogt.usermanagement.users.delete
 
 import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 import cat.vonblum.chatogt.usermanagement.users.port.ForFindingUsers
-import cat.vonblum.chatogt.usermanagement.users.aggregate.UserId
+import cat.vonblum.chatogt.usermanagement.users.model.UserId
 
 class DeleteUserByIdCommandHandler(
     private val finding: ForFindingUsers,

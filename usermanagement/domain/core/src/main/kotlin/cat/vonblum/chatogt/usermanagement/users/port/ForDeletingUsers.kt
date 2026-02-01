@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.users.port
 
-import cat.vonblum.chatogt.usermanagement.users.aggregate.UserId
+import cat.vonblum.chatogt.usermanagement.users.model.UserId
 
 interface ForDeletingUsers {
 

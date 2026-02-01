@@ -1,8 +1,8 @@
 package cat.vonblum.chatogt.usermanagement.users.port
 
-import cat.vonblum.chatogt.usermanagement.users.aggregate.User
-import cat.vonblum.chatogt.usermanagement.users.aggregate.UserEmail
-import cat.vonblum.chatogt.usermanagement.users.aggregate.UserId
+import cat.vonblum.chatogt.usermanagement.users.model.User
+import cat.vonblum.chatogt.usermanagement.users.model.UserEmail
+import cat.vonblum.chatogt.usermanagement.users.model.UserId
 
 interface ForFindingUsers {
 

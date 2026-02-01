@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.users
 
-import cat.vonblum.chatogt.usermanagement.users.aggregate.UserStatus
+import cat.vonblum.chatogt.usermanagement.users.model.UserStatus
 
 object UserStatusMother {
 

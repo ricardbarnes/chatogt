@@ -2,8 +2,8 @@ package cat.vonblum.chatogt.usermanagement.users.update
 
 import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 import cat.vonblum.chatogt.usermanagement.users.port.ForFindingUsers
-import cat.vonblum.chatogt.usermanagement.users.aggregate.UserId
-import cat.vonblum.chatogt.usermanagement.users.aggregate.UserPassword
+import cat.vonblum.chatogt.usermanagement.users.model.UserId
+import cat.vonblum.chatogt.usermanagement.users.model.UserPassword
 
 class UpdateUserPasswordCommandHandler(
     private val findingUsers: ForFindingUsers,
