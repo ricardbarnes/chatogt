@@ -2,14 +2,12 @@ package cat.vonblum.chatogt.usermanagement.consumer.handler.users.kafka
 
 import cat.vonblum.chatogt.usermanagement.consumer.projection.users.UserProjection
 import cat.vonblum.chatogt.usermanagement.infrastructure.bus.shared.kafka.KafkaHeader
-import cat.vonblum.chatogt.usermanagement.infrastructure.event.EventStore
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.springframework.kafka.annotation.KafkaListener
 import user.User
 
 class KafkaUserEventHandler(
     private val mapper: KafkaUserEventMapper,
-    private val store: EventStore,
     private val projection: UserProjection
 ) {
 
@@ -38,7 +36,6 @@ class KafkaUserEventHandler(
 
     private fun handle(dto: User.UserCreatedEvent) {
         val event = mapper.toDomain(dto)
-        store.append(event)
         projection.apply(event)
     }
 

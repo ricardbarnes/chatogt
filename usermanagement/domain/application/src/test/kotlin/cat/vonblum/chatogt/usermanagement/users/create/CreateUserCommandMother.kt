@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.users.create
 
 import cat.vonblum.chatogt.usermanagement.domain.valueobject.StringFaker
-import cat.vonblum.chatogt.usermanagement.users.UserNotificationType
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserNotificationType
 
 object CreateUserCommandMother {
 

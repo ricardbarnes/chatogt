@@ -3,10 +3,19 @@ package cat.vonblum.chatogt.usermanagement.users.create
 import cat.vonblum.chatogt.usermanagement.domain.command.CommandHandler
 import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
 import cat.vonblum.chatogt.usermanagement.domain.generator.IdGenerator
-import cat.vonblum.chatogt.usermanagement.users.*
+import cat.vonblum.chatogt.usermanagement.users.aggregate.User
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserEmail
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserId
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserNotificationType
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserPassword
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserType
+import cat.vonblum.chatogt.usermanagement.users.port.ForNotifyingUsers
+import cat.vonblum.chatogt.usermanagement.users.port.ForSendingUsers
+import cat.vonblum.chatogt.usermanagement.users.port.ForStoringUsers
 
 class CreateUserCommandHandler(
     private val idGenerator: IdGenerator,
+    private val storing: ForStoringUsers,
     private val sending: ForSendingUsers,
     private val notifyingMap: Map<UserNotificationType, ForNotifyingUsers>,
     private val eventBus: EventBus
@@ -20,6 +29,7 @@ class CreateUserCommandHandler(
         UserType.valueOf(command.type),
         command.notificationTypes.map { UserNotificationType.valueOf(it) }.toSet()
     ).also { user ->
+        storing.store(user)
         sending.send(user)
         notifyUser(user) // TODO: create a messaging service and consume the event there + remove notifications from this bounded context
         eventBus.publish(user.pullEvents())

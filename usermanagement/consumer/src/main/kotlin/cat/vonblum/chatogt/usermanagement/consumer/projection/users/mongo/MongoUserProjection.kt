@@ -2,7 +2,7 @@ package cat.vonblum.chatogt.usermanagement.consumer.projection.users.mongo
 
 import cat.vonblum.chatogt.usermanagement.consumer.projection.users.UserProjection
 import cat.vonblum.chatogt.usermanagement.consumer.repository.users.UserRepository
-import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
+import cat.vonblum.chatogt.usermanagement.users.event.UserCreatedEvent
 
 class MongoUserProjection(
     private val repository: UserRepository

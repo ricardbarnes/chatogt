@@ -1,6 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.users
 
 import cat.vonblum.chatogt.usermanagement.domain.valueobject.IdFaker
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserId
 import java.util.*
 
 object UserIdMother {

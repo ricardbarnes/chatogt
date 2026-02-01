@@ -1,13 +1,16 @@
-package cat.vonblum.chatogt.usermanagement.users
+package cat.vonblum.chatogt.usermanagement.users.event
 
 import cat.vonblum.chatogt.usermanagement.domain.event.Event
 import java.time.Instant
 import java.util.UUID
 
-class UserPasswordUpdatedEvent(
+class UserCreatedEvent(
     aggregateId: UUID,
     aggregateVersion: Long,
+    val email: String,
     val password: String,
+    val type: String,
+    val notificationTypes: Set<String>,
     id: UUID = UUID.randomUUID(),
     occurredOn: Instant = Instant.now(),
 ) : Event(

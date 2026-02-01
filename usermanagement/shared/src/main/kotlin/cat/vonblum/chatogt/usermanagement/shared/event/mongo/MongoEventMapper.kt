@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.shared.event.mongo
 
-import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
+import cat.vonblum.chatogt.usermanagement.users.event.UserCreatedEvent
 import java.util.UUID
 
 class MongoEventMapper {

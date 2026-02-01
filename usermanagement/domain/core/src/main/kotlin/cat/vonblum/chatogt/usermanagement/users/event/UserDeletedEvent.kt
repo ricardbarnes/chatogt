@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.users
+package cat.vonblum.chatogt.usermanagement.users.event
 
 import cat.vonblum.chatogt.usermanagement.domain.event.Event
 import java.time.Instant

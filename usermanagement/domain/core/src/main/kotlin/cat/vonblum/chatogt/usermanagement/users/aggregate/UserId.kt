@@ -1,4 +1,4 @@
-package cat.vonblum.chatogt.usermanagement.users
+package cat.vonblum.chatogt.usermanagement.users.aggregate
 
 import cat.vonblum.chatogt.usermanagement.domain.valueobject.Id
 import java.util.UUID

@@ -1,6 +1,5 @@
 package cat.vonblum.chatogt.usermanagement.api.controller.users.grpc
 
-import cat.vonblum.chatogt.usermanagement.users.UserNotificationType
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.delete.DeleteUserByIdCommand
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQuery

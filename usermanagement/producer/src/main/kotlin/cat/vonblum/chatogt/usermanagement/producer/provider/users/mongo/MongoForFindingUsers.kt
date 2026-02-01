@@ -1,9 +1,9 @@
 package cat.vonblum.chatogt.usermanagement.producer.provider.users.mongo
 
-import cat.vonblum.chatogt.usermanagement.users.ForFindingUsers
-import cat.vonblum.chatogt.usermanagement.users.User
-import cat.vonblum.chatogt.usermanagement.users.UserEmail
-import cat.vonblum.chatogt.usermanagement.users.UserId
+import cat.vonblum.chatogt.usermanagement.users.port.ForFindingUsers
+import cat.vonblum.chatogt.usermanagement.users.aggregate.User
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserEmail
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserId
 
 class MongoForFindingUsers: ForFindingUsers {
 

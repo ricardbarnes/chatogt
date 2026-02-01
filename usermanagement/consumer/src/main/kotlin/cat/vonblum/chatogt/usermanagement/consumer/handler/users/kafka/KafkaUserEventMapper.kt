@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.consumer.handler.users.kafka
 
-import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
+import cat.vonblum.chatogt.usermanagement.users.event.UserCreatedEvent
 import user.User
 import java.util.UUID
 

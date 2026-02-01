@@ -14,9 +14,9 @@ import cat.vonblum.chatogt.usermanagement.producer.provider.users.mailgun.Mailgu
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.mongo.MongoForFindingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.plivo.PlivoForNotifyingUsers
 import cat.vonblum.chatogt.usermanagement.producer.provider.users.twilio.TwilioForNotifyingUsers
-import cat.vonblum.chatogt.usermanagement.users.ForFindingUsers
-import cat.vonblum.chatogt.usermanagement.users.ForNotifyingUsers
-import cat.vonblum.chatogt.usermanagement.users.UserNotificationType
+import cat.vonblum.chatogt.usermanagement.users.port.ForFindingUsers
+import cat.vonblum.chatogt.usermanagement.users.port.ForNotifyingUsers
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserNotificationType
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommand
 import cat.vonblum.chatogt.usermanagement.users.create.CreateUserCommandHandler
 import cat.vonblum.chatogt.usermanagement.users.find.FindUserByIdQueryHandler

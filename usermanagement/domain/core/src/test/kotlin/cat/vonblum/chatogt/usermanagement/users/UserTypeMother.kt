@@ -1,5 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.users
 
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserType
+
 object UserTypeMother {
 
     fun standard(): UserType = UserType.STANDARD

@@ -1,8 +1,8 @@
 package cat.vonblum.chatogt.usermanagement.users.find
 
 import cat.vonblum.chatogt.usermanagement.domain.query.QueryHandler
-import cat.vonblum.chatogt.usermanagement.users.ForFindingUsers
-import cat.vonblum.chatogt.usermanagement.users.UserId
+import cat.vonblum.chatogt.usermanagement.users.port.ForFindingUsers
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserId
 
 class FindUserByIdQueryHandler(private val finding: ForFindingUsers) : QueryHandler {
 

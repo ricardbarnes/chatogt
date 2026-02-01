@@ -1,6 +1,6 @@
 package cat.vonblum.chatogt.usermanagement.producer.bus.event.kafka
 
-import cat.vonblum.chatogt.usermanagement.users.UserCreatedEvent
+import cat.vonblum.chatogt.usermanagement.users.event.UserCreatedEvent
 import user.User
 
 class KafkaEventMapper {

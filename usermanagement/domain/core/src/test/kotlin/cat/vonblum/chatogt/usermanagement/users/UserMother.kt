@@ -1,5 +1,11 @@
 package cat.vonblum.chatogt.usermanagement.users
 
+import cat.vonblum.chatogt.usermanagement.users.aggregate.User
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserEmail
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserId
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserNotificationType
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserPassword
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserType
 import java.util.*
 
 object UserMother {

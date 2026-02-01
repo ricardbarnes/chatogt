@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.users.find
 
-import cat.vonblum.chatogt.usermanagement.users.ForFindingUsers
-import cat.vonblum.chatogt.usermanagement.users.UserEmail
+import cat.vonblum.chatogt.usermanagement.users.port.ForFindingUsers
+import cat.vonblum.chatogt.usermanagement.users.aggregate.UserEmail
 
 class FindUserByEmailQueryHandler(private val finding: ForFindingUsers) {
 

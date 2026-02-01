@@ -1,7 +1,7 @@
 package cat.vonblum.chatogt.usermanagement.users.delete
 
 import cat.vonblum.chatogt.usermanagement.domain.event.EventBus
-import cat.vonblum.chatogt.usermanagement.users.ForFindingUsers
+import cat.vonblum.chatogt.usermanagement.users.port.ForFindingUsers
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.InjectMocks

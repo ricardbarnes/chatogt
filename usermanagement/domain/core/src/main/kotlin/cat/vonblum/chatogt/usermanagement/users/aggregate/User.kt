@@ -1,7 +1,10 @@
-package cat.vonblum.chatogt.usermanagement.users
+package cat.vonblum.chatogt.usermanagement.users.aggregate
 
 import cat.vonblum.chatogt.usermanagement.domain.aggregate.AggregateRoot
 import cat.vonblum.chatogt.usermanagement.domain.event.Event
+import cat.vonblum.chatogt.usermanagement.users.event.UserCreatedEvent
+import cat.vonblum.chatogt.usermanagement.users.event.UserDeletedEvent
+import cat.vonblum.chatogt.usermanagement.users.event.UserPasswordUpdatedEvent
 
 class User private constructor() : AggregateRoot() {
 
