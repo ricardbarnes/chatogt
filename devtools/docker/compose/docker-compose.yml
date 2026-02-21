@@ -1,3 +1,4 @@
+name: chatogt
 services:
 
   mongo:
@@ -6,8 +7,8 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - chatogt-mongo-data:/data/db
-      - chatogt-mongo-config:/data/configdb
+      - chatogt_mongo_data:/data/db
+      - chatogt_mongo_config:/data/configdb
       - ../scripts/mongo/init-replica.js:/docker-entrypoint-initdb.d/init-replica.js:ro
     healthcheck:
       test: echo 'rs.status().ok' | mongosh --quiet --port 27017
@@ -50,6 +51,25 @@ services:
       timeout: 5s
       retries: 5
 
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: chatogt_user
+      POSTGRES_USER: chatogt_user
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - chatogt_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U chatogt_user -d chatogt_user" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
 volumes:
-  chatogt-mongo-data:
-  chatogt-mongo-config:
+  chatogt_mongo_data:
+  chatogt_mongo_config:
+  chatogt_postgres_data:
