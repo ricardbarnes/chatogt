@@ -2,9 +2,9 @@ package cat.vonblum.chatogt.usermanagement.consumer.config.users.spring
 
 import cat.vonblum.chatogt.usermanagement.consumer.handler.users.kafka.KafkaUserEventHandler
 import cat.vonblum.chatogt.usermanagement.consumer.handler.users.kafka.KafkaUserEventMapper
-import cat.vonblum.chatogt.usermanagement.consumer.view.users.UserView
-import cat.vonblum.chatogt.usermanagement.consumer.view.users.mongo.MongoUserView
-import cat.vonblum.chatogt.usermanagement.consumer.repository.users.UserRepository
+import cat.vonblum.chatogt.usermanagement.consumer.repository.Projector
+import cat.vonblum.chatogt.usermanagement.consumer.repository.PsqlProjector
+import cat.vonblum.chatogt.usermanagement.consumer.repository.users.psql.PsqlUserViewMapper
 import cat.vonblum.chatogt.usermanagement.consumer.repository.users.psql.PsqlUserViewRepository
 import cat.vonblum.chatogt.usermanagement.infrastructure.event.EventStore
 import org.springframework.context.annotation.Bean
@@ -19,29 +19,36 @@ class SpringUserConfig {
     }
 
     @Bean
-    fun mongoUserRepository(): UserRepository {
+    fun psqlUserViewRepository(): PsqlUserViewRepository {
         return PsqlUserViewRepository()
     }
 
     @Bean
-    fun mongoUserProjection(
-        mongoUserRepository: UserRepository
-    ): UserView {
-        return MongoUserView(
-            mongoUserRepository,
+    fun psqlUserViewMapper(): PsqlUserViewMapper {
+        return PsqlUserViewMapper()
+    }
+
+    @Bean
+    fun psqlProjector(
+        psqlUserViewRepository: PsqlUserViewRepository,
+        psqlUserViewMapper: PsqlUserViewMapper
+    ): Projector {
+        return PsqlProjector(
+            psqlUserViewRepository,
+            psqlUserViewMapper
         )
     }
 
     @Bean
     fun kafkaUserEventHandler(
+        eventStore: EventStore,
         kafkaUserEventMapper: KafkaUserEventMapper,
-        mongoStore: EventStore,
-        mongoUserProjection: UserView
+        projector: Projector
     ): KafkaUserEventHandler {
         return KafkaUserEventHandler(
+            eventStore,
             kafkaUserEventMapper,
-            mongoStore,
-            mongoUserProjection
+            projector
         )
     }
 
