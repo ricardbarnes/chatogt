@@ -6,7 +6,7 @@ import cat.vonblum.chatogt.usermanagement.users.event.UserCreatedEvent
 import cat.vonblum.chatogt.usermanagement.users.model.UserStatus
 import cat.vonblum.chatogt.usermanagement.users.view.UserView
 
-class PsqlProjector(private val repository: PsqlUserViewRepository) : Projector {
+class PsqlProjection(private val repository: PsqlUserViewRepository) : Projection {
 
     override fun apply(event: Event) {
         if (event is UserCreatedEvent) {

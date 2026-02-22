@@ -2,8 +2,8 @@ package cat.vonblum.chatogt.usermanagement.consumer.config.users.spring
 
 import cat.vonblum.chatogt.usermanagement.consumer.handler.users.kafka.KafkaUserEventHandler
 import cat.vonblum.chatogt.usermanagement.consumer.handler.users.kafka.KafkaUserEventMapper
-import cat.vonblum.chatogt.usermanagement.consumer.repository.Projector
-import cat.vonblum.chatogt.usermanagement.consumer.repository.PsqlProjector
+import cat.vonblum.chatogt.usermanagement.consumer.repository.Projection
+import cat.vonblum.chatogt.usermanagement.consumer.repository.PsqlProjection
 import cat.vonblum.chatogt.usermanagement.consumer.repository.users.psql.PsqlUserViewMapper
 import cat.vonblum.chatogt.usermanagement.consumer.repository.users.psql.PsqlUserViewRepository
 import cat.vonblum.chatogt.usermanagement.infrastructure.event.EventStore
@@ -31,8 +31,8 @@ class SpringUserConfig {
     @Bean
     fun psqlProjector(
         psqlUserViewRepository: PsqlUserViewRepository,
-    ): Projector {
-        return PsqlProjector(
+    ): Projection {
+        return PsqlProjection(
             psqlUserViewRepository
         )
     }
@@ -40,12 +40,12 @@ class SpringUserConfig {
     @Bean
     fun kafkaUserEventHandler(
         eventStore: EventStore,
-        projector: Projector,
+        projection: Projection,
         kafkaUserEventMapper: KafkaUserEventMapper
     ): KafkaUserEventHandler {
         return KafkaUserEventHandler(
             eventStore,
-            projector,
+            projection,
             kafkaUserEventMapper
         )
     }
