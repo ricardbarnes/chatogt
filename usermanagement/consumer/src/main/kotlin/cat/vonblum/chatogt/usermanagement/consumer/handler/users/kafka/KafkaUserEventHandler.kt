@@ -9,8 +9,8 @@ import user.User
 
 class KafkaUserEventHandler(
     private val store: EventStore,
-    private val mapper: KafkaUserEventMapper,
-    private val projector: Projector
+    private val projector: Projector,
+    private val mapper: KafkaUserEventMapper
 ) {
 
     @KafkaListener(

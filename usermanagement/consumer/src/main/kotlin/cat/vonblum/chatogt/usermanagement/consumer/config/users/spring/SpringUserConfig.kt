@@ -42,13 +42,13 @@ class SpringUserConfig {
     @Bean
     fun kafkaUserEventHandler(
         eventStore: EventStore,
-        kafkaUserEventMapper: KafkaUserEventMapper,
-        projector: Projector
+        projector: Projector,
+        kafkaUserEventMapper: KafkaUserEventMapper
     ): KafkaUserEventHandler {
         return KafkaUserEventHandler(
             eventStore,
-            kafkaUserEventMapper,
-            projector
+            projector,
+            kafkaUserEventMapper
         )
     }
 
