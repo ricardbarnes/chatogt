@@ -31,11 +31,9 @@ class SpringUserConfig {
     @Bean
     fun psqlProjector(
         psqlUserViewRepository: PsqlUserViewRepository,
-        psqlUserViewMapper: PsqlUserViewMapper
     ): Projector {
         return PsqlProjector(
-            psqlUserViewRepository,
-            psqlUserViewMapper
+            psqlUserViewRepository
         )
     }
 

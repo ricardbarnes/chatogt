@@ -10,7 +10,7 @@ class PsqlUserViewRepository : UserViewRepository {
         TODO("Not yet implemented")
     }
 
-    override fun search(id: UserId): UserView? {
+    override fun search(id: UserId): UserView {
         TODO("Not yet implemented")
     }
 
