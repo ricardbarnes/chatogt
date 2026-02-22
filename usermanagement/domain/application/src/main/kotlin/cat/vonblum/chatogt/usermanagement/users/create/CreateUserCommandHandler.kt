@@ -29,8 +29,8 @@ class CreateUserCommandHandler(
         UserType.valueOf(command.type),
         command.notificationTypes.map { UserNotificationType.valueOf(it) }.toSet()
     ).also { user ->
-        storing.store(user)
         sending.send(user)
+        storing.store(user)
         notifyUser(user) // TODO: create a messaging service and consume the event there + remove notifications from this bounded context
         eventBus.publish(user.pullEvents())
     }
