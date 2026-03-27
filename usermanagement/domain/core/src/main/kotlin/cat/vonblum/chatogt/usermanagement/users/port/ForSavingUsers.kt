@@ -2,8 +2,8 @@ package cat.vonblum.chatogt.usermanagement.users.port
 
 import cat.vonblum.chatogt.usermanagement.users.model.User
 
-interface ForStoringUsers {
+interface ForSavingUsers {
 
-    fun store(user: User)
+    fun save(user: User)
 
 }

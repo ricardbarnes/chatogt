@@ -11,11 +11,11 @@ import cat.vonblum.chatogt.usermanagement.users.model.UserPassword
 import cat.vonblum.chatogt.usermanagement.users.model.UserType
 import cat.vonblum.chatogt.usermanagement.users.port.ForNotifyingUsers
 import cat.vonblum.chatogt.usermanagement.users.port.ForSendingUsers
-import cat.vonblum.chatogt.usermanagement.users.port.ForStoringUsers
+import cat.vonblum.chatogt.usermanagement.users.port.ForSavingUsers
 
 class CreateUserCommandHandler(
     private val idGenerator: IdGenerator,
-    private val storing: ForStoringUsers,
+    private val storing: ForSavingUsers,
     private val sending: ForSendingUsers,
     private val notifyingMap: Map<UserNotificationType, ForNotifyingUsers>,
     private val eventBus: EventBus
@@ -30,7 +30,7 @@ class CreateUserCommandHandler(
         command.notificationTypes.map { UserNotificationType.valueOf(it) }.toSet()
     ).also { user ->
         sending.send(user)
-        storing.store(user)
+        storing.save(user)
         notifyUser(user) // TODO: create a messaging service and consume the event there + remove notifications from this bounded context
         eventBus.publish(user.pullEvents())
     }
